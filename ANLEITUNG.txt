@@ -1,0 +1,15 @@
+Deda's Garten – Webseite
+
+Hochladen (einmalig, GitHub Pages):
+1. github.com: kostenloses Konto anlegen.
+2. Neues Repository „dedas-garten“, Sichtbarkeit Public, Häkchen bei „Add a README“.
+3. Add file → Upload files → alle Dateien aus diesem Ordner hochladen → Commit changes.
+4. Settings → Pages → Branch „main“, Ordner „/ (root)“ → Save.
+   Nach 1–2 Minuten: https://DEINNAME.github.io/dedas-garten/
+
+Update:
+Repository öffnen → Add file → Upload files → neue index.html hochladen → Commit changes.
+Spielstände bleiben erhalten (gleiche Adresse, gleicher Browser).
+
+iPhone: Link in Safari öffnen → Teilen → „Zum Home-Bildschirm“ und danach NUR über das Symbol spielen.
+Der Entwicklermodus ist in dieser Version gesperrt.
