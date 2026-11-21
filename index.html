@@ -363,7 +363,7 @@ button:disabled{opacity:.55;filter:saturate(.35)}
   <div class="card" id="endCard"></div>
 </div>
 
-<script>if(navigator.standalone)document.documentElement.classList.add('iosapp');const PUBLIC_BUILD=true,GAME_VERSION='5.5.1 · 21.11.2026';
+<script>if(navigator.standalone)document.documentElement.classList.add('iosapp');const PUBLIC_BUILD=true,GAME_VERSION='5.5.2 · 21.11.2026';
 const COMPANY=false; // Firma & Automatisierung sind vorerst aus – kommen später schrittweise per Update zurück (der Code dazu bleibt erhalten)
 // ==== Pixel-Symbole (statt Emojis, überall gleich) ====
 const PXPAL={"k":"#1b1209","w":"#fff6e0","W":"#ffffff","h":"#c8c8c8","e":"#8c8c8c","E":"#4e4e4e","y":"#f6d04d","Y":"#c99520","o":"#f08a24","O":"#b85a10","r":"#e0402c","R":"#8e1f16","p":"#ff9fb0","g":"#5cb83a","G":"#2d6b28","l":"#a6e070","b":"#3b7ddb","B":"#1f3f8c","c":"#8fd3f2","n":"#94602e","N":"#4f2c12","t":"#dcb46c","T":"#f3dca0","s":"#f2c39a","S":"#c98a60","v":"#8b4bb2","V":"#4b2063","m":"#a8e6c8","M":"#5fa585","q":"#ffe98a"};
@@ -899,7 +899,7 @@ function drawRider(x,y,a,mode,beard){
 // ==== Sound ====
 let AC=null,muted=false;
 function beep(f,d,type,v,delay){if(muted)return;try{if(!AC)AC=new(window.AudioContext||window.webkitAudioContext)();
-  const o=AC.createOscillator(),g=AC.createGain();o.type=type||'square';o.frequency.value=f;o.connect(g);g.connect(AC.destination);
+  const o=AC.createOscillator(),g=AC.createGain();o.type=type||'square';o.frequency.value=f;o.connect(g);g.connect(sfxOut());
   const t=AC.currentTime+(delay||0),vol=v||0.04;g.gain.setValueAtTime(vol,t);g.gain.exponentialRampToValueAtTime(0.0001,t+d);o.start(t);o.stop(t+d+0.03);}catch(e){}}
 const SND={
   plant:()=>{beep(520,.07);beep(700,.07,'square',.03,.06)},
@@ -4674,8 +4674,8 @@ function evMiniDone(id,d,score,target,win,stars,opts){const ev=MINIS[id].ev,E=EV
    <button class="main" id="mAgain">🔁 Nochmal</button><button id="mEv">${E.ic} Zum Fest</button><button id="mBack">⬅ Zurück</button>`;
   $('endO').classList.add('show');$('mAgain').onclick=()=>playMini(id,d,opts);$('mEv').onclick=()=>openEvent(ev);$('mBack').onclick=()=>opts.back?opts.back():openHub();}
 
-function note(n,t,d,w,v){if(n==null||n<0||!AC)return;try{const o=AC.createOscillator(),g=AC.createGain();o.type=w;o.frequency.value=440*Math.pow(2,(n-69)/12);o.connect(g);g.connect(AC.destination);
-  g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v,t+.02);g.gain.exponentialRampToValueAtTime(.0001,t+d);o.start(t);o.stop(t+d+.05);}catch(e){}}
+function note(n,t,d,w,v){if(n==null||n<0||!AC)return;try{d=Math.max(d,.07);const o=AC.createOscillator(),g=AC.createGain();o.type=w;o.frequency.value=440*Math.pow(2,(n-69)/12);o.connect(g);g.connect(musOut());
+  g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v,t+.015);g.gain.exponentialRampToValueAtTime(.0001,t+d);o.start(t);o.stop(t+d+.05);}catch(e){}}
 // --- Musik: mehrere Lieder pro Bereich, die sich abwechseln (alles per WebAudio erzeugt) ---
 let soundMode=0;try{soundMode=+(localStorage.getItem('dedasGarten_sound')||0);}catch(e){}
 // Noten: eine Zahl/ein Name = Achtel, "_" = Ton halten, "-" = Pause. Akkorde pro Takt ("F/C" = halber Takt F, halber Takt C).
@@ -4840,20 +4840,25 @@ function musPick(cat,id){if(!id&&(cat==='garden'||cat==='world')&&typeof holiday
 function songChip(s){if(!s||soundMode!==0)return;let e=$('songChip');if(!e){e=document.createElement('div');e.id='songChip';document.body.appendChild(e);}
   e.textContent='🎵 '+s.name;e.classList.remove('show');void e.offsetWidth;e.classList.add('show');}
 let NOISE=null;
-function drum(kind,t,v){if(!AC)return;try{
-  if(kind==='snare'){if(!NOISE){NOISE=AC.createBuffer(1,Math.floor(AC.sampleRate*.06),AC.sampleRate);const d=NOISE.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=Math.random()*2-1;}
-    const s=AC.createBufferSource(),f=AC.createBiquadFilter(),g=AC.createGain();s.buffer=NOISE;f.type='bandpass';f.frequency.value=1800;s.connect(f);f.connect(g);g.connect(AC.destination);
-    g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(.0001,t+.06);s.start(t);s.stop(t+.06);
-    const o=AC.createOscillator(),g2=AC.createGain();o.type='triangle';o.frequency.setValueAtTime(220,t);o.frequency.exponentialRampToValueAtTime(120,t+.08);o.connect(g2);g2.connect(AC.destination);g2.gain.setValueAtTime(v*.8,t);g2.gain.exponentialRampToValueAtTime(.0001,t+.09);o.start(t);o.stop(t+.1);return;}
-  if(kind==='hat'){if(!NOISE){NOISE=AC.createBuffer(1,Math.floor(AC.sampleRate*.06),AC.sampleRate);const d=NOISE.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=Math.random()*2-1;}
-    const s=AC.createBufferSource(),f=AC.createBiquadFilter(),g=AC.createGain();s.buffer=NOISE;f.type='highpass';f.frequency.value=7000;s.connect(f);f.connect(g);g.connect(AC.destination);
-    g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(.0001,t+.05);s.start(t);s.stop(t+.06);}
-  else{const o=AC.createOscillator(),g=AC.createGain();o.type='sine';o.frequency.setValueAtTime(130,t);o.frequency.exponentialRampToValueAtTime(45,t+.12);o.connect(g);g.connect(AC.destination);
-    g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(.0001,t+.15);o.start(t);o.stop(t+.17);}}catch(e){}}
+function drum(kind,t,v){if(!AC)return;try{const out=drumOut();
+  if(!NOISE||NOISE.sampleRate!==AC.sampleRate){NOISE=AC.createBuffer(1,Math.floor(AC.sampleRate*.08),AC.sampleRate);const d=NOISE.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=Math.random()*2-1;}
+  if(kind==='snare'){const s=AC.createBufferSource(),f=AC.createBiquadFilter(),g=AC.createGain();s.buffer=NOISE;f.type='bandpass';f.frequency.value=1500;f.Q.value=.8;s.connect(f);f.connect(g);g.connect(out);
+    g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v*.6,t+.003);g.gain.exponentialRampToValueAtTime(.0001,t+.07);s.start(t);s.stop(t+.08);
+    const o=AC.createOscillator(),g2=AC.createGain();o.type='triangle';o.frequency.setValueAtTime(200,t);o.frequency.exponentialRampToValueAtTime(110,t+.08);o.connect(g2);g2.connect(out);g2.gain.setValueAtTime(0,t);g2.gain.linearRampToValueAtTime(v*.8,t+.003);g2.gain.exponentialRampToValueAtTime(.0001,t+.1);o.start(t);o.stop(t+.12);return;}
+  if(kind==='hat'){const s=AC.createBufferSource(),hp=AC.createBiquadFilter(),lp=AC.createBiquadFilter(),g=AC.createGain();s.buffer=NOISE;hp.type='bandpass';hp.frequency.value=2600;hp.Q.value=.9;lp.type='lowpass';lp.frequency.value=4500;
+    s.connect(hp);hp.connect(lp);lp.connect(g);g.connect(out);g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v*.5,t+.008);g.gain.exponentialRampToValueAtTime(.0001,t+.05);s.start(t);s.stop(t+.06);}
+  else{const o=AC.createOscillator(),g=AC.createGain();o.type='sine';o.frequency.setValueAtTime(120,t);o.frequency.exponentialRampToValueAtTime(45,t+.12);o.connect(g);g.connect(out);
+    g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v,t+.004);g.gain.exponentialRampToValueAtTime(.0001,t+.16);o.start(t);o.stop(t+.18);}}catch(e){}}
+// ---- Klang-Ausgang: Musik mit weichem Filter, alles über einen Begrenzer (gegen Knacken und Übersteuern) ----
+let OUT=null;
+function audOut(){if(OUT&&OUT.ctx===AC)return OUT;const comp=AC.createDynamicsCompressor();comp.threshold.value=-18;comp.knee.value=12;comp.ratio.value=4;comp.attack.value=.005;comp.release.value=.25;
+  const mus=AC.createGain(),lp=AC.createBiquadFilter(),drm=AC.createGain(),sfx=AC.createGain();lp.type='lowpass';lp.frequency.value=4200;lp.Q.value=.4;
+  mus.gain.value=.55;drm.gain.value=.6;sfx.gain.value=.7;mus.connect(lp);lp.connect(comp);drm.connect(comp);sfx.connect(comp);comp.connect(AC.destination);OUT={ctx:AC,mus,drm,sfx};ECHO=null;return OUT;}
+function musOut(){return audOut().mus;}function drumOut(){return audOut().drm;}function sfxOut(){return audOut().sfx;}
 let ECHO=null;
-function echoBus(){if(ECHO)return ECHO;const d=AC.createDelay(1.5),fb=AC.createGain(),lp=AC.createBiquadFilter(),wet=AC.createGain();d.delayTime.value=.43;fb.gain.value=.36;lp.type='lowpass';lp.frequency.value=2000;wet.gain.value=.5;
-  d.connect(lp);lp.connect(fb);fb.connect(d);lp.connect(wet);wet.connect(AC.destination);ECHO=d;return d;}
-function softNote(n,t,d,v,echo,att){if(n==null||n<0||!AC)return;try{const g=AC.createGain();g.connect(AC.destination);if(echo){const sd=AC.createGain();sd.gain.value=.4;g.connect(sd);sd.connect(echoBus());}
+function echoBus(){if(ECHO&&ECHO.context===AC)return ECHO;const d=AC.createDelay(1.5),fb=AC.createGain(),lp=AC.createBiquadFilter(),wet=AC.createGain();d.delayTime.value=.43;fb.gain.value=.36;lp.type='lowpass';lp.frequency.value=2000;wet.gain.value=.5;
+  d.connect(lp);lp.connect(fb);fb.connect(d);lp.connect(wet);wet.connect(musOut());ECHO=d;return d;}
+function softNote(n,t,d,v,echo,att){if(n==null||n<0||!AC)return;try{const g=AC.createGain();g.connect(musOut());if(echo){const sd=AC.createGain();sd.gain.value=.4;g.connect(sd);sd.connect(echoBus());}
   for(const[w,m,mul]of[['sine',1,1],['triangle',.22,1],['sine',.08,2]]){const o=AC.createOscillator(),og=AC.createGain();o.type=w;o.frequency.value=440*Math.pow(2,(n-69)/12)*mul;og.gain.value=m;o.connect(og);og.connect(g);o.start(t);o.stop(t+d+.1);}
   g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v,t+(att||.012));g.gain.exponentialRampToValueAtTime(.0001,t+d);}catch(e){}}
 function ambStep(s,i,t,spb){
@@ -4877,8 +4882,8 @@ function musPlayStep(s,i,t,spb){
     else if(s.acc==='arp'){if(pos===0||newChord)note(root,t,spb*(half-.2),'triangle',bv);const ar=[root+12,fifth,third+12,fifth];note(ar[pos%4],t,spb*.9,'triangle',cv*.9);}
     else{if(pos===0||newChord)note(root,t,spb*(half-.3),'triangle',bv);else if(pos===half)note(root+7,t,spb*(half-.3),'triangle',bv*.85);
       if(pos===0||pos===half){note(third,t,spb*(half-.5),'sine',cv*.7);}}}
-  if(s.drums==='rock'){const B=s.bar,pos=i%B;if(pos===0||pos===3||pos===B/2)drum('kick',t,.06);if(pos===B/4||pos===3*B/4)drum('snare',t,.05);drum('hat',t,pos%2?.008:.014);}
-  else if(s.drums){const B=s.bar,pos=i%B;if(pos===0||pos===B/2)drum('kick',t,.05);if(pos%2===1||B===6&&pos%2===0&&pos)drum('hat',t,.012);}
+  if(s.drums==='rock'){const B=s.bar,pos=i%B;if(pos===0||pos===3||pos===B/2)drum('kick',t,.06);if(pos===B/4||pos===3*B/4)drum('snare',t,.05);if(pos%2===0)drum('hat',t,.012);}
+  else if(s.drums){const B=s.bar,pos=i%B;if(pos===0||pos===B/2)drum('kick',t,.05);if(pos%2===1||B===6&&pos%2===0&&pos)drum('hat',t,.009);}
 }
 function musTick(){if(!AC||soundMode!==0||!MUS.theme||AC.state!=='running')return;
   const cat=musCat();if(MUS.cat!==cat||!MUS.song){if(MUS.cat&&MUS.song&&MUS.cat!=='mini')MUS.pos[MUS.cat]={id:MUS.song.id,step:MUS.step,t:Date.now()};const p=MUS.pos[cat];
