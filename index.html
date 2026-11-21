@@ -385,7 +385,7 @@ button:disabled{opacity:.55;filter:saturate(.35)}
     🌱 <b>Säen:</b> Samen wählen, aufs Beet tippen. 🏠 = nur im Gartenhäuschen, 🌤 = nur draußen.<br>
     💧 <b>Gießen:</b> Helle Erde = Durst. Das blaue 💧-Zeichen zeigt es dir. Nicht zu viel gießen!<br>
     🧺 <b>Ernten:</b> Nur wenn's reif ist (✨-Zeichen). Nicht zu lange warten, sonst wird's gelb.<br>
-    ⛏️ <b>Hacken:</b> Unkraut weg. Aber nur das Unkraut!<br>
+    ⛏️ <b>Hacken:</b> Unkraut weg. Eine Pflanze, die du nicht mehr brauchst, kannst du damit auch rausnehmen – Deda fragt kurz nach.<br>
     🐌 <b>Schnecken:</b> Einfach antippen.<br><br>
     <b>Dedas Sprüche:</b><br>
     👴 „Und gut?“ – so begrüßt Deda dich.<br>
@@ -394,7 +394,7 @@ button:disabled{opacity:.55;filter:saturate(.35)}
     🙄 „Nuka, Ruhe jetzt!“ – wenn's zu wild wird („Nu-ka“ ist Russisch, so viel wie „Jetzt aber!“).<br><br>
     🎵 <b>Musik:</b> Im Garten und an Weihnachten laufen mehrere Lieder abwechselnd. Jedes Minispiel hat sein eigenes Lied – beim Kisten-Stapeln wird es schneller, wenn es eng wird.<br><br>🎉 <b>Feste:</b> An Silvester, Fasnet, Ostern, Erntedank, Halloween, St. Martin und Weihnachten gibt es zum echten Datum ein Fest – mit Deko, Musik, verkleidetem Deda, Sachen zum Sammeln, einem eigenen Spiel und einem Preis für den Garten. Unter ☰ Menü → 🎉 Feste kannst du alle Feste jederzeit nachspielen.<br><br>💻 <b>Tablet &amp; PC:</b> Das Spiel erkennt dein Gerät selbst (umstellen: ☰ Menü → ⚙️ → Gerät). Am PC: Mausrad = zoomen, ziehen oder Pfeiltasten = Garten verschieben, Enter = OK. Weiterschalten: ☰ Menü → ⚙️ → ⏭ Nächstes Lied.<br><br>
     Erfüll Dedas Wünsche (oben), bevor die Sonne untergeht. Dann geht's ins nächste Level.<br>
-    <b>10 Kapitel × 10 Level:</b> Gartentage mit Wetter-Überraschungen und viele Minispiele.<br><br>🏡 <b>Dein Garten:</b> Es ist immer derselbe Garten – und er wächst. Was du pflanzt, wächst am nächsten Gartentag weiter. Rundherum liegt Land zum Kaufen 🪧: Dafür brauchst du Geld und Material aus dem <b>Baumarkt</b> (🚗 Fahren). Mit 🔨 <b>Bauen</b> stellst du Beete, Gartenhäuschen, Bäume und Deko frei auf – und kannst alles verschieben.<br><br>🎮 <b>Minispiele:</b> Kisten-Stapeln, Gemüse-Dreier, Gemüse schneiden, Maulwurf-Alarm, Memory, Flatter-Spatz, Kompost-Kombi und mehr – im Garten unten auf 🎮 Spiele. Neue kommen mit den Kapiteln, einmal pro Tag gibt es eine Belohnung (manchmal Material fürs neue Land).<br><br>📋 Nach jedem Tag landet die Ernte im Lager – verkaufen kannst du an die Familie, am Stand oder auf dem Markt in Lahr.<br><br>
+    <b>10 Kapitel × 15 Level:</b> Gartentage mit Wetter-Überraschungen und viele Minispiele.<br><br>🏡 <b>Dein Garten:</b> Es ist immer derselbe Garten – und er wächst. Was du pflanzt, wächst am nächsten Gartentag weiter. Rundherum liegt Land zum Kaufen 🪧: Dafür brauchst du Geld und Material aus dem <b>Baumarkt</b> (🚗 Fahren). Mit 🔨 <b>Bauen</b> stellst du Beete, Gartenhäuschen, Bäume und Deko frei auf – und kannst alles verschieben.<br><br>🎮 <b>Minispiele:</b> Kisten-Stapeln, Gemüse-Dreier, Gemüse schneiden, Maulwurf-Alarm, Memory, Flatter-Spatz, Kompost-Kombi und mehr – im Garten unten auf 🎮 Spiele. Neue kommen mit den Kapiteln, einmal pro Tag gibt es eine Belohnung (manchmal Material fürs neue Land).<br><br>📋 Nach jedem Tag landet die Ernte im Lager – verkaufen kannst du an die Familie, am Stand oder auf dem Markt in Lahr.<br><br>
     <button class="main" id="helpClose">Alles klar</button>
   </div>
 </div>
@@ -409,7 +409,7 @@ button:disabled{opacity:.55;filter:saturate(.35)}
   <div class="card" id="endCard"></div>
 </div>
 
-<script>if(navigator.standalone)document.documentElement.classList.add('iosapp');const PUBLIC_BUILD=true,GAME_VERSION='5.8.5 · 21.11.2026';
+<script>if(navigator.standalone)document.documentElement.classList.add('iosapp');const PUBLIC_BUILD=true,GAME_VERSION='5.8.7 · 21.11.2026';
 const COMPANY=false; // Firma & Automatisierung sind vorerst aus – kommen später schrittweise per Update zurück (der Code dazu bleibt erhalten)
 // ==== Pixel-Symbole (statt Emojis, überall gleich) ====
 const PXPAL={"k":"#1b1209","w":"#fff6e0","W":"#ffffff","h":"#c8c8c8","e":"#8c8c8c","E":"#4e4e4e","y":"#f6d04d","Y":"#c99520","o":"#f08a24","O":"#b85a10","r":"#e0402c","R":"#8e1f16","p":"#ff9fb0","g":"#5cb83a","G":"#2d6b28","l":"#a6e070","b":"#3b7ddb","B":"#1f3f8c","c":"#8fd3f2","n":"#94602e","N":"#4f2c12","t":"#dcb46c","T":"#f3dca0","s":"#f2c39a","S":"#c98a60","v":"#8b4bb2","V":"#4b2063","m":"#a8e6c8","M":"#5fa585","q":"#ffe98a"};
@@ -1271,10 +1271,10 @@ function camSetup(){const st=$('stage').getBoundingClientRect(),pad=14;const cw=
   const pw=Math.round(cw*dpr),ph=Math.round(chh*dpr);if(cv.width!==pw||cv.height!==ph){cv.width=pw;cv.height=ph;}
   cv.style.width=cw+'px';cv.style.height=chh+'px';CAM.k=pw/CAM.vw;ctx.setTransform(CAM.k,0,0,CAM.k,0,0);ctx.imageSmoothingEnabled=false;camClamp();}
 let CAMB=null;const ZSPAN=[0,0,32,38,44,50,56,62,70,80]; // so viele Felder sieht man höchstens (pro Kapitel) – ganz rauszoomen erst nach dem Finale
-// Kapitel 1 und 2: Kamera steht fest auf dem Startgarten mit Haus (kein Verschieben, kein Zoomen)
+// Kapitel 1 und 2: Kamera bleibt im Startgarten mit Haus – reinzoomen und verschieben geht, rauszoomen nur bis der ganze Startgarten zu sehen ist
 function camFixed(){return!PROG.won&&curCh()<2&&!!PROG.yard&&!!PROG.yard.own&&PROG.yard.own.length<=START_PARC.length;}
 function camFit(){const b=camB();return Math.min(W/(b.x1-b.x0),H/(b.y1-b.y0));}
-function zMaxG(){return camFixed()?camFit():2.6;}
+function zMaxG(){return Math.max(2.6,camFit());}
 function camBounds(){if(!PROG.yard||!PROG.yard.own)return{x0:0,y0:0,x1:GW*T,y1:GH*T};let c0=99,c1=-1,r1=-1;
   if(camFixed()){const b=ownBox();return{x0:b.c0*T,x1:b.c1*T,y0:0,y1:b.r1*T};}
   for(const p of PARC)if(parcRevealed(p.id)){c0=Math.min(c0,p.pc);c1=Math.max(c1,p.pc);r1=Math.max(r1,p.pr);}
@@ -1283,6 +1283,7 @@ function camB(){return CAMB||(CAMB=camBounds());}
 function zMinG(){const b=camB(),fit=Math.min(W/(b.x1-b.x0),H/(b.y1-b.y0));if(PROG.won||camFixed())return fit;return Math.min(1,Math.max(fit,Math.max(W,H)/(ZSPAN[Math.min(9,curCh())]*T)));}
 function camClamp(){const b=camB(),z=CAM.z=Math.max(zMinG(),Math.min(zMaxG(),CAM.z||1));const vw=W/z,vh=H/z,bw=b.x1-b.x0,bh=b.y1-b.y0;
   CAM.x=vw>=bw?b.x0+(bw-vw)/2:Math.max(b.x0,Math.min(b.x1-vw,CAM.x));CAM.y=vh>=bh?b.y0+(bh-vh)/2:Math.max(b.y0,Math.min(b.y1-vh,CAM.y));}
+function camShow(x,y){if(!camScenes())return;const z=CAM.z,m=14/z;if(x>CAM.x+m&&x<CAM.x+W/z-m&&y>CAM.y+m&&y<CAM.y+H/z-m)return;camFocus(x,y);}
 function camFocus(x,y,z,now){z=z||CAM.z;if(now){CAM.z=z;CAM.x=x-W/2/z;CAM.y=y-H/2/z;CAM.goal=null;camClamp();}else CAM.goal={x,y,z};}
 function camTick(dt){const g=CAM.goal;if(!g)return;const k=1-Math.pow(.003,dt);const cx=CAM.x+W/2/CAM.z,cy=CAM.y+H/2/CAM.z;
   const nz=CAM.z+(g.z-CAM.z)*k,nx=cx+(g.x-cx)*k,ny=cy+(g.y-cy)*k;CAM.z=nz;CAM.x=nx-W/2/nz;CAM.y=ny-H/2/nz;camClamp();
@@ -1560,8 +1561,10 @@ function parcelLabels(){const wrap=$('wrap');if(scene!=='yard'||(BM&&(BM.mode===
     // Schild bleibt im Bild, solange ein Stück vom Grundstück zu sehen ist
     let[sx,sy]=toScreen(p.c*T+PW*T/2,p.r*T+PH*T/2+18);const[ax,ay]=toScreen(p.c*T+6,p.r*T+6),[bx,by]=toScreen((p.c+PW)*T-6,(p.r+PH)*T-6);
     const r=cv.getBoundingClientRect(),wr=wrap.getBoundingClientRect(),l=r.left-wr.left,t=r.top-wr.top,hw=(el.offsetWidth||90)/2+3,hh=(el.offsetHeight||20)/2+3;
-    const inside=sx>l+hw&&sx<l+r.width-hw&&sy>t+hh&&sy<t+r.height-hh,vis=ok?bx>l&&ax<l+r.width&&by>t&&ay<t+r.height:inside;
-    if(vis&&ok){sx=Math.max(l+hw,Math.min(l+r.width-hw,sx));sy=Math.max(t+hh,Math.min(t+r.height-hh,sy));}
+    // Schild bleibt immer auf seinem eigenen Grundstück: Mitte des sichtbaren Teils, sonst ausblenden
+    const vx0=Math.max(ax,l),vx1=Math.min(bx,l+r.width),vy0=Math.max(ay,t),vy1=Math.min(by,t+r.height);
+    let vis=vx1-vx0>=hw*1.5&&vy1-vy0>=hh*2+4;
+    if(vis){const m=Math.min(hw,(vx1-vx0)/2);sx=Math.max(Math.max(l+hw,vx0+m),Math.min(Math.min(l+r.width-hw,vx1-m),sx));sy=Math.max(vy0+hh,Math.min(vy1-hh,sy));}
     el.style.left=sx+'px';el.style.top=sy+'px';el.style.visibility=vis?'':'hidden';}}
 function yardTap(x,y){const c=Math.floor(x/T),r=Math.floor(y/T);
   if(evYardTap(x,y))return;
@@ -1861,6 +1864,7 @@ function nextTut(){
   if(!st){tut=null;PROG.tutDone=true;saveProg();checkAch('tut');S.time=0;S.guete=0;S.mood=75;deda.happy=2;
     say('Heute brauch ich '+wishText()+'. Viel Glück!',{mood:'happy',ms:4000});return;}
   if(st.setup)st.setup();
+  if(st.tile&&tut.T&&tut.T[st.tile]){const tt=tut.T[st.tile];camShow(tt.c*T+8,tt.r*T+8);}
   if(st.btn)say(st.say,{mood:st.mood||'normal',buttons:[{label:st.btn,fn:nextTut}]});
   else{say(st.say,{mood:'happy',ms:1e9});paused=false;}
   if(st.tool)document.querySelector(`#tools button[data-tool="${st.tool}"]`).classList.add('pulse');
@@ -1906,11 +1910,15 @@ function act(t){
     harvestTile(t);tutCheck();return;
   }
   if(tool==='hacken'){
-    if(t.bush){t.prog=0;guete(BUSHES[t.ch].tree?'hackTree':'hackBush',t);return;}
+    if(t.bush){floatText((BUSHES[t.ch].tree?'Bäume':'Büsche')+' räumst du beim 🔨 Bauen weg',cx,cy,'#ffd');return;}
     if(!t.bed){floatText('Hier nicht hacken',cx,cy,'#ffd');return;}
     if(t.weed){t.weed=false;SND.weed();floatText('🌿 weg!',cx,cy);tutCheck();return;}
     if(t.dead||t.rotten){Object.assign(t,{crop:null,prog:0,dead:false,rotten:false,dry:0});SND.weed();floatText('Sauber',cx,cy);return;}
-    if(t.crop){t.crop=null;t.prog=0;guete('hack',t);return;}
+    if(t.crop){
+      if(t.prog>=1){floatText('Die ist reif – lieber mit dem 🧺 Korb ernten',cx,cy,'#ffd');return;}
+      const nm=CROPS[t.crop].name,rm=()=>{Object.assign(t,{crop:null,prog:0,ripeT:0,dry:0,dead:false,rotten:false});SND.weed();floatText(nm+' raus – Platz für Neues',cx,cy,'#d8ffb0');renderHUD();};
+      if(S.rmOK){rm();return;}
+      say('<b>'+nm+'</b> rausmachen? Wenn du sie nicht mehr brauchst, ist das in Ordnung. Danach kannst du hier was Neues säen.',{mood:'normal',buttons:[{label:'Ja, raus damit',fn:()=>{S.rmOK=true;rm();}},{label:'Nein, stehen lassen'}]});return;}
     floatText('Boden ist locker',cx,cy,'#ffd');
   }
 }
@@ -1957,6 +1965,7 @@ function tileInfoHTML(t){
     else h+=L('⚠️','Durst! Gießen – sonst vertrocknet sie in',fmtT(DF.dryDeath-t.dry),'warn');
     h+=L('⏳','Reif bleibt sie dann',fmtR(DF.ripeLimit),'dim');
     if((1-t.prog)/rate>dayLeft)h+=L('🌙','Wird heute nicht mehr reif (Feierabend in '+fmtT(dayLeft)+')',null,'dim');
+    h+=L('⛏️','Brauchst du sie nicht mehr? Mit der Hacke rausnehmen',null,'dim');
   }else{
     h+=L('✅','Jetzt mit dem 🧺 Korb ernten!',null,'ok');
     h+=L('⏳','Verdirbt in',fmtT(DF.ripeLimit-t.ripeT),DF.ripeLimit-t.ripeT<15?'warn':'');
@@ -2314,7 +2323,7 @@ function startLevel(L){
   if(B().snailShield&&L>1){DF.snail=null;B().snailShield=0;S.shield=1;}
   applyUpg(DF);S.quest=adaptQuest(S.quest);S.temp=buildGarden.temp;
   deda.beard=Math.random()<.3;weedT=DF.weed[0];snailT=DF.snail?DF.snail[0]:999;harvestStreak=0;
-  if(L===1&&!free)camFocus((XOFF+13.5)*T,10*T,1,true);
+  if(L===1&&!free)camFocus((XOFF+13.5)*T,10*T,1,true);else camFocus(deda.x,deda.y-8,Math.max(CAM.z||1,.9),true); // Kamera auf Deda, nicht irgendwo im großen Garten
   buildSeeds();setTool('giessen');running=true;paused=true;startMusic(FEST&&S&&S.L===MAXL?'fest':'garden');renderHUD();render();
   if(L===1){startTutorial();return;}
   deda.happy=999;
@@ -3109,7 +3118,7 @@ function startServe(cargo,place,coins,mo){
   const sd=mo?mo.d:Math.min(4,1+Math.floor(b.stage/3));
   startMusic('mini',place==='markt'?'wochenmarkt':place==='hofladen'?'ansturm':'zaun',true);SV={mo,sd,cargo,place,mult:place==='stand'?.8:1,t:0,dur:place==='hofladen'?50:place==='markt'?55:45,cust:[],spawnT:1,earn:0,tips:0,sold:0,happy:0,angry:0,wrong:0,coins:coins||0,done:false,init:Object.assign({},cargo),fly:[],start:cargoCount(cargo),maxQ:1+Math.min(3,sd-1+(place==='hofladen'?1:0))};
   if(coins){PROG.money+=coins;b.today.rev+=coins;}
-  {const ks=Object.keys(cargo).filter(k=>cargo[k]>0).sort((a,c)=>cargo[c]-cargo[a]).slice(0,8);SV.crates=ks.map((k,i)=>({k,x:12+(i%4)*34,y:i<4?122:104,row:i<4?0:1}));}
+  {const ks=Object.keys(cargo).filter(k=>cargo[k]>0).sort((a,c)=>cargo[c]-cargo[a]).slice(0,8);SV.crates=ks.map((k,i)=>i<4?{k,x:12+i*34,y:122,row:0}:{k,x:[6,38,90,122][i-4],y:92,row:1});SV.pops=[];}
   $('serveCtl').style.display='grid';renderServeCtl();
   say(place==='hofladen'?'<b>Meine Güte</b>, ein Kundenansturm im Hofladen! Schnell bedienen!':place==='markt'?'<b>Und gut?</b> Der Markt geht los! Tipp unten auf das Gemüse, das die Kunden wollen.':'<b>Und gut?</b> Die ersten Kunden kommen an den Zaun! Tipp unten auf das richtige Gemüse.',{mood:'happy',ms:3500});
 }
@@ -3137,14 +3146,14 @@ function updateBubble(c){
   const pr=Math.max(0,c.pat/c.maxPat);
   const h=`${c.state==='leave'?(c.mode==='happy'?'😊 Danke!':'😠'):w}<div class="pbar"><div style="width:${Math.round(pr*100)}%;background:${pr>.5?'#5d8f2a':pr>.25?'#e0a020':'#c0302a'}"></div></div>`;
   if(c.el.dataset.h!==h){c.el.innerHTML=h;c.el.dataset.h=h;}
-  const[sx,sy]=toScreen(c.x,c.y-(c.o.kid?18:23));c.el.style.left=sx+'px';c.el.style.top=sy+'px';
+  let[sx,sy]=toScreen(c.x,c.y-(c.o.kid?18:23));{const r=cv.getBoundingClientRect(),wr=$('wrap').getBoundingClientRect(),hw=(c.el.offsetWidth||60)/2+2,l=r.left-wr.left;sx=Math.max(l+hw,Math.min(l+r.width-hw,sx));}c.el.style.left=sx+'px';c.el.style.top=sy+'px';
 }
 function serveGive(k){
   if(!SV||SV.done||!(SV.cargo[k]>0))return;
   const c=SV.cust.filter(c=>c.state==='wait').find(c=>c.wants.some(w=>w.k===k&&w.q>0));
   if(!c){SV.wrong++;deda.react=1;floatText('Will keiner! 😠',80,70,'#ffb0a0');beep(160,.12,'square',.04);return;}
   const w=c.wants.find(w=>w.k===k&&w.q>0);w.q--;SV.cargo[k]--;SV.sold++;w.done=(w.done||0)+1;SND.plant();
-  {const cr=(SV.crates||[]).find(q=>q.k===k);SV.fly.push({k,x0:cr?cr.x+16:80,y0:cr?cr.y-4:118,x1:c.x,y1:c.y-20,t0:SV.t});}
+  {const cr=(SV.crates||[]).find(q=>q.k===k);if(cr)(SV.pops=SV.pops||[]).push({x:cr.x+16,y:cr.y-2,t0:SV.t});c.hold={k,t:SV.t};}
   if(c.wants.every(w=>w.q<=0)){
     let pay=0;c.wants.forEach(w=>{pay+=sellItems(w.k,w.done,SV.mult,SV.place);});
     const tip=Math.round(pay*.3*(c.pat/c.maxPat)*100)/100;PROG.money+=tip;B().today.rev+=tip;
@@ -3183,25 +3192,25 @@ function renderServe(){
   if(s.place==='stand'){drawTree(22,56,.2);drawTree(138,54,.8);P(0,60,160,180,'#5c9e3c');for(let i=0;i<160;i+=6)P(i,62,3,20,'#efe4c8');P(0,70,160,2,'#c8b890');
     for(let i=0;i<30;i++)P(hash(i)*160,90+hash(i*3)*140,1,2,'#74b84c');}
   // Stand mit Markise
-  P(10,50,140,12,'#3a8a4a');for(let i=0;i<140;i+=14)P(10+i,50,7,12,'#f4f4f4');P(10,62,140,2,'#2a6a3a');for(let i=0;i<140;i+=7)P(10+i,64,4,2,i%14?'#3a8a4a':'#f4f4f4');
-  P(14,64,3,88,'#8a5a2a');P(143,64,3,88,'#8a5a2a');
-  // Deda hinter dem Stand
+  P(10,62,140,12,'#3a8a4a');for(let i=0;i<140;i+=14)P(10+i,62,7,12,'#f4f4f4');P(10,74,140,2,'#2a6a3a');for(let i=0;i<140;i+=7)P(10+i,76,4,2,i%14?'#3a8a4a':'#f4f4f4');
+  P(14,76,3,76,'#8a5a2a');P(143,76,3,76,'#8a5a2a');
+  // Regal hinten (hinter Deda) mit weiteren Kisten
+  if((s.crates||[]).some(cr=>cr.row===1)){P(4,100,152,4,'#8a5a2a');P(4,100,152,1,'#b07a40');P(4,104,152,2,'#6a4020');for(const cr of s.crates)if(cr.row===1)drawStandCrate(cr.k,cr.x,cr.y,s.init[cr.k]||1,s.cargo[cr.k]||0);}
+  // Deda steht direkt hinter dem Tresen
   const m=deda.react>0?'angry':deda.happy>0?'happy':'normal';
-  dedaFront(73,80,m,deda.react>0?(Math.floor(s.t*6)%2?'up':'down'):null,deda.beard,0);
-  // hintere Stufe + Kisten
-  P(10,114,140,5,'#8a5a2a');P(10,114,140,1,'#b07a40');P(10,118,140,4,'#6a4020');
-  for(const cr of s.crates||[])if(cr.row===1)drawStandCrate(cr.k,cr.x,cr.y,s.init[cr.k]||1,s.cargo[cr.k]||0);
-  // Tresen + vordere Kisten
-  P(10,132,140,20,'#a8743e');P(10,132,140,2,'#c8945e');P(10,150,140,2,'#7a5020');for(let i=14;i<150;i+=20)P(i,136,1,14,'#8a5a2a');
+  dedaFront(73,104,m,deda.react>0?(Math.floor(s.t*6)%2?'up':'down'):null,deda.beard,0);
+  // Tresen mit Kisten
+  P(10,128,140,24,'#a8743e');P(10,128,140,2,'#c8945e');P(10,150,140,2,'#7a5020');for(let i=14;i<150;i+=20)P(i,132,1,18,'#8a5a2a');
   for(const cr of s.crates||[])if(cr.row===0)drawStandCrate(cr.k,cr.x,cr.y,s.init[cr.k]||1,s.cargo[cr.k]||0);
-  // verkaufte Ware fliegt zum Kunden
-  s.fly=(s.fly||[]).filter(f=>s.t-f.t0<.45);for(const f of s.fly){const a=Math.min(1,(s.t-f.t0)/.45);drawBigVeg(f.k,f.x0+(f.x1-f.x0)*a,f.y0+(f.y1-f.y0)*a-Math.sin(a*Math.PI)*22);}
+  // kleines Funkeln, wo gerade etwas aus der Kiste genommen wurde
+  s.pops=(s.pops||[]).filter(f=>s.t-f.t0<.3);for(const f of s.pops){const a=(s.t-f.t0)/.3,r=3+a*6;C.globalAlpha=1-a;P(f.x-r,f.y,2,1,'#fff6a0');P(f.x+r-1,f.y,2,1,'#fff6a0');P(f.x,f.y-r,1,2,'#fff6a0');P(f.x,f.y+r-1,1,2,'#fff6a0');C.globalAlpha=1;}
   if(mk){P(150,124,6,28,'#e8a0b0');P(148,120,10,5,'#f2c94c');}
   // Schatten unter dem Tresen
   C.globalAlpha=.2;P(10,152,140,6,'#000');C.globalAlpha=1;
   // Kunden vor dem Stand
   const list=s.cust.slice().sort((a,c)=>a.y-c.y);
-  for(const c of list){const cx=SS>1?c.x:Math.round(c.x);C.globalAlpha=.3;P(cx-4,c.y-1,8,2,'#000');C.globalAlpha=1;person(cx,c.y,c.o,c.state==='wait'&&c.pat<c.maxPat*.3?'angry':c.mode,c.step,null);}
+  for(const c of list){const cx=SS>1?c.x:Math.round(c.x);C.globalAlpha=.3;P(cx-4,c.y-1,8,2,'#000');C.globalAlpha=1;person(cx,c.y,c.o,c.state==='wait'&&c.pat<c.maxPat*.3?'angry':c.mode,c.step,null);
+    if(c.hold&&s.t-c.hold.t<1.6)drawBigVeg(c.hold.k,cx+7,c.y-6);}
 }
 function endServe(){if(SV&&SV.place==='stand')PROG.firstSale=1;
   const s=SV;$('serveCtl').style.display='none';document.querySelectorAll('.cbub').forEach(e=>e.remove());
@@ -4761,7 +4770,7 @@ const CLIENTS_INTL=['Restaurant „Le Jardin“, Paris','Hotelkette in Wien','Su
 const MILESTONES=[1000,5000,10000,25000,50000,100000,250000,500000,1e6,2.5e6,5e6,1e7];
 const ACH=[
  ['tag1','🌅','Erster Feierabend','Den ersten Tag abgeschlossen'],['tut','🎓','Gelernt ist gelernt','Das Tutorial geschafft'],
- ['lv10','🌻','Kapitel 2 geschafft','Kapitel 2 abgeschlossen'],['lv25','🚜','Halbzeit','Kapitel 5 abgeschlossen'],['lv50','🎉','Gemüseimperium','Alle 100 Level geschafft'],
+ ['lv10','🌻','Kapitel 2 geschafft','Kapitel 2 abgeschlossen'],['lv25','🚜','Halbzeit','Kapitel 5 abgeschlossen'],['lv50','🎉','Gemüseimperium','Alle 150 Level geschafft'],
  ['st3','🌻','Am Küchentisch','Stufe 3 erreicht'],['st5','🏪','Ladenbesitzer','Stufe 5 erreicht'],['st8','🚚','Lieferant','Stufe 8 erreicht'],['st10','🌍','Weltweit','Stufe 10 erreicht'],
  ['perfekt','⭐','Perfektionist','10 Level mit 3 Sternen'],['keineGuete','😇','Kein einziges „Meine Güte“','Ein Gartenlevel ohne Fehler'],
  ['minialle','🎮','Alleskönner','Jedes Minispiel einmal gewonnen'],['profi','💪','Profi','Ein Minispiel auf „Profi“ gewonnen'],
@@ -5899,7 +5908,7 @@ function loop(now){
   else if(scene==='mini'&&MG){if(!MG.fin)updateMini(dt);if(MG)renderMini(dt);if(boxTimer<1e8&&$('box').classList.contains('show')){boxTimer-=dt*1000;if(boxTimer<=0)$('box').classList.remove('show');}}
   else if(scene==='serve'&&SV){if(!SV.fin)updateServe(dt);if(SV)renderServe();if(boxTimer<1e8&&$('box').classList.contains('show')){boxTimer-=dt*1000;if(boxTimer<=0)$('box').classList.remove('show');}}
   else if(scene==='yard'&&tiles.length){yardUpdate(dt);renderGardenView();floatFollow();}
-  else if(scene==='garden'&&S){if(running&&!paused)update(dt);render();floatFollow();if(running&&!paused)renderHUD();if(TI){if(paused)TI.until+=dt;updateTileInfo();}}
+  else if(scene==='garden'&&S){camTick(rdt);if(running&&!paused)update(dt);render();floatFollow();if(running&&!paused)renderHUD();if(TI){if(paused)TI.until+=dt;updateTileInfo();}}
   if(TI&&scene!=='garden')hideTileInfo();
   if(flash)flash.t-=dt*2;
   }catch(e){showErr(e);console.error(e);}
