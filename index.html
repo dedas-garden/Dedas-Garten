@@ -190,7 +190,7 @@ button:disabled{opacity:.5}
 .brow{display:flex;gap:5px;align-items:center}.brow button{padding:9px 8px;font-size:13px}.brow .main{flex:1}.bhint{flex:1;font-size:11px;opacity:.8;text-align:left}
 .bline{font-size:12px;text-align:left;padding:2px}.bbad{color:#ff8a7a;font-weight:700}
 .mgrid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:8px 0}.mgrid button{display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 4px;font-size:12px;line-height:1.15}.mgrid .mi img{width:30px;height:30px}.mgrid small{font-size:10px;opacity:.85}
-.plab{position:absolute;transform:translate(-50%,-50%);z-index:4;font-size:11px;padding:3px 7px;white-space:nowrap;opacity:.92}.plab.ok{background:#f6d04d;animation:pPulse 1.2s ease-in-out infinite}
+.plab{position:absolute;transform:translate(-50%,-50%);z-index:4;font-size:11px;padding:3px 7px;white-space:nowrap;opacity:.92}.plab.ok{background:#f6d04d;animation:pPulse 1.2s ease-in-out infinite}.plab.cl{background:#eef4fa;color:#4a5a72;font-size:10px;opacity:.88}
 @keyframes pPulse{50%{transform:translate(-50%,-50%) scale(1.08)}}
 #app.yardmode #sunbar,#app.yardmode #moodChip,#app.yardmode #gueteChip{display:none}
 .qbtn{font-size:11px;padding:3px 6px}.ytip{font-size:11px;opacity:.8}
@@ -363,12 +363,12 @@ button:disabled{opacity:.55;filter:saturate(.35)}
   <div class="card" id="endCard"></div>
 </div>
 
-<script>if(navigator.standalone)document.documentElement.classList.add('iosapp');const PUBLIC_BUILD=true,GAME_VERSION='5.5.2 · 21.11.2026';
+<script>if(navigator.standalone)document.documentElement.classList.add('iosapp');const PUBLIC_BUILD=true,GAME_VERSION='5.6.0 · 21.11.2026';
 const COMPANY=false; // Firma & Automatisierung sind vorerst aus – kommen später schrittweise per Update zurück (der Code dazu bleibt erhalten)
 // ==== Pixel-Symbole (statt Emojis, überall gleich) ====
 const PXPAL={"k":"#1b1209","w":"#fff6e0","W":"#ffffff","h":"#c8c8c8","e":"#8c8c8c","E":"#4e4e4e","y":"#f6d04d","Y":"#c99520","o":"#f08a24","O":"#b85a10","r":"#e0402c","R":"#8e1f16","p":"#ff9fb0","g":"#5cb83a","G":"#2d6b28","l":"#a6e070","b":"#3b7ddb","B":"#1f3f8c","c":"#8fd3f2","n":"#94602e","N":"#4f2c12","t":"#dcb46c","T":"#f3dca0","s":"#f2c39a","S":"#c98a60","v":"#8b4bb2","V":"#4b2063","m":"#a8e6c8","M":"#5fa585","q":"#ffe98a"};
-const PXS={klee:'..............kkk.kkk....kglgkglgk...kgggGgggk....kgGGGgk....kgggGgggk...kglgkglgk....kkkGkkk........Gk...........Gk..........Gk..........kk....',bonbon:'........................k...kkkk...kyk.krrrrk.kyyykrWprrrkyyyykrprrrpYyyyyYrrrrprkyyyykrrrprrkyyyk.krprrk.kyk...kkkk...k........................',laternchen:'....knnnnnk....kknkkknk...kOOOOOOk....kooooook....koqqqqok....koqWWqok....koqWWqok....koqqqqok....kooooook....kOOOOOOk.....kkOOkk........kk.....',maske:'........kyk........kgyrk..kkk..kgyrk.kvvvkkvvvk.kVvvvvvvvvvkkvvkkvvkkvvkkvvkkvvkkvvkkvvvvvvvvvVk.kvvvkkvvvk...kkk..kkk..........................',feuerwerk:'.....W....................W..b...W.....o....r.......o.br.........WW.....W.y.yWW.y.W.....p..r.......p..b.r.....W......W........W.................',handy:'...kkkkkk.....kEEEEEEk....kEccccEk....kEcWccEk....kEccccEk....kEccccEk....kEccccEk....kEccccEk....kEEEEEEk....kEEhhEEk....kEEEEEEk.....kkkkkk...',tablet:'............kkkkkkkkkkkkkEEEEEEEEEEkkEccccccccEkkEcWccccccEkkEccccccccEkkEccccccccEkkEccccccccEkkEEEEEEEEhEkkkkkkkkkkkkk........................',laptop:'.............kkkkkkkkkk..kEEEEEEEEk..kEcWccccEk..kEccccccEk..kEccccccEk..kEEEEEEEEk..kkkkkkkkkk.khhhhhhhhhhkkheEeEeEeEhkkkkkkkkkkkkk............',keyboard:'........................kkkkkkkkkkkkkEEEEEEEEEEkkEwEwEwEwEEkkEEEEEEEEEEkkEEwEwEwEwEkkEEEEEEEEEEkkEwEwwwwEwEkkEEEEEEEEEEkkkkkkkkkkkkk............',cards:'kkkkkkkk....kwwwwwwk....kwwwgwwkkkk.kwwrrrwkGGk.kwrrrrrkGGk.kwrrrrrkGGk.kwwrrrwkGGk.kwwwwwwkGGk.kwwwwwwkGGk.kkkkkkkkGGk.....kGGGGGk.....kkkkkkk.',mole:'...............kkkkkk.....kEEEEEEk...kEEEEEEEEk..kEkEEEEkEk..kEEEppEEEk..kEEEEEEEEk..kEsEEEEsEk.kkkkkkkkkkkkknnnnnnnnnnkkNnnnNnnnnNkkkkkkkkkkkkk',knife:'..........kk.........khk........khWk.......khWk.......khWk.......khWk.......khWk.......kkkk.......knNk.......knNk.......knNk........kk..........',bird:'................kkkk.......knnnnk.....knnkWnnk....knnnnnnkoo.kNnnnnnnk..kNNnttttnk..kNNNnttttk...kNNNntttk....kkNNNkk.......k..k................',gems:'......................W..........WyW..........W..kk..kk..kk.krrkkggkkyykkrrkkggkkyyk.kk..kk..kk.............kkkkkkkkkkkkknnnnnnnnnnkkkkkkkkkkkkk',crates:'kkkk........kgGk........kGgk........kkkk........kkkkkkkkkkkkkrRkkoOkkyYkkRrkkOokkYykkkkkkkkkkkkkkkkk....kkkkkbBk....kvVkkBbk....kVvkkkkk....kkkk',post:'.....kk.........kTnk.......kTnnNk......kTnnNk......kTnnNk......kTnnNk......kTnnNk......kTnnNk......kTnnNk......kTnnNk......knnnNk.......kkkk....',mesh:'kkkkkkkkkkkkke.e.e.e.e.kk.e...e...ekke.e.e.e.e.kk...e...e..kke.e.e.e.e.kk.e...e...ekke.e.e.e.e.kk...e...e..kke.e.e.e.e.kk.e...e...ekkkkkkkkkkkkk',sign:'.kkkkkkkkkk..kTTTTTTTTk..kTrrrrrrTk..kTTTTTTTTk..kTkkTTkkTk..kTTTTTTTTk..kkkkkkkkkk......kn..........kn..........kn..........kn.........kkkk....',hammer:'..............kkkkkk.....kEhhhhEk....kEhhhhhkk...kEEEEEEEk....kkkkkkk.......kNk.........knNk.........kNk.........knNk.........kNk..........kk...',excl:'.....kk.........krrk........krrk........krrk........krrk........krrk........kRRk.........kk......................kk.........krrk.........kk.....',apple:'......k.kk.......kNkggk.......NkgGk...kkk.Nkkk...krrrkkrrrk.krWrrrrrrrRkkrWrrrrrrrRkkrrrrrrrrrRkkrrrrrrrrRRk.krrrrrrrRk...krrkkrRk.....kk..kk...',pear:'.....kk..........kNkgk......kkNkgGk.....klqkkk.....klqllk......kllllk.....klqlllgk...klqllllgGk..kllllllggk..kllllllgGk...kgllllGk.....kkkkkk...',peach:'......kgk........kGgk......kkkkkkk....kooopppok..kWoooOpppk.kWooooOppppkkooooOppppRkkoooooOpppRkkooooooppRRk.kooooopRRk...kkooppkk......kkkk....',kirsche:'......kkk........kGGk.......kNkk.......kN..Nk.....kN....Nk...kkkk..kkkk.kWrrRkkWrrRkkrrrRkkrrrRkkrrRRkkrrRRk.kRRk..kRRk...kk....kk..............',plum:'.....kk..........kNk........kkNkk......kvvvvvk....kvcvvvvVk...kcvvvvvVk..kvvvvvvvVVk.kvvvvvvvVVk.kvvvvvvVVVk..kvvvvVVVk....kVVVVVk......kkkkk...',radish:'..kk...kk....kgGk.kgGk...kggGkgggk....kgggGgk......kkGkk.......krrrrk.....krWrrrRk....krrrrrRk....krrrrRRk.....kWWWWk.......kWWk.........kk.....',onion:'.....kk..........kgk........kGgk........kYYk.......kYYYYk.....kYqYYYYk...kYqYYYYYnk..kYqYYYYnnk..kYYYYYYnnk...kYYYYnnk.....kknnkk.......tkkt....',beans:'.........kk.........kgGk.......kglGk......kglgk......kgllGk.....kglgGk.....kgllGk.....kglgGk.....kgllGk......kglGk......kgGkk.......kk..........',corn:'......kk.........kyqk........kyyk.......kyqyYk......kqyyYk.....kgyqyYk....kgGyyyYgk...kgGqyYgGk..kgGGyyYgGk..kgGkyYkgGk...kk.kGk.kk.......kk....',broccoli:'...kkkkkk.....kGgGgGgk...kgGgGgGgGk.kGgGlGgGgGgkkgGgGgGlGgGk.kGgGgGgGgk...kkMmMMkk......kmMk........kmMk........kmMk........kmmk.........kk.....',share:'.....kk.........kWWk.......kWWWWk.....kkkWWkkk......kWWk........kWWk.....kkk.kk.kkk..kbk....kbk..kbkkkkkkbk..kbbbbbbbbk..kBBBBBBBBk..kkkkkkkkkk.',inbox:'....kWWk........kWWk........kWWk......kkkWWkkk.....kWWWWk.......kWWk.....kkk.kk.kkk..kgk....kgk..kgkkkkkkgk..kggggggggk..kGGGGGGGGk..kkkkkkkkkk.',folder:'.............kkkk........kyyyk.......kyyyykkkkk..kYYYYYYYYk..kyyyyyyyyk..kyyyyyyyyk..kyyyyyyyyk..kyyyyyyyyk..kYYYYYYYYk..kkkkkkkkkk.............',abc:'............kkkkkkkkkkkkkwwwwwwwwwwkkwkkwkkwkkwkkwkwwkwwkwwkkwkkwkkwkwwkkwkwwkwkkwwkkwkwwkkwkkwkkwwwwwwwwwwkkwwwwwwwwwwkkkkkkkkkkkkk............',flower:'....kkk........kyyyk......kyyqyyk.....kyqOqyk.....kyyqyyk......kyyyk........kGk.......kk.Gk.kk...kgGkGkGgk....kkgGgkk.......kGk.........kkk.....',soil:'........................kkkkkkkkkkkkknnNnnnNnnnkkNnnnNnnnnNkknnnnnnNnnnkknNnnnnnnNnkkkkkkkkkkkkk................................................',wilt:'.....kk.........kYk........kYYk.......kYYk..kk....kYk..kYYk....kk.kYYk......kkYk........kYk........kYk........kNNNNNk....kNnnnnnNk....kkkkkkk...',disk:'kkkkkkkkkkk.kbbhhhhhhbkkkbbhhEhhhbbkkbbhhEhhhbbkkbbhhhhhhbbkkbbbbbbbbbbkkbWWWWWWWWbkkbWeeeeeeWbkkbWWWWWWWWbkkbWeeeeeeWbkkbWWWWWWWWbkkkkkkkkkkkkk',thumb:'....kk.........ksk.........ksk........kssk......kkksssskkkk.kBksssssssSkkBkssssssSk.kBksssssssSkkBkssssssSk.kBksssssssk.kBkSSSSSSk..kkkkkkkkk...',pin:'...kkkkkk......kprrRk.......krRk........krRk.......krrrRk.....krrrrrRk....kkkkkkkk.......kE..........kE..........kE...........k.................',tiles:'.............kkkkk.kkkkk.kgggk.kyyyk.kgggk.kyyyk.kgGgk.kyYyk.kkkkk.kkkkk.............kkkkk.kkkkk.kbbbk.krrrk.kbbbk.krrrk.kkkkk.kkkkk............',arm:'................kkk........kssk........kssk........kssk.kk.....ksSkkssk...kssskssssk.kssssssssk.kssssssssk..kSssssssk...kkkkkkkk................',at:'........................kkkkkkkkkkkkkrrrrrrrrrrkkrrrrrrrrrrkkWWWWWWWWWWkkWWWWWWWWWWkkrrrrrrrrrrkkrrrrrrrrrrkkkkkkkkkkkkk........................',aubergine:'........kk.........kgGk.......kgkgGk.....kkVVk......kvVVVVk....kvvWvVVk...kvvWvvVVk..kvvvvvvVVk..kvvvvvVVk..kvvvvvVVk...kVvvVVVk.....kkkkkk.....',back:'....................kk........kkwk......kkwwwk....kkwwwwwk...kwwwwwwwk...kwwwwwwwk....kkwwwwwk......kkwwwk........kkwk..........kk..............',bag:'...............k....k......kk..kk.......kkkk........knnk.......kkkkkk.....ktttttTk...kttyyyttTk.kttyykyyttTkkttyyyyyttTk.kTTyyyTTTk...kkkkkkkk..',bank:'.....kk........kkhhkk....kkhhyyhhkk.khhhhyyhhhhkkkkkkkkkkkkkkwEEwEEwEEwkkwEEwEEwEEwkkwEEwEEwEEwkkwEEwEEwEEwkkkkkkkkkkkkkkhhhhhhhhhhkkkkkkkkkkkkk',bars:'kkkkkkkkkkkkkwwwwwwwwwwkkwwwwwwwggwkkwwwwwwwggwkkwwwwyywggwkkwwwwyywggwkkwwwwyywggwkkwbbwyywggwkkwbbwyywggwkkwbbwyywggwkkEEEEEEEEEEkkkkkkkkkkkkk',basket:'................kkkk.......k....k.....k......k...kkkkkkkkkk.kttttttttttkknTnTnTnTnNkkttttttttttk.knTnTnTnNk..kttttttttk...kNNNNNNk.....kkkkkk...',bike:'...........................................kkk.....kkk..b.......bbbbb....kkkb..bbkk.k...kbbk.b.kk.ebbk.k.e.kk...k..k...k.kkk....kkk.............',blossom:'....kkkk.......kppppk....kkkppWpkkk.kpppkppkpppkkppWpkkpWppk.kpppkykpppk..kkkyykkkk..kpppkkpppk.kpppWpkpWppkkppppkkppppk.kkkk..kkkk.............',bolt:'...............kkkkkk.....khhhhhhk....kEhhhhEk.....kkkkkk.......khhk........kEhk........khhk........kEhk........khhk.........kk.................',book:'.............kkkk..kkkk.kwwwwkkwwwwkkwEEwkkwEEwkkwwwwkkwwwwkkwEEwkkwEEwkkwwwwkkwwwwkkwEEwkkwEEwkkwwwwkkwwwwkkkkkkrrkkkkkkbbbbkkbbbbk.kkkk..kkkk.',boom:'.k...kk...k.kyk.kyyk.kyk.kykyrryky....kyrrrryk...kyrrWWrryk.kyrrWWWWrryk.kyrrWWrryk...kyrrrryk...kykyrryky..kyk.kyyk.kyk.k...kk...k.............',bouquet:'..kk.kk.kk...kpkkrrkkyk..kppkrRkyyk...kkgkkgkk.....kgkkgk.......kgggk......kwgggwk....kwwgggwwk...kwwwgwwwk....kwwrwwk......kwwwk........kkk....',box:'..........................lg.rr.og...gGgrRrooOg.kkkkkkkkkkkkkTttttttttnkknnnnnnnnnNkkkkkkkkkkkkkkTttttttttnkknnnnnnnnnNkkNNNNNNNNNNkkkkkkkkkkkkk',bucket:'...............kkkkkk.....k......k...k........k.kkkkkkkkkkkkkchhhhhhhhek.khhhhhhhek..khhhhhhhek..kEhhhhhhek...khhhhhek....kEEEEEEk.....kkkkkk...',bulb:'....kkkk.......kyyyyk.....kyWyyyyk....kyWyyyyk....kyyyyyyk....kyyyyyyk.....kyyyyk.......kyyk........kkkk........khhk........kkkk.........kk.....',calendar:'..k.....k...kkhkkkkkhkkkkrrkrrrrkrrkkrrrrrrrrrrkkkkkkkkkkkkkkwwwwwwwwwwkkwEwEwEwEwwkkwwwwwwwwwwkkwEwEwrrEwwkkwwwwwrrwwwkkwEwEwEwwwwkkkkkkkkkkkkk',cap:'.............................kk........kkBBkk....kkBBBBBBkk.kBBBBBBBBBBk.kkBBBBBBkky...kkkkkk.ky...kBBBBk.ky...kBBBBk.yy....kkkk................',car:'...........................kkkkkkk....kcckccckk..kcccckcccckkrrrrrrrrrrkkrrrrrRrrrrkkRrrrrRrrrwkkkkkkkkkkkkk.kEEk..kEEk..kEEk..kEEk...kk....kk..',cart:'.......gg...kkk...rrgg....k..rrRgy....kkkkkkkkkk..khhkhhkhhk..kkkkkkkkkk...khhkhhkk....kkkkkkk.....k...........kkkkkkkk....kEk..kEk.....k....k..',ch:'..............kkkkkkkk....krrrrrrk....krrWWrrk....krrWWrrk....kWWWWWWk....kWWWWWWk....krrWWrrk....krrWWrrk....krrrrrrk....kkkkkkkk..............',chart:'kkkkkkkkkkkkkwwwwwwwwwwkkwwwwwwwwggkkwwwwwwwwgGkkwwwwwwwgwwkkwwwwwwgwwwkkwwwgwgwwwwkkwwgwgwwwwwkkwgwwwwwwwwkkgwwwwwwwwwkkwwwwwwwwwwkkkkkkkkkkkkk',check:'kkkkkkkkkkkkkggggggggggkkgggggggkwgkkggggggkwwgkkgggggkwwkgkkgkwkkwwkggkkgkwwwwkgggkkggkwwkggggkkgggkkgggggkkggggggggggkkGGGGGGGGGGkkkkkkkkkkkkk',chili:'..........k..........kgk........kGk........kgGk.......krrk.......krWrk......krrrk......krrrRk.....krrrRk.....krrRRk......kRRkk......kkk.........',clapper:'........kkk......kkkwwk...kkkwwkkk..kkwwkkkk....kkkkkkkkkkkkkwwkkwwkkwwkkkkkkkkkkkkkkEEEEEEEEEEkkEhhhEhhhhEkkEEEEEEEEEEkkEhhhhhEEEEkkkkkkkkkkkkk',clipboard:'....kkkk.....kkkkhhkkkk..knkkkkkkNk..knwwwwwwNk..knwEEEEwNk..knwwwwwwNk..knwEEEwwNk..knwwwwwwNk..knwEEEEwNk..knwwwwwwNk..knNNNNNNNk..kkkkkkkkkk.',clock:'....kkkk......kkwwwwkk...kwwwkwwwwk..kwwwkwwwwk.kwwwwkwwwwwkkwwwwkkkkwwkkwwwwwwwwwwkkwwwwwwwwwwk.kwwwwwwwwk..kwwwwwwwwk...kkwwwwkk......kkkk....',coffee:'...k..k.......k..k.........k..k.................kkkkkkkkk...kwwwwwwwkkk.kwNNNNNwk.k.kwwwwwwwk.k.kwwwwwwwkkk..kwwwwwk....kkkkkkkkkk...kkkkkkkk...',coin:'....kkkk......kkyyyykk...kywyyyyyYk..kyyyNNNyYk.kyyyNyyyyyYkkyyNNNNyyyYkkyyyNyyyyyYkkyyNNNNyyyYkkyyyNyyyyyYk.kyyyNNNyYk..kYyyyyyYYk...kkYYYYkk..',crane:'kkkkkkkkkkkkkyyyyyyyyyykkkkykkkkkykk..kyk....k....kyk....k....kyk...kkk...kyk...knk...kyk...kkk...kyk.........kyk........kkkkk.......kEEEk......',crown:'........................k...k..k...kkk.kyk.kk.kkkykkyykkykykkyyyyyyyyyykkyryybyygyykkyyyyyyyyyykkYYYYYYYYYYkkkkkkkkkkkkk........................',de:'........................kkkkkkkkkkkkkEEEEEEEEEEkkEEEEEEEEEEkkrrrrrrrrrrkkrrrrrrrrrrkkyyyyyyyyyykkyyyyyyyyyykkkkkkkkkkkkk........................',deda_angry:'...kkkkkk.....ksssssSk...kssssssssk.khkkssskkshkkhskkskkSshkkkwwkkkwwkkkkskEkskEksSk.kssssssssk..kshkkkkhsk...ksshhssk.....kkkkkk...............',deda_happy:'...kkkkkk.....ksssssSk...kssssssssk.khssssssSshkkhkssskkSshkkkwwkkkwwkkkkskEkskEksSk.kssssssssk..kshkWWkhsk...kshkkhsk.....kkkkkk...............',dna:'.kk.....kk....kbk..krk.....kbkkrk.......kbrk.......krkkbk.....krk..kbk....kbkkkkrk.....kbkkrk.......krbk.......kbkkrk.....kbk..krk...kk.....kk..',drop:'.....k...........kk.........kck.........kcck.......kccbk.......kwcbbk.....kwccbbbk....kcccbbbk....kccbbbBk.....kcbbBk.......kkkk................',egg:'....kkkk.......kwwwwk.....kwbwwbwk....kwwwwwwk...kyyyyyyyyk..kyrryrryyk..kyyyyyyyyk..kwwgwwgwwk..kwwwwwwwek...kwwwwwek.....keeeek.......kkkk....',erdbeere:'....k..k.......kgkkgk.....kgGkkGgk...kkkrrrrkkk..krrWryrrrk..kryrrrryrk..krrrryrrRk...kryrrrRk....krrryRRk.....krrRRk.......kRRk.........kk.....',f_angel:'..kyyyyyyk.....kkkkkk.......kkkk......kkyyyykk...kyyyyyyyyk.kyykkyykkyykkyyyyyyyyyykkypyyyyyypykkyykyyyykyyk.kyykkkkyyk...kkyyyykk......kkkk....',f_angry:'....kkkk......kkooookk...kooooooook..kokkookkok.kooookkooookkookkookkookkooooooooookkooooooooook.kookkkkook..kokooookok...kkooookk......kkkk....',f_cool:'....kkkk......kkyyyykk...kyyyyyyyyk..kkkkkkkkkk.kkEEEkkEEEkkkykEEkkEEkykkyykkyykkyykkyyyyyyyyyyk.kyykyykyyk..kyyykkyyyk...kkyyyykk......kkkk....',f_grin:'....kkkk......kkyyyykk...kyyyyyyyyk..kyykyykyyk.kyykykkykyykkyyyyyyyyyykkykkkkkkkkykkykWWWWWWkyk.kykrrrrkyk..kyykkkkyyk...kkyyyykk......kkkk....',f_huff:'....kkkk......kkyyyykk...kykkyykkyk..kyykyykyyk.kyykkyykkyykkyyyyyyyyyykkhhyyyyyyhhkhkhykkkkyhkh.kyyyyyyyyk..kyyyyyyyyk...kkyyyykk......kkkk....',f_laugh:'....kkkk......kkyyyykk...kyyyyyyyyk..kykkyykkyk.kycyyyyyycykkcyyyyyyyyckkykkkkkkkkykkykWWWWWWkyk.kykrrrrkyk..kyykkkkyyk...kkyyyykk......kkkk....',f_sad:'....kkkk......kkyyyykk...kyyyyyyyyk..kykyyyykyk.kyyykyykyyykkyyykyykyyykkyycyyyyyyykkyycyyyyyyyk.kyykkkkyyk..kykyyyykyk...kkyyyykk......kkkk....',f_smile:'....kkkk......kkyyyykk...kyyyyyyyyk..kyykyykyyk.kyyykyykyyykkyyyyyyyyyykkypyyyyyypykkyykyyyykyyk.kyykkkkyyk..kyyyyyyyyk...kkyyyykk......kkkk....',f_sweat:'....kkkk.k....kkyyyykck..kyyyyyyykbk.kyykyykyykkkyyykyykyyykkyyyyyyyyyykkyyyyyyyyyykkyykkkkkkyyk.kyykWWkyyk..kyyykkyyyk...kkyyyykk......kkkk....',factory:'..............k...k...k..kck.kck.kckkcckkcckkcckkccckccckcckkkkkkkkkkkkkkGlGlGlGlGlkkgggggggggGkkwccwccwccGkkgggggggggGkkgggkkkggggkkkkkkkkkkkkk',family:'.kkk....kkk.kNNNk..kooo.ksssk..kssskkskkk..kksk.ksssk..ksssk.kkk....kkk.kbbbk..krrrkkbbbk.kkrrrkkbbbkkNNkrrkkbbbkksskrrkkbbbkkggkrrkkkkkkkkkkkkk',farmer:'....kkkk.......kTTTTk....kkTTTTTTkk.kTTTTTTTTTTk.kkkkkkkkkk...kssssssk....kskssksk....kssssssk.....kSSSSk.....kbbbbbbk...kbkbbbbkbk..kkkkkkkkkk.',faul:'.k.....k....k.k...k.k....k..k..k........kkkk......kknNnnkk...knNnnNnnNk.knnnNnnnnnNkknNnnnnNnNNkkNnnnNnnNNNk.kNNnNNNNNk...kkkkkkkk..............',ff:'............kk....kk....kwkk..kwkk..kwwwk.kwwwk.kwwwwkkwwwwkkwwwwwkwwwwkkwwwwwkwwwwkkwwwwkkwwwwkkwwwk.kwwwk.kwkk..kwkk..kk....kk................',fire:'.....k..........kok.........kok..k.....koook.kk...kooyok.kok..koyyookook.kooyyyoooOk.koyyWyyoyOk.koyyWWyyyOk.kooyyyyyoOk..kooooooOk....kkkkkkk..',flag:'kkkkkkkkkk..kwkwkwkwkwk.kkwkwkwkwkk.kwkwkwkwkwk.kkwkwkwkwkk.kwkwkwkwkwk.kkkkkkkkkkk.kk..........kk..........kk..........kk..........kk..........',fr:'........................kkkkkkkkkkkkkbbbWWWWrrrkkbbbWWWWrrrkkbbbWWWWrrrkkbbbWWWWrrrkkbbbWWWWrrrkkbbbWWWWrrrkkkkkkkkkkkkk........................',gamepad:'..........................kkkkkkkk...kEEEEEEEEk.kEEkEEEErEEkkEkkkEEbErEkkEEkEEEEgEEkkEEEEkkEEEEkkEEEk..kEEEk.kkk....kkk.........................',gb:'........................kkkkkkkkkkkkkrbbbWrbbbrkkbrbbWrbbrbkkWWWWWrWWWWkkrrrrrrrrrrkkbbrbWrbrbbkkrbbbWrbbbrkkkkkkkkkkkkk........................',gear:'.....kk.......k.kEEk.k...kEkEhhEkEk...kEhhhhEk...kEhhkkhhEk.kEhhk..khhEkkEhhk..khhEk.kEhhkkhhEk...kEhhhhEk...kEkEhhEkEk...k.kEEk.k.......kk.....',gift:'...kk..kk.....krrkkrrk.....kkrrkk...kkkkkrrkkkkkkgggkrrkgggkkkkkkrrkkkkk.kgggrrgggk..kgggrrgggk..kgggrrgggk..kGggrrggGk..kGGGrrGGGk..kkkkkkkkkk.',globe:'....kkkk......kkbbbbkk...kbggbbbggk..kgggbbbgbk.kbbggbbbbgbkkbbbgbbggbbkkbbbbbgggbbkkbbbbbggbbbk.kbbbbgbbbk..kbbbbbbbbk...kkbbbbkk......kkkk....',goat:'.k..........k.k..........kwk.........kwwkk......kwwwwwk.....kkwwwwkkkkk..kkwwwwwwwk...kwwwwwwwwk...kwwwwwwk....kek..kek....kek..kek....kkk..kkk.',gurke:'..........kk........kkgk.......kggk.......kGgGk......kgGgk......kGglGk.....kgGlgk.....kGglGk.....kgGgGk.....kgGgGk......kGGGk........kkk........',heart:'.............kkk...kkk..krWrk.krrrk.kWrrrkrrrRk.krrrrrrrrRk.krrrrrrrRRk..krrrrrrRk....krrrrRk......krrRk........krk..........k..................',heart0:'.............kkk...kkk..keeek.keeek.ke..eke..ek.ke...e...ek.ke.......ek..ke.....ek....ke...ek......ke.ek........kek..........k..................',himb_gelb:'....k..k.......kgkkgk.....kgGggGgk...kkkkkkkkkk..kqyYqyYqyk..kyYqyYqyYk..kYqyYqyYqk..kqyYqyYqyk...kYqyYqyk.....kyYqyk.......kYYk.........kk.....',himb_rot:'....k..k.......kgkkgk.....kgGggGgk...kkkkkkkkkk..kprRprRprk..krRprRprRk..kRprRprRpk..kprRprRprk...kRprRprk.....krRprk.......kRRk.........kk.....',hoe:'.kkkkk......kEhhhEk......kkkkkk.........knk..........knk..........knk..........knk..........knk..........knk..........nk...........k............',hourglass:'.kkkkkkkkkk..knnnnnnnnk...kcccccck....kyyyyyyk.....kyyyyk.......kyyk........kcck.......kcyyck.....kcyyyyck....kyyyyyyk...knnnnnnnnk..kkkkkkkkkk.',house:'.....kk.........krrk.......krrrrk.....krrrrrrk...krrrrrrrrk.kkkkkkkkkkkk.kmmmmmmmmk..kmwwmmkkmk..kmckmmknmk..kmwwmmknmk..kmmmmmknMk..kkkkkkkkkk.',infinity:'.....................................kkkk..kkkk.kyyyykkyyyykkykkkyykkkykkykkkyykkkykkyyyykkyyyyk.kkkk..kkkk.....................................',it:'........................kkkkkkkkkkkkkgggWWWWrrrkkgggWWWWrrrkkgggWWWWrrrkkgggWWWWrrrkkgggWWWWrrrkkgggWWWWrrrkkkkkkkkkkkkk........................',johannis:'..kk...........kGk..........kGk..........kGkk.......kkGkrk.....krkGkRk....krWkkrrk....krRkkRrk.....kk.krkrk......krWkRk......kRRk.k.......kk....',karotte:'.......k.k.k........kgkg......kkgGgk.....kooOkk.....kooOok.....kooOook.....koOook.....kooOok......koOook.....kooOok......koOk........kk.........',kartoffel:'............................kkkkk.....kkTttttkk..kTttttnttk.kTtnttttttSkktttttttntSkkttttntttSSk.kttttttSSk...kkSSSSkk......kkkk................',kuerbis:'.....kk..........kGk.......kkkGkkk....koookookk..kooyookoookkooyookooooOkooyookoooOOkoooookoooOOkoooookooOOO.kooookooOOk..kkOOkOOkk.....kkkkk...',leaf:'.........kk........kkok......kkoooOk....kooyoOOk...koooyoOk...kooyyoOOk...koyoooOk...koyoooOk....kyOOOOk.....kkkkkk.....kN......................',left:'................kk.........kwk........kwwkkkkkkk.kwwwwwwwwwkkwwwwwwwwwwkkwwwwwwwwwwk.kwwwwwwwwwk..kwwkkkkkkk...kwk..........kk..................',lock:'....kkkk.......khhhhk.....khk..khk....kek..kek....kek..kek...kkkkkkkkkk..kyyyyyyyyk..kyyyNNyyYk..kyyyNNyyYk..kyyyyNyyYk..kYYYYYYYYk..kkkkkkkkkk.',map:'............kkkkkkkkkkkkkTTTtTTTtTTkkTggtTTbtTTkkTggtTbbbTrkkTTTtTbbtrrkkTgTtTTTtTrkkTTTtgTTtTTkkTTTtggTtTTkkTTTtTTTtTTkkkkkkkkkkkkk............',medal:'.kkk....kkk..kbbk..krrk...kbbkkrrk.....kbbrrk.......kkkk.......kyyyyk.....kyywyyYk....kyyyyyYk....kyyyyyYk.....kyyYYk.......kkkk................',megaphone:'.........kk........kkrk......kkrrrk.kkkkkrrrrrk.khhkrrrrrrk.khhkrrrrrrk.kkkkkrrrrrk...kk.kkrrrk...kk...kkrk...kk.....kk.........................',melone:'....................................kkkkkkkkkkkkkGrrrrrrrrGk.kGrrkrrkrGk.kGrrrrrrGk...kGrkrrGk.....kGrrGk.......kGGk.........kk.................',menu:'........................kkkkkkkkkkkkkwwwwwwwwwwkkkkkkkkkkkkkkwwwwwwwwwwkkkkkkkkkkkkkkwwwwwwwwwwkkkkkkkkkkkkk....................................',microscope:'....kk.........kEEk........khhk.......kEhhEk.......khhk..k.....khhk.kEk....kEEk.kEk....kkkkkkEk......kEEEk........kEk.....kkkkkkkkk...kEEEEEEEk.',moon:'....kkkk......kkyyyk.....kyyyyk......kyyyk......kyyyyk......kyyyyk......kyyyyk......kyyyyyk......kyyyyyk..k..kYyyyyykkk...kkYYYYkk......kkkk....',mute:'.................k..........kk.........khk......kkkhhk.r...rkhhhhk..r.r.khhhhk...r..kkkhhk..r.r....khk.r...r....kk...........k..................',no:'.............kkk....kkk.krrrk..krrrkkkrrrkkrrrkk.kkrrrrrrkk...kkrrrrkk....kkrrrrkk...kkrrrrrrkk.kkrrrkkrrrkkkrrrk..krrrk.kkk....kkk.............',note:'.....kkkkkkk.....kyyyyyk.....kkkkkkk.....k.....k.....k.....k.....k.....k.....k.....k..kkkk..kkkk.kyyyk.kyyyk.kyyyk.kyyyk..kkk...kkk.............',office:'..kkkkkkkk....khhhhhhk....kcEcEcEk....khhhhhhk....kcEcEcEk....khhhhhhk....kcEcEcEk....khhhhhhk....kcEcEcEk....khhhhhhk....khhkkhhk...kkkkkkkkkk.',paprika:'.....kk.........kgGk......kkkGkkkk...kyyykkyyyk.kyWyyyyyyyOkkyWyyyyyyyOkkyyyyOyyyyOkkyyyyOyyyOOkkyyyyOyyyOOk.kyyyOyyOOk...kyOkkOOk.....kk..kk...',party:'.....r..b.....y.....y.p.......kk..g..b...kyok.......kyok..r....kyoyk.y....kyoyok.....kyoyok..p..kyoyokk.....koyok.......kook........kkk.........',people:'.......kkk....kkk.kNNNk..kNNNkkssskk.ksssk.sks...ksksk.ssk....kssk.kkk....kkk.kbbbk..kbbbkbbbbbkkbbbbbkbbbbkkbbbbbkbbbbkkbbbbbk.....kkkkkkk.....',play:'..............kk..........kwkk........kwwwkk......kwwwwwkk....kwwwwwwwk...kwwwwwwwk...kwwwwwkk....kwwwkk......kwkk........kk....................',question:'...kkkkkk.....kwwwwwwk...kwwkkkkwwk..kkk....kwwk........kwwk......kkwwk......kwwwk.......kwwk........kkkk........kwwk........kwwk........kkkk...',rain:'....kkkk......kkhhhhk....khhhhhhhkk..khhhhhhhhhkkhhhhhhhhhekkeeeeeeeeeek.kkkkkkkkkk...b..b..b....b..b..b..b...............b..b..b....b..b..b....',repeat:'...................k......kkkkkgk....kggggggggk.kgkkkkkgkkk.kgk....k........k....kgk...kgkkkkkgk.kggggggggk...kgkkkkkk.....k....................',right:'..................kk..........kwk...kkkkkkkwwk..kwwwwwwwwwk.kwwwwwwwwwwkkwwwwwwwwwwkkwwwwwwwwwk.kkkkkkkwwk........kwk.........kk................',runner:'.......kkk........kNNNk.......ksssk........kkk......kkrrrk.....krkrrrkk....kk.krrkrk.....kbbbkk.....kbkkbk.....kbk..kbk...kkk....kbk..........kk',salat:'................kkkk......kklllkkk...klllgllglk.klgllglllgk.kllgllllgllkkglllgllglgkklglllgllgGkkggglggglgGk.kgGgggggGk...kkGGGGkk......kkkk....',scroll:'.kkkkkkkkk..kTTTTTTTTtk.kTkkkkkkkkk..kTTTTTTTk...kTnnnnnTk...kTTTTTTTk...kTnnnnTTk...kTTTTTTTk...kTnnnnnTk...kkkkkkkkkkk.kTTTTTTTTtk..kkkkkkkkk.',shield:'kkkkkkkkkkkkkbbbbbkhhhhkkbbbbbkhhhekkbbbbbkhhhekkkkkkkkkkkkkkhhhhhkbbbbkkhhhhhkbbbBk.khhhhkbbbk..khhhhkbbBk...khhhkbbk.....khhkbk.......kkkk....',shoe:'........................................kkk........kwwwk.......kwrwkkk.....kwrwwwwk...kwwwwwwwwk.kwrrwwwwwwkkkkkkkkkkkkkkEEEEEEEEEEk.kkkkkkkkkk.',shop:'.............kkkkkkkkkk.kwrwrwrwrwrkkrwrwrwrwrwkkkkkkkkkkkkk.ktttttttttk.ktkkkktNNtk.ktklrktNNtk.ktkgokttttk.kkkkkkkkkkk.ktttttttttk.kkkkkkkkkkk',skip:'............kk....kk.kk.kwkk..kwkkwkkwwwk.kwwkwkkwwwwkkwwkwkkwwwwwkwwkwkkwwwwwkwwkwkkwwwwkkwwkwkkwwwk.kwwkwkkwkk..kwkkwkkk....kk.kk.............',snail:'....................k.k.........k.k....kkkk.kgk...kttnnk.kgk.ktnkkntk.kg.ktnkNtnk.kg.kntttnnkkgkkkkkkkkkkggkklggggggggk..kkkkkkkkk..............',snow:'.....kk........k.cc.k.....kck..kck......kcck.....k...cc...k.kccccWWcccckkccccWWcccck.k...cc...k.....kcck......kck..kck.....k.cc.k........kk.....',snowcloud:'....kkkk......kkhhhhk....khhhhhhhkk..khhhhhhhhhkkhhhhhhhhhekkeeeeeeeeeek.kkkkkkkkkk...W...W..W...WWW.WWW......W...W..W......W...WWW....WWW...W..',sparkle:'....k..........kyk.......kkyWykk......kkykk...k....kyk...kyk....k...kyWy.........kyk..k.......k..kyk........kyWyk........kyk..........k.........',speaker:'.................k...k......kk....k....khk..k..kkkkhhk...k.kkhhhhk.k.k.kkhhhhk.k.k.kkkkhhk...k.k...khk..k..k....kk....k......k...k..............',speech:'.............kkkkkkkkkk.kwwwwwwwwwwkkwEwEEwEEwwkkwwwwwwwwwwkkwEEwEEEwwwkkwwwwwwwwwwk.kkkkwwkkkk.....kwk.........kk..........k...................',splash:'.k......k...kck....kck..kbk...kcbk...k....kbbk.........kk......k..........kck....k....kcbk..kck...kbbk..kbk....kk....k..........................',sprout:'..........................kk....kk...kllk..kllk.kllggkkgglk..kggGkkGggk...kkkkgkkk.......kgk.........kgk.......kkkgkkk....knnnnnnnk...kkkkkkkkk.',sq_g:'..........................kkkkkkkk....kllggggk....klgggggk....kgggggGk....kgggggGk....kggggGGk....kGGGGGGk....kkkkkkkk..........................',sq_r:'..........................kkkkkkkk....kpprrrrk....kprrrrrk....krrrrrRk....krrrrrRk....krrrrRRk....kRRRRRRk....kkkkkkkk..........................',stall:'............kkkkkkkkkkkkkwrwrwrwrwrkkrwrwrwrwrwkkkkkkkkkkkkk.kn......nk..kn......nk..kkkkkkkkkk.krgoyrglorgkkkkkkkkkkkkk.kn......nk..kk......kk.',star:'.....kk..........kk.........kyyk........kyyk....kkkkkywykkkkkyyyyyyyyyyk.kyyyyyyyyk...kyyyyyYk....kyyyyyYk...kyyYkkYyYk..kyYk..kYYk..kkk....kkk.',star0:'.....kk..........kk.........keek........kEEk....kkkkkEEkkkkkkeEEEEEEEEek.keEEEEEEek...kEEEEEEk....kEEEEEEk...keEekkeEek..kek....kek..kkk....kkk.',stopwatch:'....kkkk.........kk...k....kkkkkkkk...kwwwkwwwk..kwwwwkwwwwk.kwwwwkwwwwk.kwwwwkkkwwk.kwwwwwwwwwk.kwwwwwwwwwk..kwwwwwwwk....kkkkkkk..............',store:'............kkkkkkkkkkkkkbbbbbbbbbbkkwwwwwwwwwwkkcckcckcckckkcckcckcckckkwwwwwwwwwwkkcckwkkwcckkkcckwkkwcckkkwwwwkkwwwwkkwwwwkkwwwwkkkkkkkkkkkkk',sun:'.....yy......y...yy...y...y.kkkk.y.....kyyyyk.....kyWyyyyk..yykyyyyyyYyyyykyyyyyyYyy..kyyyyyYk.....kyyYYk.....y.kkkk.y...y...yy...y......yy.....',suncloud:'..y..y.........kkkk..y....kyyyyk....yykyWyyyk.....kyyykkkk....kyykwwwwk....kkwwwwwwk..kkwwwwwwwk.kwwwwwwwwhkkwwwwwwwwhhk.kkkkkkkkkk.............',sunflower:'...k.kk.k.....kykyykyk...kyyyyyyyyk...kyNNNNyk...kyNnNnNNyk..kyNNnNnNyk...kyNNNNyk...kyyyyyyyyk...kyky.kyk.....k.kgk.k.....kkkgkk.......kgggk...',sunrain:'..y.y..........kkkk.....yykyyyykk.....kyyykwwk....kyykwwwwkk...kkwwwwwwk..kwwwwwwwhk.kwwwwwwwhhk..kkkkkkkkk....b..b..b....b..b..b...............',sunrise:'.................yy.......y......y......kkkk.......kyyyyk.....kyWyyyyk....kyyyyyyk..kkkkkkkkkkkkkbbbbbbbbbbkkbcbbbbbcbbkkbbbbcbbbbbkkkkkkkkkkkkk',sunset:'..........................o......o......kkkk.......koooyk.....kooyyyok....koyyyyok..kkkkkkkkkkkkkvvvvvvvvvvkkvoovvvvoovkkvvvvoovvvvkkkkkkkkkkkkk',tag:'...........................kkkkkkkk...kooooooOk..kooTTTTooOkkoNoooooooOk.kooTTTooOOk..kooooooOk....kkkkkkkk.....................................',target:'....kkkk......kkrrrrkk...krrwwwwrrk..krwwrrwwrk.krwrrrrrrwrkkrwrrwwrrwrkkrwrrwwrrwrkkrwrrrrrrwrk.krwwrrwwrk..krrwwwwrrk...kkrrrrkk......kkkk....',tent:'.....kr..........kkrr........kk.........kwrk.......kwrwrk.....kwrwrwrk...kwrwrwrwrk.kkkkkkkkkkkk.krwkNNkwrk..krwkNNkwrk..krwkNNkwrk..kkkkkkkkkk.',tick:'.................................kk.........klk........klgk..kk...klgk..klgk.klgk....kggklgk......kgggk........kgk..........k...................',tie:'...kkkkkk.....kwwkkwwk...kwwkrrkwwk..kwwkrRkwwk..kwk.kk.kwk...k.krrk.k......krrk.......krrRrk......krrRrk......krrRrk.......krRk.........kk.....',tomate:'....k..k.......kGkkGk.....kkgGGgkk...krkkggkkrk.krWrrkkrrrRkkrWrrrrrrrRkkrrrrrrrrrRkkrrrrrrrrRRkkrrrrrrrRRRk.krrrrrrRRk...kkRRRRkk......kkkk....',tools:'.kk.....kkk.khhk...kEEEkkhhk...kEnnk.kkhk..kkkn....khk..kn......khk.kn.......khkkn........khkn.........knkk........knhhk.......knhhk........kkk.',tower:'....kkkk.......kcccck......kgggGk......kcccck......kgggGk......kcccck......kgggGk......kcccck......kgggGk......kcccck......kgkkGk.....kkkkkkkk..',tractor:'...............kkkk........kcck........kcckk.k.....krrrrkkk..kkrrrrrrrrkkEEkrrrrrrrkkEhEkkkkkkkkkEhhEk..kEEkkEhEk..kEhEk.kEk....kEk.............',trash:'....kkkk......kkkhhkkk...khhhhhhhhk..kkkkkkkkkk...khEhEhEk....khEhEhEk....khEhEhEk....khEhEhEk....khEhEhEk....khEhEhEk....kEEEEEEk.....kkkkkk...',tree:'...kkkkk......kgglggkk...kglllggggk.kgglgggGggGkkgggggGggGgkkGggGggggGGk.kGGgggGGGk...kkGGGGkk......knnk........knNk........knNk.......kkkkkk...',trend_d:'.................................................kkkkkkkkkk...krrrrrRk.....krrrRk.......krRk.........kk.........................................',trend_u:'.........................................kk.........kggk.......kgggGk.....kgggggGk...kkkkkkkkkk.................................................',tri_d:'....................................kkkkkkkkkkkkkwwwwwwwwwwk.kwwwwwwwwk...kwwwwwwk.....kwwwwk.......kwwk.........kk.............................',tri_u:'.............................kk.........kwwk.......kwwwwk.....kwwwwwwk...kwwwwwwwwk.kwwwwwwwwwwkkkkkkkkkkkkk....................................',trophy:'.kkkkkkkkkk.kkyyyyyyyykkkykyyyywyykykykyyyywyky..kkyyyyyykk....kyyyyk.......kyYk.........kk..........kk.........kYYk.......kkkkkk......knnnnk...',truck:'............kkkkkkkk....kwwwwwwwkkk.kwwwwwwwkcckkwwwwwwwkcckkggggggggggkkwwwwwwwwwwkkwwwwwwwwwykkkkkkkkkkkkk.kEEk..kEEk..kEEk..kEEk...kk....kk..',unlock:'....kkkk.......khhhhk.....khk..khk....kek..kek....kek...k....kkkkkkkkkk..kyyyyyyyyk..kyyyNNyyYk..kyyyNNyyYk..kyyyyNyyYk..kYYYYYYYYk..kkkkkkkkkk.',up:'.....kk.........kwwk.......kwwwwk.....kwwwwwwk...kwwwwwwwwk.kkkkwwwwkkkk...kwwwwk......kwwwwk......kwwwwk......kwwwwk......kwwwwk......kkkkkk...',warn:'.....kk..........kk.........kyyk........kyyk.......kyNNyk......kyNNyk.....kyyNNyyk....kyyNNyyk...kyyyyyyyyk..kyyyNNyyyk.kyyyyyyyyyykkkkkkkkkkkkk',wave:'...k.k........kskskk......ksksksk.....ksksksk.....kssssskk....ksssssssk...ksssssssk.k.ksssssSk...kksssssk......ksssSk......kssSk.......kkkk.....',weed:'.................kk.........kyyk........kyyk.........kk......k...kgk..k.kgk..kgk.kgkkggk.kgkkggk.kggkkgkggk...kgggggggk....kgGgGgk....kkkkkkkk..',wheat:'.....ky.........kyyk.......kyYykk......kYyyYk......kyYyk.......kyyYk........kyyk.........kYk.........kYk........kkYkk......kYkYkYk......kkkkk...',wind:'...................kk.........kwwk..kkkkkkk.kwk.kwwwwwwwwwk.kkkkkkkkkk...kkkkkkkk...kwwwwwwwwk...kkkkkkk.wk........kwwk.........kk..............',wrench:'........kk.........khk.k.......khkhk......khhhk......khhhk......khhk.......khhk.......khhk.......khhk.......khhk........khk..........k..........',x:'..........................kk....kk....kwk..kwk.....kwkkwk.......kwwk........kwwk.......kwkkwk.....kwk..kwk....kk....kk..........................',xtree:'.....ky.........kyyk.........kk.........kggk.......kgrggk.....kggggyGk.....kgggGk.....kgyggrGk...kggggggGGk.kkkkkkkkkkkk.....kk.........knnk....',zucchini:'.....................kk.........kGk........kggk.......kgGgk......kgGgGk.....kgGgGk.....kgGgGk.....kgGgGk.....koGgGk......kyoGk........kkk.......',robot:'.....kk..........yk.......kkkkkkkk...khhhhhhhhk..khkkhhkkhk..khkchhkchk..khhhhhhhhk..khhEEEEhhk...kkkkkkkk...kbkbbbbkbk..kkkbbbbkkk....kk..kk...',brain:'...............kkkkkk.....kppkppppk..kpppkpkppk..kpkppkpppk.kppppkppkppkkpkpppkppppkkppkppppkppk.kppppkpppk...kkkppppkk.....kkkkk...............',testtube:'.......kkk........khhk.......kccck......kccck......kgggk......kglggk.....kgggggk.....kgglgk......kggggk.......kgkk........kk....................',phone:'.............kkk....kkk.krrrk..krrrkkrrrkkkkrrrk.kkrrrrrrkk....krkkrk.....krkwwkrk....krkwwkrk....krrkkrrk....krrrrrrk....kkkkkkkk..............',box0:'..........................kkkkkkkk....kwwwwwwk....kwhhhhwk....kwhhhhwk....kwhhhhwk....kwhhhhwk....kwwwwwwk....kkkkkkkk..........................',noentry:'....kkkk......kkrrrrkk...krrrrrrrrk..krrrrrrrrk.krrrrrrrrrrkkrWWWWWWWWrkkrWWWWWWWWrkkrrrrrrrrrrk.krrrrrrrrk..krrrrrrrrk...kkrrrrkk......kkkk....',magnifier:'..kkkk.......kcccck.....kcWccccck...kcWccccck...kccccccck...kccccccck....kcccck.k.....kkkkknnk.........knnk.........knnk.........knk..........k.',joystick:'.................kk.........krrk........krrk.........kk..........kk..........kk.......kkkkkkkk...kEEEEEEEEk..kErEEEEbEk..kEEEEEEEEk...kkkkkkkk..',down:'...kkkkkk......kwwwwk......kwwwwk......kwwwwk......kwwwwk......kwwwwk...kkkkwwwwkkkk.kwwwwwwwwk...kwwwwwwk.....kwwwwk.......kwwk.........kk.....',eyes:'.........................kkkk..kkkk.kwwwwkkwwwwkkwwkkkkwwkkkkwwkkkkwwkkkkwwwwkkwwwwk.kkkk..kkkk.................................................',point:'............................kkk........ksssk.......ksssskkkkkkkkssssssssksssssskkkkkkssssssssk..kssssssk.....kssssssk.....kkkkkk................',recycle:'....kkkk.......kggggk.....kgk..kgk...kgk....kk...kgk.....k..kkgkk........kgk....kkk...k....kgk...kk...kgk...kgggkkgk.....kgggggk......kkkkk.....'};
-const PXMAP={"🍀":"klee","🍬":"bonbon","🏮":"laternchen","🎭":"maske","🎆":"feuerwerk","📱":"handy","📲":"tablet","💻":"laptop","⌨":"keyboard","🃏":"cards","🐹":"mole","🔪":"knife","🐦":"bird","💎":"gems","🧱":"crates","🪵":"post","🥅":"mesh","🪧":"sign","🔨":"hammer","❗":"excl","🍎":"apple","🍐":"pear","🍑":"peach","🫒":"kirsche","🫐":"plum","🫚":"radish","🧅":"onion","🫛":"beans","🌽":"corn","🥦":"broccoli","📤":"share","📥":"inbox","📂":"folder","🔤":"abc","🌼":"flower","🟫":"soil","🥀":"wilt","💾":"disk","👍":"thumb","📌":"pin","🔲":"tiles","💶":"coin","🪙":"coin","💰":"bag","🏦":"bank","📈":"chart","📊":"bars","🏷":"tag","🛒":"cart","📦":"box","🚚":"truck","🚗":"car","🚲":"bike","🚜":"tractor","🏗":"crane","⚙":"gear","🔧":"wrench","🛠":"tools","🔩":"bolt","⛏":"hoe","🪣":"bucket","💧":"drop","💦":"splash","🧺":"basket","🌱":"sprout","🌾":"wheat","🌿":"weed","🌻":"sunflower","🌳":"tree","🌸":"blossom","💐":"bouquet","🍂":"leaf","🏠":"house","🏡":"house","🏢":"office","🏬":"store","🏪":"shop","🏭":"factory","🏙":"tower","⛺":"stall","🎪":"tent","🌍":"globe","🗺":"map","🏆":"trophy","🏅":"medal","⭐":"star","★":"star","☆":"star0","✨":"sparkle","🎉":"party","💥":"boom","🎁":"gift","🎄":"xtree","🥚":"egg","❤":"heart","♡":"heart0","🔒":"lock","🔓":"unlock","📅":"calendar","📋":"clipboard","📜":"scroll","📖":"book","🎬":"clapper","🎮":"gamepad","🎯":"target","🔊":"speaker","🔇":"mute","🎵":"note","📣":"megaphone","💡":"bulb","🔬":"microscope","🧬":"dna","🛡":"shield","🗑":"trash","♾":"infinity","🔁":"repeat","⚠":"warn","❌":"no","✗":"no","✕":"x","✅":"check","✓":"tick","❓":"question","💬":"speech","☕":"coffee","🐌":"snail","🐐":"goat","👑":"crown","👔":"tie","🎓":"cap","👥":"people","🧑‍🌾":"farmer","👨‍👩‍👦":"family","👨‍👩":"family","👋":"wave","💪":"arm","🏃":"runner","👟":"shoe","😊":"f_smile","🙂":"f_smile","😄":"f_grin","😂":"f_laugh","😅":"f_sweat","😠":"f_angry","😢":"f_sad","😤":"f_huff","😎":"f_cool","😇":"f_angel","🤢":"faul","🙄":"deda_angry","👴":"deda_happy","🕐":"clock","⌛":"hourglass","⏱":"stopwatch","▶":"play","◀":"back","⬅":"left","➡":"right","⬆":"up","⏩":"ff","⏭":"skip","🏁":"flag","☰":"menu","🟩":"sq_g","🟥":"sq_r","🔥":"fire","☀":"sun","🌤":"suncloud","⛅":"suncloud","🌦":"sunrain","🌧":"rain","🌨":"snowcloud","❄":"snow","🌬":"wind","🌙":"moon","🌅":"sunrise","🌇":"sunset","🇩🇪":"de","🇫🇷":"fr","🇮🇹":"it","🇦🇹":"at","🇨🇭":"ch","🇬🇧":"gb","🥒":"gurke","🍅":"tomate","🥔":"kartoffel","🥬":"zucchini","🍆":"aubergine","🍓":"erdbeere","🥕":"karotte","🫑":"paprika","🥗":"salat","🎃":"kuerbis","🍉":"melone","🌶":"chili","🔴":"himb_rot","🟡":"himb_gelb","🍒":"johannis","▲":"tri_u","▼":"tri_d","⬜":"box0","⛔":"noentry","🧠":"brain","🤖":"robot","🕗":"clock","🧪":"testtube","📞":"phone","⏳":"hourglass","🔍":"magnifier","⬇":"down","👀":"eyes","👉":"point","🕹":"joystick","♻":"recycle"};
+const PXS={eraser:'..................kkkk.......kppppk.....kpppppk....kpppppk....kwkpppk....kwwwkpk.....kwwwwk.......kwwk.........kk...............................',path:'.kkkkkkkkkk.kggggkTTkggkkgggkTTtkggkkggkTTtkgggkkgkTTtkggggkkgkTtkgggggkkgkTtkgggggkkggkTtkggggkkgggkTTkgggkkggggkTTkggkkgggggkTTkgk.kkkkkkkkkk.',chair:'....kkkk.......knnnnk......knNNnk......knnnnk......knnnnk....kkkkkkkkkk..knnnnnnnnk..kkkkkkkkkk...kn....nk....kn....nk....kn....nk....kk....kk..',cloud:'............................kkkk.......kWWWWk....kkWWWWWWkk.kWWWWWWWWWWkkWWWWWWWWWhkkhWWWWWWWhhk.khhhhhhhhk...kkkkkkkk..........................',klee:'..............kkk.kkk....kglgkglgk...kgggGgggk....kgGGGgk....kgggGgggk...kglgkglgk....kkkGkkk........Gk...........Gk..........Gk..........kk....',bonbon:'........................k...kkkk...kyk.krrrrk.kyyykrWprrrkyyyykrprrrpYyyyyYrrrrprkyyyykrrrprrkyyyk.krprrk.kyk...kkkk...k........................',laternchen:'....knnnnnk....kknkkknk...kOOOOOOk....kooooook....koqqqqok....koqWWqok....koqWWqok....koqqqqok....kooooook....kOOOOOOk.....kkOOkk........kk.....',maske:'........kyk........kgyrk..kkk..kgyrk.kvvvkkvvvk.kVvvvvvvvvvkkvvkkvvkkvvkkvvkkvvkkvvkkvvvvvvvvvVk.kvvvkkvvvk...kkk..kkk..........................',feuerwerk:'.....W....................W..b...W.....o....r.......o.br.........WW.....W.y.yWW.y.W.....p..r.......p..b.r.....W......W........W.................',handy:'...kkkkkk.....kEEEEEEk....kEccccEk....kEcWccEk....kEccccEk....kEccccEk....kEccccEk....kEccccEk....kEEEEEEk....kEEhhEEk....kEEEEEEk.....kkkkkk...',tablet:'............kkkkkkkkkkkkkEEEEEEEEEEkkEccccccccEkkEcWccccccEkkEccccccccEkkEccccccccEkkEccccccccEkkEEEEEEEEhEkkkkkkkkkkkkk........................',laptop:'.............kkkkkkkkkk..kEEEEEEEEk..kEcWccccEk..kEccccccEk..kEccccccEk..kEEEEEEEEk..kkkkkkkkkk.khhhhhhhhhhkkheEeEeEeEhkkkkkkkkkkkkk............',keyboard:'........................kkkkkkkkkkkkkEEEEEEEEEEkkEwEwEwEwEEkkEEEEEEEEEEkkEEwEwEwEwEkkEEEEEEEEEEkkEwEwwwwEwEkkEEEEEEEEEEkkkkkkkkkkkkk............',cards:'kkkkkkkk....kwwwwwwk....kwwwgwwkkkk.kwwrrrwkGGk.kwrrrrrkGGk.kwrrrrrkGGk.kwwrrrwkGGk.kwwwwwwkGGk.kwwwwwwkGGk.kkkkkkkkGGk.....kGGGGGk.....kkkkkkk.',mole:'...............kkkkkk.....kEEEEEEk...kEEEEEEEEk..kEkEEEEkEk..kEEEppEEEk..kEEEEEEEEk..kEsEEEEsEk.kkkkkkkkkkkkknnnnnnnnnnkkNnnnNnnnnNkkkkkkkkkkkkk',knife:'..........kk.........khk........khWk.......khWk.......khWk.......khWk.......khWk.......kkkk.......knNk.......knNk.......knNk........kk..........',bird:'................kkkk.......knnnnk.....knnkWnnk....knnnnnnkoo.kNnnnnnnk..kNNnttttnk..kNNNnttttk...kNNNntttk....kkNNNkk.......k..k................',gems:'......................W..........WyW..........W..kk..kk..kk.krrkkggkkyykkrrkkggkkyyk.kk..kk..kk.............kkkkkkkkkkkkknnnnnnnnnnkkkkkkkkkkkkk',crates:'kkkk........kgGk........kGgk........kkkk........kkkkkkkkkkkkkrRkkoOkkyYkkRrkkOokkYykkkkkkkkkkkkkkkkk....kkkkkbBk....kvVkkBbk....kVvkkkkk....kkkk',post:'.....kk.........kTnk.......kTnnNk......kTnnNk......kTnnNk......kTnnNk......kTnnNk......kTnnNk......kTnnNk......kTnnNk......knnnNk.......kkkk....',mesh:'kkkkkkkkkkkkke.e.e.e.e.kk.e...e...ekke.e.e.e.e.kk...e...e..kke.e.e.e.e.kk.e...e...ekke.e.e.e.e.kk...e...e..kke.e.e.e.e.kk.e...e...ekkkkkkkkkkkkk',sign:'.kkkkkkkkkk..kTTTTTTTTk..kTrrrrrrTk..kTTTTTTTTk..kTkkTTkkTk..kTTTTTTTTk..kkkkkkkkkk......kn..........kn..........kn..........kn.........kkkk....',hammer:'..............kkkkkk.....kEhhhhEk....kEhhhhhkk...kEEEEEEEk....kkkkkkk.......kNk.........knNk.........kNk.........knNk.........kNk..........kk...',excl:'.....kk.........krrk........krrk........krrk........krrk........krrk........kRRk.........kk......................kk.........krrk.........kk.....',apple:'......k.kk.......kNkggk.......NkgGk...kkk.Nkkk...krrrkkrrrk.krWrrrrrrrRkkrWrrrrrrrRkkrrrrrrrrrRkkrrrrrrrrRRk.krrrrrrrRk...krrkkrRk.....kk..kk...',pear:'.....kk..........kNkgk......kkNkgGk.....klqkkk.....klqllk......kllllk.....klqlllgk...klqllllgGk..kllllllggk..kllllllgGk...kgllllGk.....kkkkkk...',peach:'......kgk........kGgk......kkkkkkk....kooopppok..kWoooOpppk.kWooooOppppkkooooOppppRkkoooooOpppRkkooooooppRRk.kooooopRRk...kkooppkk......kkkk....',kirsche:'......kkk........kGGk.......kNkk.......kN..Nk.....kN....Nk...kkkk..kkkk.kWrrRkkWrrRkkrrrRkkrrrRkkrrRRkkrrRRk.kRRk..kRRk...kk....kk..............',plum:'.....kk..........kNk........kkNkk......kvvvvvk....kvcvvvvVk...kcvvvvvVk..kvvvvvvvVVk.kvvvvvvvVVk.kvvvvvvVVVk..kvvvvVVVk....kVVVVVk......kkkkk...',radish:'..kk...kk....kgGk.kgGk...kggGkgggk....kgggGgk......kkGkk.......krrrrk.....krWrrrRk....krrrrrRk....krrrrRRk.....kWWWWk.......kWWk.........kk.....',onion:'.....kk..........kgk........kGgk........kYYk.......kYYYYk.....kYqYYYYk...kYqYYYYYnk..kYqYYYYnnk..kYYYYYYnnk...kYYYYnnk.....kknnkk.......tkkt....',beans:'.........kk.........kgGk.......kglGk......kglgk......kgllGk.....kglgGk.....kgllGk.....kglgGk.....kgllGk......kglGk......kgGkk.......kk..........',corn:'......kk.........kyqk........kyyk.......kyqyYk......kqyyYk.....kgyqyYk....kgGyyyYgk...kgGqyYgGk..kgGGyyYgGk..kgGkyYkgGk...kk.kGk.kk.......kk....',broccoli:'...kkkkkk.....kGgGgGgk...kgGgGgGgGk.kGgGlGgGgGgkkgGgGgGlGgGk.kGgGgGgGgk...kkMmMMkk......kmMk........kmMk........kmMk........kmmk.........kk.....',share:'.....kk.........kWWk.......kWWWWk.....kkkWWkkk......kWWk........kWWk.....kkk.kk.kkk..kbk....kbk..kbkkkkkkbk..kbbbbbbbbk..kBBBBBBBBk..kkkkkkkkkk.',inbox:'....kWWk........kWWk........kWWk......kkkWWkkk.....kWWWWk.......kWWk.....kkk.kk.kkk..kgk....kgk..kgkkkkkkgk..kggggggggk..kGGGGGGGGk..kkkkkkkkkk.',folder:'.............kkkk........kyyyk.......kyyyykkkkk..kYYYYYYYYk..kyyyyyyyyk..kyyyyyyyyk..kyyyyyyyyk..kyyyyyyyyk..kYYYYYYYYk..kkkkkkkkkk.............',abc:'............kkkkkkkkkkkkkwwwwwwwwwwkkwkkwkkwkkwkkwkwwkwwkwwkkwkkwkkwkwwkkwkwwkwkkwwkkwkwwkkwkkwkkwwwwwwwwwwkkwwwwwwwwwwkkkkkkkkkkkkk............',flower:'....kkk........kyyyk......kyyqyyk.....kyqOqyk.....kyyqyyk......kyyyk........kGk.......kk.Gk.kk...kgGkGkGgk....kkgGgkk.......kGk.........kkk.....',soil:'........................kkkkkkkkkkkkknnNnnnNnnnkkNnnnNnnnnNkknnnnnnNnnnkknNnnnnnnNnkkkkkkkkkkkkk................................................',wilt:'.....kk.........kYk........kYYk.......kYYk..kk....kYk..kYYk....kk.kYYk......kkYk........kYk........kYk........kNNNNNk....kNnnnnnNk....kkkkkkk...',disk:'kkkkkkkkkkk.kbbhhhhhhbkkkbbhhEhhhbbkkbbhhEhhhbbkkbbhhhhhhbbkkbbbbbbbbbbkkbWWWWWWWWbkkbWeeeeeeWbkkbWWWWWWWWbkkbWeeeeeeWbkkbWWWWWWWWbkkkkkkkkkkkkk',thumb:'....kk.........ksk.........ksk........kssk......kkksssskkkk.kBksssssssSkkBkssssssSk.kBksssssssSkkBkssssssSk.kBksssssssk.kBkSSSSSSk..kkkkkkkkk...',pin:'...kkkkkk......kprrRk.......krRk........krRk.......krrrRk.....krrrrrRk....kkkkkkkk.......kE..........kE..........kE...........k.................',tiles:'.............kkkkk.kkkkk.kgggk.kyyyk.kgggk.kyyyk.kgGgk.kyYyk.kkkkk.kkkkk.............kkkkk.kkkkk.kbbbk.krrrk.kbbbk.krrrk.kkkkk.kkkkk............',arm:'................kkk........kssk........kssk........kssk.kk.....ksSkkssk...kssskssssk.kssssssssk.kssssssssk..kSssssssk...kkkkkkkk................',at:'........................kkkkkkkkkkkkkrrrrrrrrrrkkrrrrrrrrrrkkWWWWWWWWWWkkWWWWWWWWWWkkrrrrrrrrrrkkrrrrrrrrrrkkkkkkkkkkkkk........................',aubergine:'........kk.........kgGk.......kgkgGk.....kkVVk......kvVVVVk....kvvWvVVk...kvvWvvVVk..kvvvvvvVVk..kvvvvvVVk..kvvvvvVVk...kVvvVVVk.....kkkkkk.....',back:'....................kk........kkwk......kkwwwk....kkwwwwwk...kwwwwwwwk...kwwwwwwwk....kkwwwwwk......kkwwwk........kkwk..........kk..............',bag:'...............k....k......kk..kk.......kkkk........knnk.......kkkkkk.....ktttttTk...kttyyyttTk.kttyykyyttTkkttyyyyyttTk.kTTyyyTTTk...kkkkkkkk..',bank:'.....kk........kkhhkk....kkhhyyhhkk.khhhhyyhhhhkkkkkkkkkkkkkkwEEwEEwEEwkkwEEwEEwEEwkkwEEwEEwEEwkkwEEwEEwEEwkkkkkkkkkkkkkkhhhhhhhhhhkkkkkkkkkkkkk',bars:'kkkkkkkkkkkkkwwwwwwwwwwkkwwwwwwwggwkkwwwwwwwggwkkwwwwyywggwkkwwwwyywggwkkwwwwyywggwkkwbbwyywggwkkwbbwyywggwkkwbbwyywggwkkEEEEEEEEEEkkkkkkkkkkkkk',basket:'................kkkk.......k....k.....k......k...kkkkkkkkkk.kttttttttttkknTnTnTnTnNkkttttttttttk.knTnTnTnNk..kttttttttk...kNNNNNNk.....kkkkkk...',bike:'...........................................kkk.....kkk..b.......bbbbb....kkkb..bbkk.k...kbbk.b.kk.ebbk.k.e.kk...k..k...k.kkk....kkk.............',blossom:'....kkkk.......kppppk....kkkppWpkkk.kpppkppkpppkkppWpkkpWppk.kpppkykpppk..kkkyykkkk..kpppkkpppk.kpppWpkpWppkkppppkkppppk.kkkk..kkkk.............',bolt:'...............kkkkkk.....khhhhhhk....kEhhhhEk.....kkkkkk.......khhk........kEhk........khhk........kEhk........khhk.........kk.................',book:'.............kkkk..kkkk.kwwwwkkwwwwkkwEEwkkwEEwkkwwwwkkwwwwkkwEEwkkwEEwkkwwwwkkwwwwkkwEEwkkwEEwkkwwwwkkwwwwkkkkkkrrkkkkkkbbbbkkbbbbk.kkkk..kkkk.',boom:'.k...kk...k.kyk.kyyk.kyk.kykyrryky....kyrrrryk...kyrrWWrryk.kyrrWWWWrryk.kyrrWWrryk...kyrrrryk...kykyrryky..kyk.kyyk.kyk.k...kk...k.............',bouquet:'..kk.kk.kk...kpkkrrkkyk..kppkrRkyyk...kkgkkgkk.....kgkkgk.......kgggk......kwgggwk....kwwgggwwk...kwwwgwwwk....kwwrwwk......kwwwk........kkk....',box:'..........................lg.rr.og...gGgrRrooOg.kkkkkkkkkkkkkTttttttttnkknnnnnnnnnNkkkkkkkkkkkkkkTttttttttnkknnnnnnnnnNkkNNNNNNNNNNkkkkkkkkkkkkk',bucket:'...............kkkkkk.....k......k...k........k.kkkkkkkkkkkkkchhhhhhhhek.khhhhhhhek..khhhhhhhek..kEhhhhhhek...khhhhhek....kEEEEEEk.....kkkkkk...',bulb:'....kkkk.......kyyyyk.....kyWyyyyk....kyWyyyyk....kyyyyyyk....kyyyyyyk.....kyyyyk.......kyyk........kkkk........khhk........kkkk.........kk.....',calendar:'..k.....k...kkhkkkkkhkkkkrrkrrrrkrrkkrrrrrrrrrrkkkkkkkkkkkkkkwwwwwwwwwwkkwEwEwEwEwwkkwwwwwwwwwwkkwEwEwrrEwwkkwwwwwrrwwwkkwEwEwEwwwwkkkkkkkkkkkkk',cap:'.............................kk........kkBBkk....kkBBBBBBkk.kBBBBBBBBBBk.kkBBBBBBkky...kkkkkk.ky...kBBBBk.ky...kBBBBk.yy....kkkk................',car:'...........................kkkkkkk....kcckccckk..kcccckcccckkrrrrrrrrrrkkrrrrrRrrrrkkRrrrrRrrrwkkkkkkkkkkkkk.kEEk..kEEk..kEEk..kEEk...kk....kk..',cart:'.......gg...kkk...rrgg....k..rrRgy....kkkkkkkkkk..khhkhhkhhk..kkkkkkkkkk...khhkhhkk....kkkkkkk.....k...........kkkkkkkk....kEk..kEk.....k....k..',ch:'..............kkkkkkkk....krrrrrrk....krrWWrrk....krrWWrrk....kWWWWWWk....kWWWWWWk....krrWWrrk....krrWWrrk....krrrrrrk....kkkkkkkk..............',chart:'kkkkkkkkkkkkkwwwwwwwwwwkkwwwwwwwwggkkwwwwwwwwgGkkwwwwwwwgwwkkwwwwwwgwwwkkwwwgwgwwwwkkwwgwgwwwwwkkwgwwwwwwwwkkgwwwwwwwwwkkwwwwwwwwwwkkkkkkkkkkkkk',check:'kkkkkkkkkkkkkggggggggggkkgggggggkwgkkggggggkwwgkkgggggkwwkgkkgkwkkwwkggkkgkwwwwkgggkkggkwwkggggkkgggkkgggggkkggggggggggkkGGGGGGGGGGkkkkkkkkkkkkk',chili:'..........k..........kgk........kGk........kgGk.......krrk.......krWrk......krrrk......krrrRk.....krrrRk.....krrRRk......kRRkk......kkk.........',clapper:'........kkk......kkkwwk...kkkwwkkk..kkwwkkkk....kkkkkkkkkkkkkwwkkwwkkwwkkkkkkkkkkkkkkEEEEEEEEEEkkEhhhEhhhhEkkEEEEEEEEEEkkEhhhhhEEEEkkkkkkkkkkkkk',clipboard:'....kkkk.....kkkkhhkkkk..knkkkkkkNk..knwwwwwwNk..knwEEEEwNk..knwwwwwwNk..knwEEEwwNk..knwwwwwwNk..knwEEEEwNk..knwwwwwwNk..knNNNNNNNk..kkkkkkkkkk.',clock:'....kkkk......kkwwwwkk...kwwwkwwwwk..kwwwkwwwwk.kwwwwkwwwwwkkwwwwkkkkwwkkwwwwwwwwwwkkwwwwwwwwwwk.kwwwwwwwwk..kwwwwwwwwk...kkwwwwkk......kkkk....',coffee:'...k..k.......k..k.........k..k.................kkkkkkkkk...kwwwwwwwkkk.kwNNNNNwk.k.kwwwwwwwk.k.kwwwwwwwkkk..kwwwwwk....kkkkkkkkkk...kkkkkkkk...',coin:'....kkkk......kkyyyykk...kywyyyyyYk..kyyyNNNyYk.kyyyNyyyyyYkkyyNNNNyyyYkkyyyNyyyyyYkkyyNNNNyyyYkkyyyNyyyyyYk.kyyyNNNyYk..kYyyyyyYYk...kkYYYYkk..',crane:'kkkkkkkkkkkkkyyyyyyyyyykkkkykkkkkykk..kyk....k....kyk....k....kyk...kkk...kyk...knk...kyk...kkk...kyk.........kyk........kkkkk.......kEEEk......',crown:'........................k...k..k...kkk.kyk.kk.kkkykkyykkykykkyyyyyyyyyykkyryybyygyykkyyyyyyyyyykkYYYYYYYYYYkkkkkkkkkkkkk........................',de:'........................kkkkkkkkkkkkkEEEEEEEEEEkkEEEEEEEEEEkkrrrrrrrrrrkkrrrrrrrrrrkkyyyyyyyyyykkyyyyyyyyyykkkkkkkkkkkkk........................',deda_angry:'...kkkkkk.....ksssssSk...kssssssssk.khkkssskkshkkhskkskkSshkkkwwkkkwwkkkkskEkskEksSk.kssssssssk..kshkkkkhsk...ksshhssk.....kkkkkk...............',deda_happy:'...kkkkkk.....ksssssSk...kssssssssk.khssssssSshkkhkssskkSshkkkwwkkkwwkkkkskEkskEksSk.kssssssssk..kshkWWkhsk...kshkkhsk.....kkkkkk...............',dna:'.kk.....kk....kbk..krk.....kbkkrk.......kbrk.......krkkbk.....krk..kbk....kbkkkkrk.....kbkkrk.......krbk.......kbkkrk.....kbk..krk...kk.....kk..',drop:'.....k...........kk.........kck.........kcck.......kccbk.......kwcbbk.....kwccbbbk....kcccbbbk....kccbbbBk.....kcbbBk.......kkkk................',egg:'....kkkk.......kwwwwk.....kwbwwbwk....kwwwwwwk...kyyyyyyyyk..kyrryrryyk..kyyyyyyyyk..kwwgwwgwwk..kwwwwwwwek...kwwwwwek.....keeeek.......kkkk....',erdbeere:'....k..k.......kgkkgk.....kgGkkGgk...kkkrrrrkkk..krrWryrrrk..kryrrrryrk..krrrryrrRk...kryrrrRk....krrryRRk.....krrRRk.......kRRk.........kk.....',f_angel:'..kyyyyyyk.....kkkkkk.......kkkk......kkyyyykk...kyyyyyyyyk.kyykkyykkyykkyyyyyyyyyykkypyyyyyypykkyykyyyykyyk.kyykkkkyyk...kkyyyykk......kkkk....',f_angry:'....kkkk......kkooookk...kooooooook..kokkookkok.kooookkooookkookkookkookkooooooooookkooooooooook.kookkkkook..kokooookok...kkooookk......kkkk....',f_cool:'....kkkk......kkyyyykk...kyyyyyyyyk..kkkkkkkkkk.kkEEEkkEEEkkkykEEkkEEkykkyykkyykkyykkyyyyyyyyyyk.kyykyykyyk..kyyykkyyyk...kkyyyykk......kkkk....',f_grin:'....kkkk......kkyyyykk...kyyyyyyyyk..kyykyykyyk.kyykykkykyykkyyyyyyyyyykkykkkkkkkkykkykWWWWWWkyk.kykrrrrkyk..kyykkkkyyk...kkyyyykk......kkkk....',f_huff:'....kkkk......kkyyyykk...kykkyykkyk..kyykyykyyk.kyykkyykkyykkyyyyyyyyyykkhhyyyyyyhhkhkhykkkkyhkh.kyyyyyyyyk..kyyyyyyyyk...kkyyyykk......kkkk....',f_laugh:'....kkkk......kkyyyykk...kyyyyyyyyk..kykkyykkyk.kycyyyyyycykkcyyyyyyyyckkykkkkkkkkykkykWWWWWWkyk.kykrrrrkyk..kyykkkkyyk...kkyyyykk......kkkk....',f_sad:'....kkkk......kkyyyykk...kyyyyyyyyk..kykyyyykyk.kyyykyykyyykkyyykyykyyykkyycyyyyyyykkyycyyyyyyyk.kyykkkkyyk..kykyyyykyk...kkyyyykk......kkkk....',f_smile:'....kkkk......kkyyyykk...kyyyyyyyyk..kyykyykyyk.kyyykyykyyykkyyyyyyyyyykkypyyyyyypykkyykyyyykyyk.kyykkkkyyk..kyyyyyyyyk...kkyyyykk......kkkk....',f_sweat:'....kkkk.k....kkyyyykck..kyyyyyyykbk.kyykyykyykkkyyykyykyyykkyyyyyyyyyykkyyyyyyyyyykkyykkkkkkyyk.kyykWWkyyk..kyyykkyyyk...kkyyyykk......kkkk....',factory:'..............k...k...k..kck.kck.kckkcckkcckkcckkccckccckcckkkkkkkkkkkkkkGlGlGlGlGlkkgggggggggGkkwccwccwccGkkgggggggggGkkgggkkkggggkkkkkkkkkkkkk',family:'.kkk....kkk.kNNNk..kooo.ksssk..kssskkskkk..kksk.ksssk..ksssk.kkk....kkk.kbbbk..krrrkkbbbk.kkrrrkkbbbkkNNkrrkkbbbkksskrrkkbbbkkggkrrkkkkkkkkkkkkk',farmer:'....kkkk.......kTTTTk....kkTTTTTTkk.kTTTTTTTTTTk.kkkkkkkkkk...kssssssk....kskssksk....kssssssk.....kSSSSk.....kbbbbbbk...kbkbbbbkbk..kkkkkkkkkk.',faul:'.k.....k....k.k...k.k....k..k..k........kkkk......kknNnnkk...knNnnNnnNk.knnnNnnnnnNkknNnnnnNnNNkkNnnnNnnNNNk.kNNnNNNNNk...kkkkkkkk..............',ff:'............kk....kk....kwkk..kwkk..kwwwk.kwwwk.kwwwwkkwwwwkkwwwwwkwwwwkkwwwwwkwwwwkkwwwwkkwwwwkkwwwk.kwwwk.kwkk..kwkk..kk....kk................',fire:'.....k..........kok.........kok..k.....koook.kk...kooyok.kok..koyyookook.kooyyyoooOk.koyyWyyoyOk.koyyWWyyyOk.kooyyyyyoOk..kooooooOk....kkkkkkk..',flag:'kkkkkkkkkk..kwkwkwkwkwk.kkwkwkwkwkk.kwkwkwkwkwk.kkwkwkwkwkk.kwkwkwkwkwk.kkkkkkkkkkk.kk..........kk..........kk..........kk..........kk..........',fr:'........................kkkkkkkkkkkkkbbbWWWWrrrkkbbbWWWWrrrkkbbbWWWWrrrkkbbbWWWWrrrkkbbbWWWWrrrkkbbbWWWWrrrkkkkkkkkkkkkk........................',gamepad:'..........................kkkkkkkk...kEEEEEEEEk.kEEkEEEErEEkkEkkkEEbErEkkEEkEEEEgEEkkEEEEkkEEEEkkEEEk..kEEEk.kkk....kkk.........................',gb:'........................kkkkkkkkkkkkkrbbbWrbbbrkkbrbbWrbbrbkkWWWWWrWWWWkkrrrrrrrrrrkkbbrbWrbrbbkkrbbbWrbbbrkkkkkkkkkkkkk........................',gear:'.....kk.......k.kEEk.k...kEkEhhEkEk...kEhhhhEk...kEhhkkhhEk.kEhhk..khhEkkEhhk..khhEk.kEhhkkhhEk...kEhhhhEk...kEkEhhEkEk...k.kEEk.k.......kk.....',gift:'...kk..kk.....krrkkrrk.....kkrrkk...kkkkkrrkkkkkkgggkrrkgggkkkkkkrrkkkkk.kgggrrgggk..kgggrrgggk..kgggrrgggk..kGggrrggGk..kGGGrrGGGk..kkkkkkkkkk.',globe:'....kkkk......kkbbbbkk...kbggbbbggk..kgggbbbgbk.kbbggbbbbgbkkbbbgbbggbbkkbbbbbgggbbkkbbbbbggbbbk.kbbbbgbbbk..kbbbbbbbbk...kkbbbbkk......kkkk....',goat:'.k..........k.k..........kwk.........kwwkk......kwwwwwk.....kkwwwwkkkkk..kkwwwwwwwk...kwwwwwwwwk...kwwwwwwk....kek..kek....kek..kek....kkk..kkk.',gurke:'..........kk........kkgk.......kggk.......kGgGk......kgGgk......kGglGk.....kgGlgk.....kGglGk.....kgGgGk.....kgGgGk......kGGGk........kkk........',heart:'.............kkk...kkk..krWrk.krrrk.kWrrrkrrrRk.krrrrrrrrRk.krrrrrrrRRk..krrrrrrRk....krrrrRk......krrRk........krk..........k..................',heart0:'.............kkk...kkk..keeek.keeek.ke..eke..ek.ke...e...ek.ke.......ek..ke.....ek....ke...ek......ke.ek........kek..........k..................',himb_gelb:'....k..k.......kgkkgk.....kgGggGgk...kkkkkkkkkk..kqyYqyYqyk..kyYqyYqyYk..kYqyYqyYqk..kqyYqyYqyk...kYqyYqyk.....kyYqyk.......kYYk.........kk.....',himb_rot:'....k..k.......kgkkgk.....kgGggGgk...kkkkkkkkkk..kprRprRprk..krRprRprRk..kRprRprRpk..kprRprRprk...kRprRprk.....krRprk.......kRRk.........kk.....',hoe:'.kkkkk......kEhhhEk......kkkkkk.........knk..........knk..........knk..........knk..........knk..........knk..........nk...........k............',hourglass:'.kkkkkkkkkk..knnnnnnnnk...kcccccck....kyyyyyyk.....kyyyyk.......kyyk........kcck.......kcyyck.....kcyyyyck....kyyyyyyk...knnnnnnnnk..kkkkkkkkkk.',house:'.....kk.........krrk.......krrrrk.....krrrrrrk...krrrrrrrrk.kkkkkkkkkkkk.kmmmmmmmmk..kmwwmmkkmk..kmckmmknmk..kmwwmmknmk..kmmmmmknMk..kkkkkkkkkk.',infinity:'.....................................kkkk..kkkk.kyyyykkyyyykkykkkyykkkykkykkkyykkkykkyyyykkyyyyk.kkkk..kkkk.....................................',it:'........................kkkkkkkkkkkkkgggWWWWrrrkkgggWWWWrrrkkgggWWWWrrrkkgggWWWWrrrkkgggWWWWrrrkkgggWWWWrrrkkkkkkkkkkkkk........................',johannis:'..kk...........kGk..........kGk..........kGkk.......kkGkrk.....krkGkRk....krWkkrrk....krRkkRrk.....kk.krkrk......krWkRk......kRRk.k.......kk....',karotte:'.......k.k.k........kgkg......kkgGgk.....kooOkk.....kooOok.....kooOook.....koOook.....kooOok......koOook.....kooOok......koOk........kk.........',kartoffel:'............................kkkkk.....kkTttttkk..kTttttnttk.kTtnttttttSkktttttttntSkkttttntttSSk.kttttttSSk...kkSSSSkk......kkkk................',kuerbis:'.....kk..........kGk.......kkkGkkk....koookookk..kooyookoookkooyookooooOkooyookoooOOkoooookoooOOkoooookooOOO.kooookooOOk..kkOOkOOkk.....kkkkk...',leaf:'.........kk........kkok......kkoooOk....kooyoOOk...koooyoOk...kooyyoOOk...koyoooOk...koyoooOk....kyOOOOk.....kkkkkk.....kN......................',left:'................kk.........kwk........kwwkkkkkkk.kwwwwwwwwwkkwwwwwwwwwwkkwwwwwwwwwwk.kwwwwwwwwwk..kwwkkkkkkk...kwk..........kk..................',lock:'....kkkk.......khhhhk.....khk..khk....kek..kek....kek..kek...kkkkkkkkkk..kyyyyyyyyk..kyyyNNyyYk..kyyyNNyyYk..kyyyyNyyYk..kYYYYYYYYk..kkkkkkkkkk.',map:'............kkkkkkkkkkkkkTTTtTTTtTTkkTggtTTbtTTkkTggtTbbbTrkkTTTtTbbtrrkkTgTtTTTtTrkkTTTtgTTtTTkkTTTtggTtTTkkTTTtTTTtTTkkkkkkkkkkkkk............',medal:'.kkk....kkk..kbbk..krrk...kbbkkrrk.....kbbrrk.......kkkk.......kyyyyk.....kyywyyYk....kyyyyyYk....kyyyyyYk.....kyyYYk.......kkkk................',megaphone:'.........kk........kkrk......kkrrrk.kkkkkrrrrrk.khhkrrrrrrk.khhkrrrrrrk.kkkkkrrrrrk...kk.kkrrrk...kk...kkrk...kk.....kk.........................',melone:'....................................kkkkkkkkkkkkkGrrrrrrrrGk.kGrrkrrkrGk.kGrrrrrrGk...kGrkrrGk.....kGrrGk.......kGGk.........kk.................',menu:'........................kkkkkkkkkkkkkwwwwwwwwwwkkkkkkkkkkkkkkwwwwwwwwwwkkkkkkkkkkkkkkwwwwwwwwwwkkkkkkkkkkkkk....................................',microscope:'....kk.........kEEk........khhk.......kEhhEk.......khhk..k.....khhk.kEk....kEEk.kEk....kkkkkkEk......kEEEk........kEk.....kkkkkkkkk...kEEEEEEEk.',moon:'....kkkk......kkyyyk.....kyyyyk......kyyyk......kyyyyk......kyyyyk......kyyyyk......kyyyyyk......kyyyyyk..k..kYyyyyykkk...kkYYYYkk......kkkk....',mute:'.................k..........kk.........khk......kkkhhk.r...rkhhhhk..r.r.khhhhk...r..kkkhhk..r.r....khk.r...r....kk...........k..................',no:'.............kkk....kkk.krrrk..krrrkkkrrrkkrrrkk.kkrrrrrrkk...kkrrrrkk....kkrrrrkk...kkrrrrrrkk.kkrrrkkrrrkkkrrrk..krrrk.kkk....kkk.............',note:'.....kkkkkkk.....kyyyyyk.....kkkkkkk.....k.....k.....k.....k.....k.....k.....k.....k..kkkk..kkkk.kyyyk.kyyyk.kyyyk.kyyyk..kkk...kkk.............',office:'..kkkkkkkk....khhhhhhk....kcEcEcEk....khhhhhhk....kcEcEcEk....khhhhhhk....kcEcEcEk....khhhhhhk....kcEcEcEk....khhhhhhk....khhkkhhk...kkkkkkkkkk.',paprika:'.....kk.........kgGk......kkkGkkkk...kyyykkyyyk.kyWyyyyyyyOkkyWyyyyyyyOkkyyyyOyyyyOkkyyyyOyyyOOkkyyyyOyyyOOk.kyyyOyyOOk...kyOkkOOk.....kk..kk...',party:'.....r..b.....y.....y.p.......kk..g..b...kyok.......kyok..r....kyoyk.y....kyoyok.....kyoyok..p..kyoyokk.....koyok.......kook........kkk.........',people:'.......kkk....kkk.kNNNk..kNNNkkssskk.ksssk.sks...ksksk.ssk....kssk.kkk....kkk.kbbbk..kbbbkbbbbbkkbbbbbkbbbbkkbbbbbkbbbbkkbbbbbk.....kkkkkkk.....',play:'..............kk..........kwkk........kwwwkk......kwwwwwkk....kwwwwwwwk...kwwwwwwwk...kwwwwwkk....kwwwkk......kwkk........kk....................',question:'...kkkkkk.....kwwwwwwk...kwwkkkkwwk..kkk....kwwk........kwwk......kkwwk......kwwwk.......kwwk........kkkk........kwwk........kwwk........kkkk...',rain:'....kkkk......kkhhhhk....khhhhhhhkk..khhhhhhhhhkkhhhhhhhhhekkeeeeeeeeeek.kkkkkkkkkk...b..b..b....b..b..b..b...............b..b..b....b..b..b....',repeat:'...................k......kkkkkgk....kggggggggk.kgkkkkkgkkk.kgk....k........k....kgk...kgkkkkkgk.kggggggggk...kgkkkkkk.....k....................',right:'..................kk..........kwk...kkkkkkkwwk..kwwwwwwwwwk.kwwwwwwwwwwkkwwwwwwwwwwkkwwwwwwwwwk.kkkkkkkwwk........kwk.........kk................',runner:'.......kkk........kNNNk.......ksssk........kkk......kkrrrk.....krkrrrkk....kk.krrkrk.....kbbbkk.....kbkkbk.....kbk..kbk...kkk....kbk..........kk',salat:'................kkkk......kklllkkk...klllgllglk.klgllglllgk.kllgllllgllkkglllgllglgkklglllgllgGkkggglggglgGk.kgGgggggGk...kkGGGGkk......kkkk....',scroll:'.kkkkkkkkk..kTTTTTTTTtk.kTkkkkkkkkk..kTTTTTTTk...kTnnnnnTk...kTTTTTTTk...kTnnnnTTk...kTTTTTTTk...kTnnnnnTk...kkkkkkkkkkk.kTTTTTTTTtk..kkkkkkkkk.',shield:'kkkkkkkkkkkkkbbbbbkhhhhkkbbbbbkhhhekkbbbbbkhhhekkkkkkkkkkkkkkhhhhhkbbbbkkhhhhhkbbbBk.khhhhkbbbk..khhhhkbbBk...khhhkbbk.....khhkbk.......kkkk....',shoe:'........................................kkk........kwwwk.......kwrwkkk.....kwrwwwwk...kwwwwwwwwk.kwrrwwwwwwkkkkkkkkkkkkkkEEEEEEEEEEk.kkkkkkkkkk.',shop:'.............kkkkkkkkkk.kwrwrwrwrwrkkrwrwrwrwrwkkkkkkkkkkkkk.ktttttttttk.ktkkkktNNtk.ktklrktNNtk.ktkgokttttk.kkkkkkkkkkk.ktttttttttk.kkkkkkkkkkk',skip:'............kk....kk.kk.kwkk..kwkkwkkwwwk.kwwkwkkwwwwkkwwkwkkwwwwwkwwkwkkwwwwwkwwkwkkwwwwkkwwkwkkwwwk.kwwkwkkwkk..kwkkwkkk....kk.kk.............',snail:'....................k.k.........k.k....kkkk.kgk...kttnnk.kgk.ktnkkntk.kg.ktnkNtnk.kg.kntttnnkkgkkkkkkkkkkggkklggggggggk..kkkkkkkkk..............',snow:'.....kk........k.cc.k.....kck..kck......kcck.....k...cc...k.kccccWWcccckkccccWWcccck.k...cc...k.....kcck......kck..kck.....k.cc.k........kk.....',snowcloud:'....kkkk......kkhhhhk....khhhhhhhkk..khhhhhhhhhkkhhhhhhhhhekkeeeeeeeeeek.kkkkkkkkkk...W...W..W...WWW.WWW......W...W..W......W...WWW....WWW...W..',sparkle:'....k..........kyk.......kkyWykk......kkykk...k....kyk...kyk....k...kyWy.........kyk..k.......k..kyk........kyWyk........kyk..........k.........',speaker:'.................k...k......kk....k....khk..k..kkkkhhk...k.kkhhhhk.k.k.kkhhhhk.k.k.kkkkhhk...k.k...khk..k..k....kk....k......k...k..............',speech:'.............kkkkkkkkkk.kwwwwwwwwwwkkwEwEEwEEwwkkwwwwwwwwwwkkwEEwEEEwwwkkwwwwwwwwwwk.kkkkwwkkkk.....kwk.........kk..........k...................',splash:'.k......k...kck....kck..kbk...kcbk...k....kbbk.........kk......k..........kck....k....kcbk..kck...kbbk..kbk....kk....k..........................',sprout:'..........................kk....kk...kllk..kllk.kllggkkgglk..kggGkkGggk...kkkkgkkk.......kgk.........kgk.......kkkgkkk....knnnnnnnk...kkkkkkkkk.',sq_g:'..........................kkkkkkkk....kllggggk....klgggggk....kgggggGk....kgggggGk....kggggGGk....kGGGGGGk....kkkkkkkk..........................',sq_r:'..........................kkkkkkkk....kpprrrrk....kprrrrrk....krrrrrRk....krrrrrRk....krrrrRRk....kRRRRRRk....kkkkkkkk..........................',stall:'............kkkkkkkkkkkkkwrwrwrwrwrkkrwrwrwrwrwkkkkkkkkkkkkk.kn......nk..kn......nk..kkkkkkkkkk.krgoyrglorgkkkkkkkkkkkkk.kn......nk..kk......kk.',star:'.....kk..........kk.........kyyk........kyyk....kkkkkywykkkkkyyyyyyyyyyk.kyyyyyyyyk...kyyyyyYk....kyyyyyYk...kyyYkkYyYk..kyYk..kYYk..kkk....kkk.',star0:'.....kk..........kk.........keek........kEEk....kkkkkEEkkkkkkeEEEEEEEEek.keEEEEEEek...kEEEEEEk....kEEEEEEk...keEekkeEek..kek....kek..kkk....kkk.',stopwatch:'....kkkk.........kk...k....kkkkkkkk...kwwwkwwwk..kwwwwkwwwwk.kwwwwkwwwwk.kwwwwkkkwwk.kwwwwwwwwwk.kwwwwwwwwwk..kwwwwwwwk....kkkkkkk..............',store:'............kkkkkkkkkkkkkbbbbbbbbbbkkwwwwwwwwwwkkcckcckcckckkcckcckcckckkwwwwwwwwwwkkcckwkkwcckkkcckwkkwcckkkwwwwkkwwwwkkwwwwkkwwwwkkkkkkkkkkkkk',sun:'.....yy......y...yy...y...y.kkkk.y.....kyyyyk.....kyWyyyyk..yykyyyyyyYyyyykyyyyyyYyy..kyyyyyYk.....kyyYYk.....y.kkkk.y...y...yy...y......yy.....',suncloud:'..y..y.........kkkk..y....kyyyyk....yykyWyyyk.....kyyykkkk....kyykwwwwk....kkwwwwwwk..kkwwwwwwwk.kwwwwwwwwhkkwwwwwwwwhhk.kkkkkkkkkk.............',sunflower:'...k.kk.k.....kykyykyk...kyyyyyyyyk...kyNNNNyk...kyNnNnNNyk..kyNNnNnNyk...kyNNNNyk...kyyyyyyyyk...kyky.kyk.....k.kgk.k.....kkkgkk.......kgggk...',sunrain:'..y.y..........kkkk.....yykyyyykk.....kyyykwwk....kyykwwwwkk...kkwwwwwwk..kwwwwwwwhk.kwwwwwwwhhk..kkkkkkkkk....b..b..b....b..b..b...............',sunrise:'.................yy.......y......y......kkkk.......kyyyyk.....kyWyyyyk....kyyyyyyk..kkkkkkkkkkkkkbbbbbbbbbbkkbcbbbbbcbbkkbbbbcbbbbbkkkkkkkkkkkkk',sunset:'..........................o......o......kkkk.......koooyk.....kooyyyok....koyyyyok..kkkkkkkkkkkkkvvvvvvvvvvkkvoovvvvoovkkvvvvoovvvvkkkkkkkkkkkkk',tag:'...........................kkkkkkkk...kooooooOk..kooTTTTooOkkoNoooooooOk.kooTTTooOOk..kooooooOk....kkkkkkkk.....................................',target:'....kkkk......kkrrrrkk...krrwwwwrrk..krwwrrwwrk.krwrrrrrrwrkkrwrrwwrrwrkkrwrrwwrrwrkkrwrrrrrrwrk.krwwrrwwrk..krrwwwwrrk...kkrrrrkk......kkkk....',tent:'.....kr..........kkrr........kk.........kwrk.......kwrwrk.....kwrwrwrk...kwrwrwrwrk.kkkkkkkkkkkk.krwkNNkwrk..krwkNNkwrk..krwkNNkwrk..kkkkkkkkkk.',tick:'.................................kk.........klk........klgk..kk...klgk..klgk.klgk....kggklgk......kgggk........kgk..........k...................',tie:'...kkkkkk.....kwwkkwwk...kwwkrrkwwk..kwwkrRkwwk..kwk.kk.kwk...k.krrk.k......krrk.......krrRrk......krrRrk......krrRrk.......krRk.........kk.....',tomate:'....k..k.......kGkkGk.....kkgGGgkk...krkkggkkrk.krWrrkkrrrRkkrWrrrrrrrRkkrrrrrrrrrRkkrrrrrrrrRRkkrrrrrrrRRRk.krrrrrrRRk...kkRRRRkk......kkkk....',tools:'.kk.....kkk.khhk...kEEEkkhhk...kEnnk.kkhk..kkkn....khk..kn......khk.kn.......khkkn........khkn.........knkk........knhhk.......knhhk........kkk.',tower:'....kkkk.......kcccck......kgggGk......kcccck......kgggGk......kcccck......kgggGk......kcccck......kgggGk......kcccck......kgkkGk.....kkkkkkkk..',tractor:'...............kkkk........kcck........kcckk.k.....krrrrkkk..kkrrrrrrrrkkEEkrrrrrrrkkEhEkkkkkkkkkEhhEk..kEEkkEhEk..kEhEk.kEk....kEk.............',trash:'....kkkk......kkkhhkkk...khhhhhhhhk..kkkkkkkkkk...khEhEhEk....khEhEhEk....khEhEhEk....khEhEhEk....khEhEhEk....khEhEhEk....kEEEEEEk.....kkkkkk...',tree:'...kkkkk......kgglggkk...kglllggggk.kgglgggGggGkkgggggGggGgkkGggGggggGGk.kGGgggGGGk...kkGGGGkk......knnk........knNk........knNk.......kkkkkk...',trend_d:'.................................................kkkkkkkkkk...krrrrrRk.....krrrRk.......krRk.........kk.........................................',trend_u:'.........................................kk.........kggk.......kgggGk.....kgggggGk...kkkkkkkkkk.................................................',tri_d:'....................................kkkkkkkkkkkkkwwwwwwwwwwk.kwwwwwwwwk...kwwwwwwk.....kwwwwk.......kwwk.........kk.............................',tri_u:'.............................kk.........kwwk.......kwwwwk.....kwwwwwwk...kwwwwwwwwk.kwwwwwwwwwwkkkkkkkkkkkkk....................................',trophy:'.kkkkkkkkkk.kkyyyyyyyykkkykyyyywyykykykyyyywyky..kkyyyyyykk....kyyyyk.......kyYk.........kk..........kk.........kYYk.......kkkkkk......knnnnk...',truck:'............kkkkkkkk....kwwwwwwwkkk.kwwwwwwwkcckkwwwwwwwkcckkggggggggggkkwwwwwwwwwwkkwwwwwwwwwykkkkkkkkkkkkk.kEEk..kEEk..kEEk..kEEk...kk....kk..',unlock:'....kkkk.......khhhhk.....khk..khk....kek..kek....kek...k....kkkkkkkkkk..kyyyyyyyyk..kyyyNNyyYk..kyyyNNyyYk..kyyyyNyyYk..kYYYYYYYYk..kkkkkkkkkk.',up:'.....kk.........kwwk.......kwwwwk.....kwwwwwwk...kwwwwwwwwk.kkkkwwwwkkkk...kwwwwk......kwwwwk......kwwwwk......kwwwwk......kwwwwk......kkkkkk...',warn:'.....kk..........kk.........kyyk........kyyk.......kyNNyk......kyNNyk.....kyyNNyyk....kyyNNyyk...kyyyyyyyyk..kyyyNNyyyk.kyyyyyyyyyykkkkkkkkkkkkk',wave:'...k.k........kskskk......ksksksk.....ksksksk.....kssssskk....ksssssssk...ksssssssk.k.ksssssSk...kksssssk......ksssSk......kssSk.......kkkk.....',weed:'.................kk.........kyyk........kyyk.........kk......k...kgk..k.kgk..kgk.kgkkggk.kgkkggk.kggkkgkggk...kgggggggk....kgGgGgk....kkkkkkkk..',wheat:'.....ky.........kyyk.......kyYykk......kYyyYk......kyYyk.......kyyYk........kyyk.........kYk.........kYk........kkYkk......kYkYkYk......kkkkk...',wind:'...................kk.........kwwk..kkkkkkk.kwk.kwwwwwwwwwk.kkkkkkkkkk...kkkkkkkk...kwwwwwwwwk...kkkkkkk.wk........kwwk.........kk..............',wrench:'........kk.........khk.k.......khkhk......khhhk......khhhk......khhk.......khhk.......khhk.......khhk.......khhk........khk..........k..........',x:'..........................kk....kk....kwk..kwk.....kwkkwk.......kwwk........kwwk.......kwkkwk.....kwk..kwk....kk....kk..........................',xtree:'.....ky.........kyyk.........kk.........kggk.......kgrggk.....kggggyGk.....kgggGk.....kgyggrGk...kggggggGGk.kkkkkkkkkkkk.....kk.........knnk....',zucchini:'.....................kk.........kGk........kggk.......kgGgk......kgGgGk.....kgGgGk.....kgGgGk.....kgGgGk.....koGgGk......kyoGk........kkk.......',robot:'.....kk..........yk.......kkkkkkkk...khhhhhhhhk..khkkhhkkhk..khkchhkchk..khhhhhhhhk..khhEEEEhhk...kkkkkkkk...kbkbbbbkbk..kkkbbbbkkk....kk..kk...',brain:'...............kkkkkk.....kppkppppk..kpppkpkppk..kpkppkpppk.kppppkppkppkkpkpppkppppkkppkppppkppk.kppppkpppk...kkkppppkk.....kkkkk...............',testtube:'.......kkk........khhk.......kccck......kccck......kgggk......kglggk.....kgggggk.....kgglgk......kggggk.......kgkk........kk....................',phone:'.............kkk....kkk.krrrk..krrrkkrrrkkkkrrrk.kkrrrrrrkk....krkkrk.....krkwwkrk....krkwwkrk....krrkkrrk....krrrrrrk....kkkkkkkk..............',box0:'..........................kkkkkkkk....kwwwwwwk....kwhhhhwk....kwhhhhwk....kwhhhhwk....kwhhhhwk....kwwwwwwk....kkkkkkkk..........................',noentry:'....kkkk......kkrrrrkk...krrrrrrrrk..krrrrrrrrk.krrrrrrrrrrkkrWWWWWWWWrkkrWWWWWWWWrkkrrrrrrrrrrk.krrrrrrrrk..krrrrrrrrk...kkrrrrkk......kkkk....',magnifier:'..kkkk.......kcccck.....kcWccccck...kcWccccck...kccccccck...kccccccck....kcccck.k.....kkkkknnk.........knnk.........knnk.........knk..........k.',joystick:'.................kk.........krrk........krrk.........kk..........kk..........kk.......kkkkkkkk...kEEEEEEEEk..kErEEEEbEk..kEEEEEEEEk...kkkkkkkk..',down:'...kkkkkk......kwwwwk......kwwwwk......kwwwwk......kwwwwk......kwwwwk...kkkkwwwwkkkk.kwwwwwwwwk...kwwwwwwk.....kwwwwk.......kwwk.........kk.....',eyes:'.........................kkkk..kkkk.kwwwwkkwwwwkkwwkkkkwwkkkkwwkkkkwwkkkkwwwwkkwwwwk.kkkk..kkkk.................................................',point:'............................kkk........ksssk.......ksssskkkkkkkkssssssssksssssskkkkkkssssssssk..kssssssk.....kssssssk.....kkkkkk................',recycle:'....kkkk.......kggggk.....kgk..kgk...kgk....kk...kgk.....k..kkgkk........kgk....kkk...k....kgk...kk...kgk...kgggkkgk.....kgggggk......kkkkk.....'};
+const PXMAP={"🧽":"eraser","☁":"cloud","🛤":"path","🪑":"chair","🍀":"klee","🍬":"bonbon","🏮":"laternchen","🎭":"maske","🎆":"feuerwerk","📱":"handy","📲":"tablet","💻":"laptop","⌨":"keyboard","🃏":"cards","🐹":"mole","🔪":"knife","🐦":"bird","💎":"gems","🧱":"crates","🪵":"post","🥅":"mesh","🪧":"sign","🔨":"hammer","❗":"excl","🍎":"apple","🍐":"pear","🍑":"peach","🫒":"kirsche","🫐":"plum","🫚":"radish","🧅":"onion","🫛":"beans","🌽":"corn","🥦":"broccoli","📤":"share","📥":"inbox","📂":"folder","🔤":"abc","🌼":"flower","🟫":"soil","🥀":"wilt","💾":"disk","👍":"thumb","📌":"pin","🔲":"tiles","💶":"coin","🪙":"coin","💰":"bag","🏦":"bank","📈":"chart","📊":"bars","🏷":"tag","🛒":"cart","📦":"box","🚚":"truck","🚗":"car","🚲":"bike","🚜":"tractor","🏗":"crane","⚙":"gear","🔧":"wrench","🛠":"tools","🔩":"bolt","⛏":"hoe","🪣":"bucket","💧":"drop","💦":"splash","🧺":"basket","🌱":"sprout","🌾":"wheat","🌿":"weed","🌻":"sunflower","🌳":"tree","🌸":"blossom","💐":"bouquet","🍂":"leaf","🏠":"house","🏡":"house","🏢":"office","🏬":"store","🏪":"shop","🏭":"factory","🏙":"tower","⛺":"stall","🎪":"tent","🌍":"globe","🗺":"map","🏆":"trophy","🏅":"medal","⭐":"star","★":"star","☆":"star0","✨":"sparkle","🎉":"party","💥":"boom","🎁":"gift","🎄":"xtree","🥚":"egg","❤":"heart","♡":"heart0","🔒":"lock","🔓":"unlock","📅":"calendar","📋":"clipboard","📜":"scroll","📖":"book","🎬":"clapper","🎮":"gamepad","🎯":"target","🔊":"speaker","🔇":"mute","🎵":"note","📣":"megaphone","💡":"bulb","🔬":"microscope","🧬":"dna","🛡":"shield","🗑":"trash","♾":"infinity","🔁":"repeat","⚠":"warn","❌":"no","✗":"no","✕":"x","✅":"check","✓":"tick","❓":"question","💬":"speech","☕":"coffee","🐌":"snail","🐐":"goat","👑":"crown","👔":"tie","🎓":"cap","👥":"people","🧑‍🌾":"farmer","👨‍👩‍👦":"family","👨‍👩":"family","👋":"wave","💪":"arm","🏃":"runner","👟":"shoe","😊":"f_smile","🙂":"f_smile","😄":"f_grin","😂":"f_laugh","😅":"f_sweat","😠":"f_angry","😢":"f_sad","😤":"f_huff","😎":"f_cool","😇":"f_angel","🤢":"faul","🙄":"deda_angry","👴":"deda_happy","🕐":"clock","⌛":"hourglass","⏱":"stopwatch","▶":"play","◀":"back","⬅":"left","➡":"right","⬆":"up","⏩":"ff","⏭":"skip","🏁":"flag","☰":"menu","🟩":"sq_g","🟥":"sq_r","🔥":"fire","☀":"sun","🌤":"suncloud","⛅":"suncloud","🌦":"sunrain","🌧":"rain","🌨":"snowcloud","❄":"snow","🌬":"wind","🌙":"moon","🌅":"sunrise","🌇":"sunset","🇩🇪":"de","🇫🇷":"fr","🇮🇹":"it","🇦🇹":"at","🇨🇭":"ch","🇬🇧":"gb","🥒":"gurke","🍅":"tomate","🥔":"kartoffel","🥬":"zucchini","🍆":"aubergine","🍓":"erdbeere","🥕":"karotte","🫑":"paprika","🥗":"salat","🎃":"kuerbis","🍉":"melone","🌶":"chili","🔴":"himb_rot","🟡":"himb_gelb","🍒":"johannis","▲":"tri_u","▼":"tri_d","⬜":"box0","⛔":"noentry","🧠":"brain","🤖":"robot","🕗":"clock","🧪":"testtube","📞":"phone","⏳":"hourglass","🔍":"magnifier","⬇":"down","👀":"eyes","👉":"point","🕹":"joystick","♻":"recycle"};
 const PXURL={};
 function pxDeda(mode){try{const oc=C;PIC.width=16;PIC.height=16;PICX.clearRect(0,0,16,16);C=PICX;
   try{withOutline((dx,dy)=>dedaHead(1+dx,1+dy,mode,false));}finally{C=oc;}return PIC.toDataURL();}catch(e){return null;}}
@@ -996,7 +996,7 @@ function buildGarden(L,free){
   yardBuildTiles(null,temp);buildGarden.temp=!!temp;
   for(let k=0;k<2;k++){const c=tiles.filter(t=>t.bed&&!t.weed);if(c.length)pick(c).weed=true;}
   drawStatic();
-  const pt=tiles.filter(t=>t.ch==='=');const dt=pt.length?pt.reduce((a,t)=>Math.abs(t.c-15)+Math.abs(t.r-12)<Math.abs(a.c-15)+Math.abs(a.r-12)?t:a):tileAt(15,14);
+  const pt=tiles.filter(t=>walkable(t.ch));const dt=pt.length?pt.reduce((a,t)=>Math.abs(t.c-XOFF-15)+Math.abs(t.r-12)<Math.abs(a.c-XOFF-15)+Math.abs(a.r-12)?t:a):tileAt(XOFF+15,14);
   deda.x=dt.c*T+8;deda.y=dt.r*T+15;deda.path=[];deda.react=0;deda.happy=0;deda.wait=2;
   helpers=[];
   const fest=FEST&&L===MAXL,hl=fest?['david','robin','raphael','sascha','leo']:COMPANY?PROG.helpers:DAYHELP;
@@ -1009,20 +1009,30 @@ const HELPER_LOOKS={
   ma3:{name:'Vorarbeiter',hairStyle:'glatze',hair:'#c8b8a0',eye:'#2a2a2a',shirt:'#2a6a3a',pants:'#4a4a4a',polo:true,broad:true}};
 function makeHelper(h,i){
   const look=typeof h.look==='object'?h.look:(HELPER_LOOKS[h.look]||Object.assign({},LOOKS[h.look],{kid:false}));
-  const st=tiles.filter(t=>t.ch==='=');const t=st[(i*7+3)%st.length];
+  let st=tiles.filter(t=>isPath(t.ch));if(!st.length)st=tiles.filter(t=>walkable(t.ch));const t=st[(i*7+3)%st.length];
   return{def:h,look,x:t.c*T+8,y:t.r*T+14,path:[],target:null,cool:rnd(.5,2),step:0,bob:0};
 }
 
 // =====================================================================
 // ==== MEIN GARTEN: ein einziger Garten, der wächst (Land kaufen, Bauen, Kamera) ====
 // =====================================================================
-const GW=30,GH=42,YARD0=7,PW=10,PH=7,GATE_C=16;
-const PARC=[];for(let pr=0;pr<5;pr++)for(let pc=0;pc<3;pc++)PARC.push({id:pr*3+pc,c:pc*PW,r:YARD0+pr*PH});
-const START_PARC=[1,4];
-const PARC_ORDER=[7,3,5,0,2,6,8,10,9,11,13,12,14]; // Reihenfolge, wenn alte Spielstände Land geschenkt bekommen
-const LAND_REQ=[3,8,14,20,27,35,43,52,61,70,79,87,94]; // so viele Level geschafft → k-tes Grundstück kaufbar
+const PCOLS=7,PROWS=9,PW=10,PH=7,YARD0=7,GW=PCOLS*PW,GH=YARD0+PROWS*PH,XOFF=20,XO=XOFF*T,GATE_C=XOFF+16; // 63 Grundstücke (7 × 9), Dedas Haus in der Mitte oben
+const PARC=[];for(let pr=0;pr<PROWS;pr++)for(let pc=0;pc<PCOLS;pc++)PARC.push({id:pr*PCOLS+pc,c:pc*PW,r:YARD0+pr*PH,pc,pr});
+const START_PARC=[3,10];
+function parcOld(id){return Math.floor(id/3)*PCOLS+(id%3)+2;} // Grundstück-Nummer aus Version 5.5 (3 × 5) → neue Karte
+const PARC_ORDER=[7,3,5,0,2,6,8,10,9,11,13,12,14].map(parcOld); // Reihenfolge, wenn ganz alte Spielstände Land geschenkt bekommen
+const LAND_REQ=[3,8,14,20,27,35,43,52,61,70,79,87,94]; // nur noch für die Umrechnung ganz alter Spielstände
 const LAND_EUR=[30,60,100,150,210,280,360,450,550,660,780,910,1050];
-function landMat(k){return{pfahl:6+2*k,draht:1+Math.floor(k/2),erde:2+k};}
+function landEur(k){return k<LAND_EUR.length?LAND_EUR[k]:Math.min(2500,1050+(k-12)*50);}
+// Wolken: Mit jedem Kapitel ziehen Wolken weg und neues Land wird sichtbar (wie bei Hay Day)
+const REVEAL_N=[5,9,13,18,23,29,35,41,47,53];
+const PRANK=(()=>{const a=PARC.map(p=>({id:p.id,d:START_PARC.includes(p.id)?-1:Math.hypot((p.pc-3)*PW,Math.abs(p.pr-.5)*PH)+p.id*1e-4}));a.sort((x,y)=>x.d-y.d);const r=[];a.forEach((x,i)=>r[x.id]=i);return r;})();
+function revealN(){return PROG.won?PARC.length:REVEAL_N[Math.min(9,curCh())];}
+function parcRevealed(id){const Y=PROG.yard;return PRANK[id]<revealN()||!!(Y&&Y.own&&Y.own.includes(id));}
+function parcCh(id){for(let c=0;c<10;c++)if(PRANK[id]<REVEAL_N[c])return c;return 10;}
+function cloudMsg(id){const c=parcCh(id),cur=curCh();SND.weed();
+  floatMsg('☁️ Dieses Gebiet ist noch nicht freigeschaltet – '+(c>9?'es kommt erst nach dem letzten Kapitel.':'es kommt erst '+(c===cur+1?'im nächsten Kapitel':'in Kapitel '+(c+1))+'.'));}
+function landMat(k){k=Math.min(k,30);return{pfahl:6+2*k,draht:1+Math.floor(k/2),erde:2+k};}
 const MAT={pfahl:{name:'Zaunpfahl',plural:'Zaunpfähle',icon:'🪵',eur:2},draht:{name:'Rolle Maschendraht',plural:'Rollen Maschendraht',icon:'🥅',eur:8},erde:{name:'Sack Gartenerde',plural:'Säcke Gartenerde',icon:'🟫',eur:3}};
 const OBJ={
  beet:{name:'Gemüsebeet',cat:'beet',rows:['sss','sss'],eur:n=>12+4*n,ch:0,max:c=>6+3*c,desc:'6 Beete draußen – Kartoffeln, Zucchini & Co.'},
@@ -1033,16 +1043,42 @@ const OBJ={
  R:{name:'Himbeerstrauch',cat:'baum',rows:['R'],eur:n=>6+2*n,ch:0,max:c=>4+2*c,desc:'Rote Himbeeren, trägt immer wieder'},
  Y:{name:'Gelber Himbeerstrauch',cat:'baum',rows:['Y'],eur:n=>7+2*n,ch:0,max:c=>4+2*c,desc:'Gelbe Himbeeren – die kennt keiner außer uns'},
  J:{name:'Johannisbeerstrauch',cat:'baum',rows:['J'],eur:n=>7+2*n,ch:0,max:c=>4+2*c,desc:'Johannisbeeren, trägt immer wieder'},
- weg:{name:'Weg',cat:'deko',rows:['='],eur:()=>1,ch:0,max:()=>600,multi:1,desc:'Sandweg – da läuft Deda gern'},
- hecke:{name:'Hecke',cat:'deko',rows:['H'],eur:()=>3,ch:0,max:()=>300,multi:1,desc:'Grüne Hecke'},
- zaun:{name:'Lattenzaun',cat:'deko',rows:['F'],eur:()=>2,ch:0,max:()=>300,multi:1,desc:'Weißer Gartenzaun'},
- blumen:{name:'Blumenbeet',cat:'deko',rows:['f'],eur:()=>5,ch:0,max:()=>120,multi:1,desc:'Bunte Blumen'},
- bank:{name:'Gartenbank',cat:'deko',rows:['b'],eur:()=>15,ch:0,max:()=>10,desc:'Für die Pause zwischendurch'},
- tonne:{name:'Regentonne',cat:'deko',rows:['T'],eur:()=>18,ch:0,max:()=>6,desc:'Sammelt Regenwasser'},
+ weg:{name:'Sandweg',cat:'weg',rows:['='],eur:()=>1,ch:0,max:()=>2500,multi:1,desc:'Heller Sandweg – da läuft Deda gern'},
+ kies:{name:'Kiesweg',cat:'weg',rows:['G'],eur:()=>2,ch:0,max:()=>2500,multi:1,desc:'Knirscht schön beim Laufen'},
+ tritt:{name:'Trittsteine',cat:'weg',rows:['S'],eur:()=>2,ch:0,max:()=>800,multi:1,desc:'Flache Steine im Gras'},
+ pflaster:{name:'Pflasterweg',cat:'weg',rows:['P'],eur:()=>3,ch:1,max:()=>2500,multi:1,desc:'Kleine graue Pflastersteine'},
+ platten:{name:'Steinplatten',cat:'weg',rows:['Q'],eur:()=>3,ch:2,max:()=>2500,multi:1,desc:'Große helle Platten'},
+ steg:{name:'Holzsteg',cat:'weg',rows:['W'],eur:()=>4,ch:3,max:()=>800,multi:1,desc:'Holzbretter – schön am Teich'},
+ zaun:{name:'Lattenzaun',cat:'zaun',rows:['F'],eur:()=>2,ch:0,max:()=>800,multi:1,desc:'Weißer Gartenzaun'},
+ tor:{name:'Gartentor',cat:'zaun',rows:['E'],eur:()=>15,ch:0,max:()=>20,multi:1,desc:'Ein Tor im Zaun – da kann man durch'},
+ hecke:{name:'Hecke',cat:'zaun',rows:['H'],eur:()=>3,ch:0,max:()=>800,multi:1,desc:'Hohe grüne Hecke'},
+ jzaun:{name:'Jägerzaun',cat:'zaun',rows:['Z'],eur:()=>3,ch:1,max:()=>800,multi:1,desc:'Holzzaun mit Kreuzlatten'},
+ buchs:{name:'Buchshecke',cat:'zaun',rows:['U'],eur:()=>4,ch:1,max:()=>800,multi:1,desc:'Niedrig und ordentlich geschnitten'},
+ mauer:{name:'Steinmauer',cat:'zaun',rows:['M'],eur:()=>5,ch:2,max:()=>800,multi:1,desc:'Kleine Mauer aus Natursteinen'},
+ blumen:{name:'Blumenbeet',cat:'blume',rows:['f'],eur:()=>5,ch:0,max:()=>200,multi:1,desc:'Bunte Blumen'},
+ tulpen:{name:'Tulpen',cat:'blume',rows:['t'],eur:()=>4,ch:0,max:()=>200,multi:1,desc:'Rote, gelbe und rosa Tulpen'},
+ rosen:{name:'Rosenstrauch',cat:'blume',rows:['r'],eur:()=>8,ch:1,max:()=>120,multi:1,desc:'Dunkelrote Rosen'},
+ lavendel:{name:'Lavendel',cat:'blume',rows:['*'],eur:()=>6,ch:2,max:()=>200,multi:1,desc:'Duftet und lockt die Bienen'},
+ sonnenbl:{name:'Sonnenblumen',cat:'blume',rows:['u'],eur:()=>5,ch:2,max:()=>200,multi:1,desc:'Hoch und gelb'},
+ buchskugel:{name:'Buchskugel',cat:'blume',rows:['K'],eur:()=>18,ch:2,max:()=>40,multi:1,desc:'Runde Kugel im Tontopf'},
+ hortensie:{name:'Hortensie',cat:'blume',rows:['i'],eur:()=>9,ch:3,max:()=>80,multi:1,desc:'Große Blütenbälle'},
+ konifere:{name:'Thuja',cat:'blume',rows:['e'],eur:()=>25,ch:3,max:()=>40,multi:1,desc:'Schmaler, immergrüner Baum'},
+ zkirsche:{name:'Zierkirsche',cat:'blume',rows:['c'],eur:()=>45,ch:4,max:()=>20,desc:'Blüht wunderschön rosa'},
+ rbogen:{name:'Rosenbogen',cat:'blume',rows:['A'],eur:()=>40,ch:4,max:()=>12,desc:'Ein Bogen voller Rosen – man kann durchgehen'},
+ tonne:{name:'Regentonne',cat:'wasser',rows:['T'],eur:()=>18,ch:0,max:()=>6,desc:'Sammelt Regenwasser'},
+ vogel:{name:'Vogeltränke',cat:'wasser',rows:['v'],eur:()=>20,ch:2,max:()=>4,desc:'Die Spatzen freuen sich'},
+ bach:{name:'Bach',cat:'wasser',rows:['V'],eur:()=>6,ch:3,max:()=>500,multi:1,desc:'Ein kleiner Bach – in Reihen ziehen'},
+ brunnen:{name:'Springbrunnen',cat:'wasser',rows:['NN','NN'],eur:()=>120,ch:5,max:()=>2,desc:'Plätschert den ganzen Tag'},
+ teich:{name:'Kleiner Teich',cat:'wasser',rows:['qq','qq'],eur:()=>60,ch:6,max:()=>2,desc:'Kleiner Teich mit Seerosen'},
+ teich2:{name:'Großer Teich',cat:'wasser',rows:['XXX','XXX','XXX'],eur:()=>160,ch:8,max:()=>2,desc:'Mit Seerosen und Schilf'},
+ bank:{name:'Gartenbank',cat:'moebel',rows:['b'],eur:()=>15,ch:0,max:()=>10,desc:'Für die Pause zwischendurch'},
+ liege:{name:'Liegestuhl',cat:'moebel',rows:['d'],eur:()=>25,ch:1,max:()=>6,desc:'Zum Ausruhen nach der Arbeit'},
+ schirm:{name:'Sonnenschirm',cat:'moebel',rows:['y'],eur:()=>30,ch:2,max:()=>6,desc:'Rot-weiß gestreift'},
+ tisch:{name:'Gartentisch',cat:'moebel',rows:['CC'],eur:()=>45,ch:2,max:()=>4,desc:'Tisch mit zwei Stühlen'},
+ grill:{name:'Grill',cat:'moebel',rows:['I'],eur:()=>40,ch:3,max:()=>2,desc:'Für Würstchen am Abend'},
+ haengematte:{name:'Hängematte',cat:'moebel',rows:['jj'],eur:()=>50,ch:4,max:()=>2,desc:'Zwischen zwei Pfosten'},
  zwerg:{name:'Gartenzwerg',cat:'deko',rows:['m'],eur:()=>12,ch:1,max:()=>8,desc:'Passt auf die Gurken auf'},
- vogel:{name:'Vogeltränke',cat:'deko',rows:['v'],eur:()=>20,ch:2,max:()=>4,desc:'Die Spatzen freuen sich'},
- laterne:{name:'Gartenlaterne',cat:'deko',rows:['l'],eur:()=>14,ch:3,max:()=>12,desc:'Leuchtet am Abend'},
- teich:{name:'Gartenteich',cat:'deko',rows:['qq','qq'],eur:()=>60,ch:7,max:()=>2,desc:'Kleiner Teich mit Seerosen'}};
+ laterne:{name:'Gartenlaterne',cat:'deko',rows:['l'],eur:()=>14,ch:3,max:()=>12,desc:'Leuchtet am Abend'}};
 for(const ch in BUSHES)if(BUSHES[ch].tree)OBJ[ch]={name:BUSHES[ch].name,cat:'baum',rows:[ch],eur:n=>BUSHES[ch].cost+Math.round(BUSHES[ch].cost*.3*n),ch:TREE_CH[ch],max:c=>2+Math.max(0,c-TREE_CH[ch]),desc:BUSHES[ch].plural+' – trägt immer wieder'};
 Object.assign(OBJ,{gschwein:{name:'Glücksschwein',cat:'deko',rows:['1'],eur:()=>0,ch:0,max:()=>9,ev:'silvester',desc:'Fest-Preis von Silvester – bringt Glück'},
  narrbaum:{name:'Narrenbaum',cat:'deko',rows:['2'],eur:()=>0,ch:0,max:()=>9,ev:'fasnet',desc:'Fest-Preis von der Fasnet – Narri, Narro!'},
@@ -1051,16 +1087,16 @@ Object.assign(OBJ,{gschwein:{name:'Glücksschwein',cat:'deko',rows:['1'],eur:()=
  vscheuche:{name:'Vogelscheuche',cat:'deko',rows:['5'],eur:()=>0,ch:0,max:()=>9,ev:'halloween',desc:'Fest-Preis von Halloween – mit Kürbiskopf'},
  lbogen:{name:'Laternenbogen',cat:'deko',rows:['6'],eur:()=>0,ch:0,max:()=>9,ev:'martin',desc:'Fest-Preis von St. Martin'},
  schneemann:{name:'Schneemann',cat:'deko',rows:['7'],eur:()=>0,ch:0,max:()=>9,ev:'xmas',desc:'Fest-Preis von Weihnachten'}});
-const OBJ_CATS=[['beet','🌱 Beete'],['haus','🏠 Häuschen'],['baum','🌳 Bäume'],['deko','🌼 Deko'],['inv','📦 Schuppen']];
+const OBJ_CATS=[['beet','🌱 Beete'],['haus','🏠 Häuschen'],['baum','🌳 Bäume'],['weg','🛤 Wege'],['zaun','🪵 Zäune'],['blume','🌸 Blumen'],['wasser','💧 Wasser'],['moebel','🪑 Möbel'],['deko','🌼 Deko'],['inv','📦 Schuppen']];
 const HELP_DAY={david:5,robin:5,raphael:7,sascha:8,leo:8};
 const HELP_SAY={david:'Klar, Deda! Ich gieß alles, was Durst hat.',robin:'Schnecken und Unkraut? Mach ich!',raphael:'Ich ernte alles, was reif ist.',sascha:'Ich sä die leeren Beete wieder ein.',leo:'Ich pack mit an und ernte mit.'};
 let DAYHELP=[];
 
 // ---- Daten ----
 let OCC=null,OWNED=null,CHR=null;
-function parcelOf(c,r){if(r<YARD0||c<0||c>=GW||r>=GH)return-1;return Math.floor((r-YARD0)/PH)*3+Math.floor(c/PW);}
+function parcelOf(c,r){if(r<YARD0||c<0||c>=GW||r>=GH)return-1;return Math.floor((r-YARD0)/PH)*PCOLS+Math.floor(c/PW);}
 function objW(k){return OBJ[k].rows[0].length;}function objH(k){return OBJ[k].rows.length;}
-function yardIndex(skip){const Y=PROG.yard;OWNED=new Uint8Array(GW*GH);OCC=new Array(GW*GH).fill(null);CHR=new Array(GW*GH);
+function yardIndex(skip){const Y=PROG.yard;CAMB=null;OWNED=new Uint8Array(GW*GH);OCC=new Array(GW*GH).fill(null);CHR=new Array(GW*GH);
   for(const id of Y.own){const p=PARC[id];if(!p)continue;for(let r=p.r;r<p.r+PH;r++)for(let c=p.c;c<p.c+PW;c++)OWNED[r*GW+c]=1;}
   const bad=[];
   for(const o of Y.objs){const d=OBJ[o.k];if(!d){bad.push(o);continue;}let ok=true;
@@ -1075,12 +1111,12 @@ function objOwned(k){const Y=PROG.yard;return Y.objs.filter(o=>o.k===k).length+(
 function objPrice(k){return OBJ[k].eur(objOwned(k));}
 function invCount(){const v=PROG.yard.inv;let n=0;for(const k in v)if(OBJ[k])n+=v[k];return n;}
 function landK(){return PROG.yard.own.length-START_PARC.length;}
-function landAdj(id){const pc=id%3,pr=Math.floor(id/3),own=PROG.yard.own;return[[pc-1,pr],[pc+1,pr],[pc,pr-1],[pc,pr+1]].some(([c,r])=>c>=0&&c<3&&r>=0&&r<5&&own.includes(r*3+c));}
+function landAdj(id,set){const pc=id%PCOLS,pr=Math.floor(id/PCOLS),f=set||(i=>PROG.yard.own.includes(i));return[[pc-1,pr],[pc+1,pr],[pc,pr-1],[pc,pr+1]].some(([c,r])=>c>=0&&c<PCOLS&&r>=0&&r<PROWS&&f(r*PCOLS+c));}
 function levelsDone(){return PROG.won?MAXL:storyDone();}
-function landBuyable(){const k=landK();return k<LAND_REQ.length&&levelsDone()>=LAND_REQ[k];}
+function landBuyable(){const own=PROG.yard.own;return PARC.some(p=>!own.includes(p.id)&&parcRevealed(p.id)&&landAdj(p.id));}
 function lvShort(L){return'Kapitel '+(chOf(L)+1)+' · Level '+lvPos(L);}
-function yardStart(){const Y={v:1,nid:1,own:START_PARC.slice(),objs:[],inv:{},mat:{pfahl:0,draht:0,erde:0},crops:{},bush:{}};
-  const a=(k,x,y)=>{const o={id:Y.nid++,k,c:11+x,r:YARD0+y};Y.objs.push(o);return o;};
+function yardStart(){const Y={v:2,nid:1,own:START_PARC.slice(),objs:[],inv:{},mat:{pfahl:0,draht:0,erde:0},crops:{},bush:{}};
+  const a=(k,x,y)=>{const o={id:Y.nid++,k,c:XOFF+11+x,r:YARD0+y};Y.objs.push(o);return o;};
   const gh=a('gh1',0,0);for(let y=0;y<5;y++)a('weg',5,y);
   ['R','Y','J'].forEach((k,i)=>{a(k,6,1+i);a(k,7,1+i);});
   for(let x=0;x<7;x++)a('weg',x,5);a('tonne',7,5);
@@ -1092,7 +1128,11 @@ function yardStart(){const Y={v:1,nid:1,own:START_PARC.slice(),objs:[],inv:{},ma
   gi.forEach((i,j)=>{if(j%3!==2)Y.crops[gh.id][i]=[j%3===0?'gurke':(j%2?'tomate':'gurke'),+rnd(.3,.85).toFixed(3)];});
   b.forEach((o,bi)=>{Y.crops[o.id]={};for(let i=0;i<6;i++)if((i+bi)%3===0)Y.crops[o.id][i]=['kartoffel',+rnd(.2,.6).toFixed(3)];});
   return Y;}
+function yardMig2(Y){ // 5.5 → 5.6: Karte wird 7 × 9 Grundstücke groß, alles rückt in die Mitte
+  if(!Y||Y.v!==1)return;for(const o of Y.objs||[])o.c+=XOFF;Y.own=(Y.own||[]).map(parcOld);Y.v=2;Y.rev=revealN();
+  if(Y.news!=='first')Y.news=(Y.news?Y.news+'<br><br>':'')+'☁️ <b>Die Karte ist jetzt viel größer!</b> Rund um deinen Garten liegen <b>63 Grundstücke</b> – die meisten noch unter Wolken. Mit jedem Kapitel ziehen Wolken weg und neues Land kommt zum Vorschein.<br>🔨 Neu beim Bauen: viele <b>Wege</b> (in Reihen ziehen!), Zäune, Mauern, Blumen, Wasser und Gartenmöbel.';}
 function yardEnsure(){
+  if(PROG.yard&&PROG.yard.v===1)yardMig2(PROG.yard);
   if(PROG.yard&&PROG.yard.v)return;
   const Y=yardStart();PROG.yard=Y;
   const done=levelsDone(),ch=chOf(PROG.won?MAXL:Math.max(1,PROG.unlocked||1));
@@ -1107,7 +1147,7 @@ function yardEnsure(){
       (invCount()?`<br>📦 Im <b>Schuppen</b> liegen noch ${invCount()} Sachen – unten auf <b>🔨 Bauen</b> tippen und aufstellen.`:'')+
       (refund?`<br>👨‍👩‍👦 Helfer fragst du jetzt jeden Tag neu (gegen Taschengeld). Dein Helfer-Geld bekommst du zurück: <b>+${refund} €</b>.`:'');}
   else Y.news='first';
-  yardIndex();saveProg();}
+  Y.rev=revealN();yardIndex();saveProg();}
 function yardAutoPlace(){const Y=PROG.yard;yardIndex();
   const order=['gh2','gh1','beet','beetk','R','Y','J','a','k','n','z','p'];
   for(const k of order){while((Y.inv[k]||0)>0){const p=freeSpot(k,null,true);if(!p)break;Y.objs.push({id:Y.nid++,k,c:p.c,r:p.r});Y.inv[k]--;yardIndex();}if(!Y.inv[k])delete Y.inv[k];}}
@@ -1115,7 +1155,7 @@ function canPlace(k,c,r,skip,gap){const d=OBJ[k],h=d.rows.length,w=d.rows[0].len
   for(let dy=0;dy<h;dy++)for(let dx=0;dx<w;dx++){const cc=c+dx,rr=r+dy;if(!isOwned(cc,rr))return false;const o=OCC[rr*GW+cc];if(o&&o.o!==skip)return false;}
   if(gap)for(let dy=-1;dy<=h;dy++)for(let dx=-1;dx<=w;dx++){const cc=c+dx,rr=r+dy;if(cc<0||rr<0||cc>=GW||rr>=GH)continue;const o=OCC[rr*GW+cc];if(o&&o.o!==skip)return false;}
   return true;}
-function freeSpot(k,near,gap){const w=objW(k),h=objH(k);const cx=near?near.c:15,cy=near?near.r:14;let best=null,bd=1e9;
+function freeSpot(k,near,gap){const w=objW(k),h=objH(k);const cx=near?near.c:XOFF+15,cy=near?near.r:14;let best=null,bd=1e9;
   for(let r=YARD0;r<=GH-h;r++)for(let c=0;c<=GW-w;c++){const d=Math.abs(c+w/2-cx)+Math.abs(r+h/2-cy);if(d<bd&&canPlace(k,c,r,null,gap)){bd=d;best={c,r};}}return best;}
 
 // ---- Felder aus dem Garten bauen + Pflanzen merken ----
@@ -1148,14 +1188,19 @@ function adaptQuest(q){ // Wünsche an den eigenen Garten anpassen – nie etwas
 const CAM={on:false,x:0,y:0,z:1,vw:168,vh:280,k:1,ptr:{},drag:null,pinch:null,goal:null,init:false};
 let WCV=null,WCX=null;const VIS=[];
 function camOn(){CAM.on=true;camSetup();if(!WCV){WCV=document.createElement('canvas');WCV.width=GW*T;WCV.height=GH*T;WCX=WCV.getContext('2d');}
-  if(!CAM.init){CAM.init=true;camFocus(15*T,13.5*T,1,true);}}
+  if(!CAM.init){CAM.init=true;camFocus((XOFF+15)*T,13.5*T,1,true);}}
 function camSetup(){const st=$('stage').getBoundingClientRect(),pad=14;const cw=Math.max(120,Math.floor(st.width-pad)),chh=Math.max(140,Math.floor(st.height-pad-6));
   const dpr=Math.min(3,window.devicePixelRatio||1);const pxw=camPxw();CAM.vw=pxw?Math.round(Math.max(168,Math.min(400,cw/pxw))):168;CAM.vh=Math.round(CAM.vw*chh/cw);W=CAM.vw;H=CAM.vh;COLS=GW;ROWS=GH;SS=1;
   const pw=Math.round(cw*dpr),ph=Math.round(chh*dpr);if(cv.width!==pw||cv.height!==ph){cv.width=pw;cv.height=ph;}
   cv.style.width=cw+'px';cv.style.height=chh+'px';CAM.k=pw/CAM.vw;ctx.setTransform(CAM.k,0,0,CAM.k,0,0);ctx.imageSmoothingEnabled=false;camClamp();}
-function zMinG(){return Math.min(W/(GW*T),H/(GH*T));}
-function camClamp(){const z=CAM.z=Math.max(zMinG(),Math.min(2.6,CAM.z||1));const vw=W/z,vh=H/z,ww=GW*T,wh=GH*T;
-  CAM.x=vw>=ww?(ww-vw)/2:Math.max(0,Math.min(ww-vw,CAM.x));CAM.y=vh>=wh?(wh-vh)/2:Math.max(0,Math.min(wh-vh,CAM.y));}
+let CAMB=null;const ZSPAN=[30,34,39,44,50,56,62,68,74,80]; // so viele Felder sieht man höchstens (pro Kapitel) – ganz rauszoomen erst nach dem Finale
+function camBounds(){if(!PROG.yard||!PROG.yard.own)return{x0:0,y0:0,x1:GW*T,y1:GH*T};let c0=99,c1=-1,r1=-1;
+  for(const p of PARC)if(parcRevealed(p.id)){c0=Math.min(c0,p.pc);c1=Math.max(c1,p.pc);r1=Math.max(r1,p.pr);}
+  const m=PROG.won?0:6*T;return{x0:Math.max(0,c0*PW*T-m),x1:Math.min(GW*T,(c1+1)*PW*T+m),y0:0,y1:Math.min(GH*T,(YARD0+(r1+1)*PH)*T+(PROG.won?0:5*T))};}
+function camB(){return CAMB||(CAMB=camBounds());}
+function zMinG(){const b=camB(),fit=Math.min(W/(b.x1-b.x0),H/(b.y1-b.y0));if(PROG.won)return fit;return Math.min(1,Math.max(fit,Math.max(W,H)/(ZSPAN[Math.min(9,curCh())]*T)));}
+function camClamp(){const b=camB(),z=CAM.z=Math.max(zMinG(),Math.min(2.6,CAM.z||1));const vw=W/z,vh=H/z,bw=b.x1-b.x0,bh=b.y1-b.y0;
+  CAM.x=vw>=bw?b.x0+(bw-vw)/2:Math.max(b.x0,Math.min(b.x1-vw,CAM.x));CAM.y=vh>=bh?b.y0+(bh-vh)/2:Math.max(b.y0,Math.min(b.y1-vh,CAM.y));}
 function camFocus(x,y,z,now){z=z||CAM.z;if(now){CAM.z=z;CAM.x=x-W/2/z;CAM.y=y-H/2/z;CAM.goal=null;camClamp();}else CAM.goal={x,y,z};}
 function camTick(dt){const g=CAM.goal;if(!g)return;const k=1-Math.pow(.003,dt);const cx=CAM.x+W/2/CAM.z,cy=CAM.y+H/2/CAM.z;
   const nz=CAM.z+(g.z-CAM.z)*k,nx=cx+(g.x-cx)*k,ny=cy+(g.y-cy)*k;CAM.z=nz;CAM.x=nx-W/2/nz;CAM.y=ny-H/2/nz;camClamp();
@@ -1164,12 +1209,15 @@ function camScenes(){return CAM.on&&(scene==='garden'||scene==='yard');}
 function w2v(px,py){return camScenes()?[(px-CAM.x)*CAM.z,(py-CAM.y)*CAM.z]:[px,py];}
 function camDown(e,rect,x,y){CAM.ptr[e.pointerId]={x:e.clientX,y:e.clientY};try{cv.setPointerCapture(e.pointerId);}catch(_){}CAM.goal=null;
   const ids=Object.keys(CAM.ptr);if(ids.length>=2){const a=CAM.ptr[ids[0]],b=CAM.ptr[ids[1]];CAM.pinch={d:Math.hypot(a.x-b.x,a.y-b.y)||1,z:CAM.z,mx:(a.x+b.x)/2,my:(a.y+b.y)/2,cx:CAM.x,cy:CAM.y,k:W/rect.width,l:rect.left,t:rect.top};if(CAM.drag){CAM.drag.moved=true;CAM.drag.ghost=null;}return;}
-  const wx=CAM.x+x/CAM.z,wy=CAM.y+y/CAM.z;const gh=scene==='yard'&&BM&&BM.mode==='place'&&ghostHit(wx,wy);
-  CAM.drag={sx:e.clientX,sy:e.clientY,cx:CAM.x,cy:CAM.y,moved:false,wx,wy,id:e.pointerId,k:W/rect.width,ghost:gh?{c:BM.c,r:BM.r,tc:Math.floor(wx/T),tr:Math.floor(wy/T)}:null};}
+  const wx=CAM.x+x/CAM.z,wy=CAM.y+y/CAM.z;const gh=scene==='yard'&&BM&&(BM.mode==='place'||BM.mode==='erase')&&ghostHit(wx,wy);
+  CAM.drag={sx:e.clientX,sy:e.clientY,cx:CAM.x,cy:CAM.y,moved:false,wx,wy,id:e.pointerId,k:W/rect.width,ghost:gh?{c:BM.c,r:BM.r,tc:Math.floor(wx/T),tr:Math.floor(wy/T),row:BM.mode==='erase'||(!!OBJ[BM.k].multi&&!BM.moving)}:null};}
 function camMove(e){if(CAM.ptr[e.pointerId])CAM.ptr[e.pointerId]={x:e.clientX,y:e.clientY};const p=CAM.pinch;
   if(p){const ids=Object.keys(CAM.ptr);if(ids.length<2)return;const a=CAM.ptr[ids[0]],b=CAM.ptr[ids[1]],d=Math.hypot(a.x-b.x,a.y-b.y);const nz=Math.max(zMinG(),Math.min(2.6,p.z*d/p.d));
     const wx=p.cx+(p.mx-p.l)*p.k/p.z,wy=p.cy+(p.my-p.t)*p.k/p.z,mx=(a.x+b.x)/2,my=(a.y+b.y)/2;CAM.z=nz;CAM.x=wx-(mx-p.l)*p.k/nz;CAM.y=wy-(my-p.t)*p.k/nz;camClamp();return;}
   const d=CAM.drag;if(!d||d.id!==e.pointerId)return;const dx=(e.clientX-d.sx)*d.k,dy=(e.clientY-d.sy)*d.k;if(Math.hypot(dx,dy)>6)d.moved=true;if(!d.moved)return;
+  if(d.ghost&&d.ghost.row&&BM){const wx=d.wx+dx/CAM.z,wy=d.wy+dy/CAM.z,tc=Math.floor(wx/T),tr=Math.floor(wy/T),c0=d.ghost.c,r0=d.ghost.r;let c1=c0,r1=r0;
+    if(Math.abs(tc-c0)>=Math.abs(tr-r0))c1=Math.max(c0-40,Math.min(c0+40,tc));else r1=Math.max(r0-40,Math.min(r0+40,tr));
+    const key=c1+','+r1;if((BM.row?BM.row.key:c0+','+r0)!==key){BM.row=c1===c0&&r1===r0?null:{c0,r0,c1,r1,key};buildBar();}return;}
   if(d.ghost&&BM&&BM.mode==='place'){const wx=d.wx+dx/CAM.z,wy=d.wy+dy/CAM.z;const nc=d.ghost.c+Math.floor(wx/T)-d.ghost.tc,nr=d.ghost.r+Math.floor(wy/T)-d.ghost.tr;if(nc!==BM.c||nr!==BM.r){BM.c=nc;BM.r=nr;ghostClamp();buildBar();}return;}
   CAM.x=d.cx-dx/CAM.z;CAM.y=d.cy-dy/CAM.z;camClamp();}
 function camUp(e){delete CAM.ptr[e.pointerId];const n=Object.keys(CAM.ptr).length;if(CAM.pinch){if(n<2)CAM.pinch=null;CAM.drag=null;return;}
@@ -1183,14 +1231,102 @@ function drawYardBG(){const ww=GW*T;
   P(0,26,ww,6,'#bdb5a8');for(let x=0;x<ww;x+=10)P(x,26,1,6,'#a8a094');
   P(0,32,ww,YARD0*T-32,'#5c9e3c');for(let i=0;i<120;i++)P(hash(i*3.7)*ww,32+hash(i*5.3)*(YARD0*T-36),1,2,i%2?'#74b84c':'#4a8530');
   // Nachbarn: Hecken links und rechts
-  for(const [x0,x1] of [[0,10*T],[20*T,ww]]){P(x0,YARD0*T-12,x1-x0,12,'#2e6b2a');for(let x=x0;x<x1;x+=3)P(x,YARD0*T-12+hash(x)*8,2,2,'#3f8a37');P(x0,YARD0*T-1,x1-x0,1,'#22501f');}
-  drawTree(3*T,YARD0*T-30,1);drawTree(26*T,YARD0*T-32,1);drawTree(7*T,4*T,1);
+  for(const [x0,x1] of [[0,XO+10*T],[XO+20*T,ww]]){P(x0,YARD0*T-12,x1-x0,12,'#2e6b2a');for(let x=x0;x<x1;x+=3)P(x,YARD0*T-12+hash(x)*8,2,2,'#3f8a37');P(x0,YARD0*T-1,x1-x0,1,'#22501f');}
+  for(const c of[2,9,15,52,58,65])drawTree(c*T,YARD0*T-30-Math.round(hash(c*7.3)*4),1);
+  const oc=C;C.save();C.translate(XO,0);
+  try{drawTree(3*T,YARD0*T-30,1);drawTree(26*T,YARD0*T-32,1);drawTree(7*T,4*T,1);
   // Einfahrt + Hof
   P(15*T,26,3*T,YARD0*T-26,'#a8a098');for(let y=30;y<YARD0*T;y+=8)for(let x=15*T+2;x<18*T;x+=12)P(x+(y/8%2)*6,y,8,1,'#988f86');
   drawHouse(10*T+4,YARD0*T-62);
   drawCarSide(15*T+6,YARD0*T-34);drawBike(17*T+2,YARD0*T-58,.6);
   // Briefkasten
-  P(19*T+2,40,2,14,'#4a4a4a');P(19*T-2,36,10,6,'#f2c94c');P(19*T-2,36,10,1,'#fff3a0');P(19*T,38,6,1,'#5a4a10');}
+  P(19*T+2,40,2,14,'#4a4a4a');P(19*T-2,36,10,6,'#f2c94c');P(19*T-2,36,10,1,'#fff3a0');P(19*T,38,6,1,'#5a4a10');}finally{oc.restore();}}
+// ---- Wege, Zäune, Wasser: verbinden sich mit den Nachbarn ----
+const PATHCH='=GPQSWEA',FENCECH='FMZUEH',WATERCH='V';
+function isPath(ch){return!!ch&&PATHCH.includes(ch);}
+function tNb(t,dc,dr){const c=t.c+dc,r=t.r+dr;if(t.fake)return t.nb?t.nb(c,r):'';if(c<0||r<0||c>=COLS||r>=ROWS)return'';const q=tiles[r*COLS+c];return q?q.ch:'';}
+function nb4(t,set){return[tNb(t,0,-1),tNb(t,1,0),tNb(t,0,1),tNb(t,-1,0)].map(ch=>!!ch&&set.includes(ch));}
+function grassBase(t,x,y){P(x,y,T,T,'#5c9e3c');for(let i=0;i<6;i++){const a=hash(t.seed*13+i),b=hash(t.seed*29+i);P(x+a*15,y+b*14,1,2,i%2?'#74b84c':'#4a8530');}}
+const PSTY={'=':['#c8a46a','#a8844a'],G:['#b9b2a3','#7d776b'],P:['#7c7872','#5e5a55'],Q:['#9a9283','#857d6e'],W:['#b07a44','#5e3a1c'],E:['#c8a46a','#a8844a'],A:['#c8a46a','#a8844a']};
+function drawPathTile(t,x,y,ch){
+  const [u,r,d,l]=nb4(t,PATHCH+'D');grassBase(t,x,y);
+  if(ch==='S'){const v=Math.floor(hash(t.seed*5.1)*3),st=[[[2,2,6,5],[9,9,5,4]],[[8,2,6,5],[2,9,6,4]],[[4,4,8,6]]][v];
+    for(const[a,b,w,h]of st){C.globalAlpha=.3;pell(x+a+w/2+1,y+b+h/2+1,w/2,h/2,'#1a3a12');C.globalAlpha=1;pell(x+a+w/2,y+b+h/2,w/2,h/2,'#8f897d');pell(x+a+w/2,y+b+h/2-.5,w/2-1,h/2-1,'#b3ad9f');P(x+a+2,y+b+1,2,1,'#d0cabd');}return;}
+  const s=PSTY[ch]||PSTY['='],e=ch==='W'?1:2,L=l?0:e,R=r?0:e,U=u?0:e,D=d?0:e,X=x+L,Y=y+U,w=T-L-R,h=T-U-D;
+  P(X,Y,w,h,s[0]);const sd=t.seed;
+  if(ch==='='||ch==='E'||ch==='A'){for(let i=0;i<6;i++){const a=hash(sd*41+i),b=hash(sd*53+i);P(X+a*(w-1),Y+b*(h-1),1,1,i%2?'#a88850':'#e4c890');}}
+  else if(ch==='G'){for(let i=0;i<16;i++){const a=hash(sd*41+i),b=hash(sd*53+i);P(X+a*(w-2),Y+b*(h-1),i%3?1:2,1,['#8f887a','#d9d3c6','#a39c8e','#c8c1b2'][i%4]);}}
+  else if(ch==='P'){for(let yy=0;yy<16;yy+=4)for(let xx=-2+((yy/4)%2)*2;xx<16;xx+=4){const sx=Math.max(xx,0),ex=Math.min(xx+3,16),sy=yy,ey=yy+3;
+      const ax=Math.max(sx,L),bx=Math.min(ex,T-R),ay=Math.max(sy,U),by=Math.min(ey,T-D);if(bx<=ax||by<=ay)continue;
+      const c=['#a29d95','#b3aea6','#958f87'][Math.floor(hash(sd*7+xx*3+yy)*3)];P(x+ax,y+ay,bx-ax,by-ay,c);P(x+ax,y+ay,bx-ax,1,'#c4bfb7');}}
+  else if(ch==='Q'){for(const[a,b]of[[0,0],[8,0],[0,8],[8,8]]){const ax=Math.max(a,L),bx=Math.min(a+7,T-R),ay=Math.max(b,U),by=Math.min(b+7,T-D);if(bx<=ax||by<=ay)continue;
+      const c=hash(sd*11+a+b*3)<.5?'#d9d0bf':'#cec4b1';P(x+ax,y+ay,bx-ax,by-ay,c);P(x+ax,y+ay,bx-ax,1,'#e6dfd1');P(x+ax+2,y+ay+3,1,1,'#b8ae9b');}}
+  else if(ch==='W'){const hor=(l||r)&&!(u||d);for(let i=0;i<16;i+=4){if(hor){if(i>=L&&i<T-R){P(x+i,Y,1,h,'#6e4421');P(x+i+1,Y,1,h,'#c99560');P(x+i+2,Y+2,1,1,'#4a3018');P(x+i+2,Y+h-3,1,1,'#4a3018');}}
+      else if(i>=U&&i<T-D){P(X,y+i,w,1,'#6e4421');P(X,y+i+1,w,1,'#c99560');P(X+2,y+i+2,1,1,'#4a3018');P(X+w-3,y+i+2,1,1,'#4a3018');}}}
+  // Kanten + runde Ecken
+  if(!u)P(X,Y,w,1,s[1]);if(!d)P(X,Y+h-1,w,1,s[1]);if(!l)P(X,Y,1,h,s[1]);if(!r)P(X+w-1,Y,1,h,s[1]);
+  const g='#5c9e3c';if(!u&&!l){P(X,Y,2,1,g);P(X,Y+1,1,1,g);P(X+1,Y+1,1,1,s[1]);}if(!u&&!r){P(X+w-2,Y,2,1,g);P(X+w-1,Y+1,1,1,g);P(X+w-2,Y+1,1,1,s[1]);}
+  if(!d&&!l){P(X,Y+h-1,2,1,g);P(X,Y+h-2,1,1,g);P(X+1,Y+h-2,1,1,s[1]);}if(!d&&!r){P(X+w-2,Y+h-1,2,1,g);P(X+w-1,Y+h-2,1,1,g);P(X+w-2,Y+h-2,1,1,s[1]);}
+  // innere Ecken: kleines Grasbüschel, wenn diagonal kein Weg liegt
+  if(u&&l&&!isPath(tNb(t,-1,-1)))P(x,y,1,1,g);if(u&&r&&!isPath(tNb(t,1,-1)))P(x+15,y,1,1,g);if(d&&l&&!isPath(tNb(t,-1,1)))P(x,y+15,1,1,g);if(d&&r&&!isPath(tNb(t,1,1)))P(x+15,y+15,1,1,g);
+  if(ch==='W'&&!(u||d||l||r)){P(x+1,y+15,2,1,'#3a2410');P(x+13,y+15,2,1,'#3a2410');}}
+// Zäune: waagrecht = Latten stehen, senkrecht = von oben gesehen
+const FSTY={
+ F:{h:(x,y,a,b)=>{P(x+a,y+6,b-a,2,'#c8b890');P(x+a,y+11,b-a,2,'#c8b890');for(let i=a+1;i<b;i+=5){P(x+i,y+2,3,13,'#efe4c8');P(x+i+2,y+3,1,12,'#b8a880');P(x+i+1,y+1,1,1,'#efe4c8');}},
+    v:(x,y,a,b)=>{P(x+7,y+a,2,b-a,'#efe4c8');P(x+8,y+a,1,b-a,'#c8b8a0');for(let i=a;i<b;i+=5)P(x+6,y+i,4,2,'#c8b890');},post:(x,y)=>{P(x+6,y+5,4,8,'#efe4c8');P(x+9,y+5,1,8,'#b8a880');}},
+ Z:{h:(x,y,a,b)=>{P(x+a,y+5,b-a,2,'#7a4a20');P(x+a,y+11,b-a,2,'#7a4a20');for(let i=a-4;i<b;i+=4)for(let k=0;k<9;k++){const px=i+k/2|0;if(px>=a&&px<b){P(x+px,y+4+k,1,1,'#9a6a3a');}const qx=i+4-(k/2|0);if(qx>=a&&qx<b)P(x+qx,y+4+k,1,1,'#8a5a2a');}},
+    v:(x,y,a,b)=>{P(x+6,y+a,4,b-a,'#8a5a2a');P(x+7,y+a,1,b-a,'#a8743e');for(let i=a;i<b;i+=4)P(x+6,y+i,4,1,'#5e3a1c');},post:(x,y)=>{P(x+6,y+2,4,12,'#6a4020');P(x+7,y+2,1,12,'#8a5a2a');P(x+6,y+1,4,1,'#4a2a10');}},
+ M:{h:(x,y,a,b)=>{P(x+a,y+4,b-a,11,'#6e6a64');P(x+a,y+4,b-a,2,'#b8b2a8');P(x+a,y+14,b-a,1,'#4e4a45');for(let k=0;k<2;k++)for(let i=a-(k?3:0);i<b;i+=6){const s=Math.max(i,a),e=Math.min(i+5,b);if(e>s)P(x+s,y+6+k*4,e-s,3,['#9a948b','#8a847c','#a8a298'][(i+k+16)%3]);}},
+    v:(x,y,a,b)=>{P(x+4,y+a,8,b-a,'#8a847c');P(x+4,y+a,1,b-a,'#b8b2a8');P(x+11,y+a,1,b-a,'#5e5a55');for(let i=a;i<b;i+=5)P(x+5,y+i,6,1,'#6e6a64');},post:(x,y)=>{P(x+3,y+3,10,11,'#8a847c');P(x+3,y+3,10,2,'#c0bab0');P(x+3,y+13,10,1,'#4e4a45');}},
+ U:{h:(x,y,a,b)=>{P(x+a,y+5,b-a,9,'#245a22');P(x+a,y+5,b-a,2,'#3f8a37');for(let i=a;i<b;i+=3)P(x+i,y+8+(i%2)*2,2,2,'#2f7a2c');P(x+a,y+14,b-a,1,'#163a16');},
+    v:(x,y,a,b)=>{P(x+3,y+a,10,b-a,'#245a22');P(x+3,y+a,2,b-a,'#3f8a37');for(let i=a;i<b;i+=3)P(x+7+(i%2)*2,y+i,2,2,'#2f7a2c');},post:(x,y)=>{pdisc(x+8,y+9,5,'#245a22');pdisc(x+7,y+8,3,'#3f8a37');}}};
+function drawFenceTile(t,x,y,ch){grassBase(t,x,y);const [u,r,d,l]=nb4(t,FENCECH),f=FSTY[ch];
+  if(!(u||r||d||l)){f.h(x,y,0,16);return;}
+  if(u)f.v(x,y,0,9);if(d)f.v(x,y,7,16);if(l)f.h(x,y,0,8);if(r)f.h(x,y,8,16);
+  if((u||d)&&(l||r)||[u,r,d,l].filter(Boolean).length===1)f.post(x,y);}
+function drawGate(t,x,y){const [u,r,d,l]=nb4(t,FENCECH),[pu,pr,pd,pl]=nb4(t,PATHCH+'D');
+  if(pu||pr||pd||pl)drawPathTile(t,x,y,'E');else grassBase(t,x,y);
+  if((u||d)&&!(l||r)){P(x+6,y,4,2,'#6a4020');P(x+6,y+14,4,2,'#6a4020');P(x+7,y+2,2,12,'#a8743e');P(x+7,y+7,2,1,'#5e3a1c');return;}
+  P(x,y+2,2,13,'#6a4020');P(x+14,y+2,2,13,'#6a4020');P(x,y+1,2,1,'#4a2a10');P(x+14,y+1,2,1,'#4a2a10');
+  P(x+2,y+5,12,2,'#a8743e');P(x+2,y+11,12,2,'#a8743e');for(let i=3;i<14;i+=3)P(x+i,y+4,2,10,'#c08a50');P(x+11,y+8,2,2,'#f2c94c');}
+function drawRoseArch(t,x,y){drawPathTile(t,x,y,'A');P(x+1,y-6,2,20,'#ece4d4');P(x+13,y-6,2,20,'#ece4d4');for(let i=0;i<14;i++){const yy=y-8+Math.round(Math.abs(i-6.5)*.5);P(x+1+i,yy,1,2,'#ece4d4');}
+  for(let i=0;i<14;i++){const a=hash(t.seed*7+i);const px=a<.5?x+(a<.25?0:12)+Math.floor(hash(i*3.3)*4):x+2+Math.floor(hash(i*5.1)*12),py=a<.5?y-4+Math.floor(hash(i*2.7)*16):y-9+Math.floor(hash(i*1.9)*4);P(px,py,3,2,i%3?'#3f8a37':'#2f6e2a');if(i%2)P(px+1,py,2,2,i%4===1?'#e0405a':'#f2a0c0');}}
+// Wasser: Bach mit Ufer
+function drawStream(t,x,y){grassBase(t,x,y);const [u,r,d,l]=nb4(t,WATERCH),e=3,L=l?0:e,R=r?0:e,U=u?0:e,D=d?0:e;
+  P(x+L,y+U,T-L-R,T-U-D,'#2f6ab8');P(x+L+1,y+U+1,T-L-R-2,T-U-D-2,'#3a7ac8');
+  for(let i=0;i<3;i++){const a=hash(t.seed*17+i),b=hash(t.seed*23+i);P(x+L+2+a*(T-L-R-6),y+U+2+b*(T-U-D-5),3,1,'#7ab4ea');}
+  const st='#9a9490';if(!u)for(let i=L;i<T-R;i+=3)P(x+i,y+U-1,2,2,i%2?st:'#7a7470');if(!d)for(let i=L;i<T-R;i+=3)P(x+i,y+T-D-1,2,2,i%2?st:'#7a7470');
+  if(!l)for(let i=U;i<T-D;i+=3)P(x+L-1,y+i,2,2,i%2?st:'#7a7470');if(!r)for(let i=U;i<T-D;i+=3)P(x+T-R-1,y+i,2,2,i%2?st:'#7a7470');
+  if(!u&&!l)P(x+L,y+U,2,2,'#5c9e3c');if(!u&&!r)P(x+T-R-2,y+U,2,2,'#5c9e3c');if(!d&&!l)P(x+L,y+T-D-2,2,2,'#5c9e3c');if(!d&&!r)P(x+T-R-2,y+T-D-2,2,2,'#5c9e3c');}
+// Blumen, Zierbäume, Möbel (je ein Feld)
+function drawDecoTile(t,x,y,ch){const sd=t.seed;
+  if(ch==='r'){C.globalAlpha=.25;pell(x+8,y+14,7,2,'#000');C.globalAlpha=1;pdisc(x+8,y+8,6,'#2a6a28');pdisc(x+7,y+7,4,'#3a8034');for(const[a,b]of[[4,5],[10,4],[7,9],[12,9],[4,11],[9,12]]){P(x+a,y+b,3,3,'#c8203a');P(x+a,y+b,2,1,'#f05a6a');P(x+a+1,y+b+1,1,1,'#8a1020');}}
+  else if(ch==='t'){P(x+1,y+9,14,6,'#6a4426');P(x+1,y+9,14,1,'#8a5a32');const cs=['#e0303a','#f2c94c','#f28ab0','#e0303a','#ffffff','#f2c94c'];
+    for(let i=0;i<6;i++){const px=x+2+(i%3)*5,py=y+(i<3?1:5);P(px+1,py+3,1,6,'#3f8a37');P(px+2,py+5,1,2,'#5cb83a');P(px,py,3,3,cs[(i+Math.floor(sd*10))%6]);P(px,py,1,1,'#fff0f0');P(px+1,py-1,1,1,cs[(i+Math.floor(sd*10))%6]);}}
+  else if(ch==='u'){for(let i=0;i<3;i++){const px=x+2+i*5,py=y-7+(i%2)*4;P(px+1,py+4,1,15-(i%2)*4,'#3f8a37');P(px+2,py+9,2,1,'#5cb83a');P(px-1,py+11,2,1,'#5cb83a');
+      pdisc(px+1,py+2,3,'#f2c21c');P(px,py+1,3,3,'#7a4a1a');P(px,py+1,1,1,'#9a6a2a');}}
+  else if(ch==='*'){C.globalAlpha=.2;pell(x+8,y+14,7,2,'#000');C.globalAlpha=1;pell(x+8,y+11,7,4,'#7a9a78');for(let i=0;i<7;i++){const px=x+2+i*2,h=5+(i%3);P(px,y+11-h,1,h,'#6a8a68');P(px,y+10-h,1,3,'#9a6ad0');P(px,y+9-h,1,1,'#b88ae8');}}
+  else if(ch==='i'){C.globalAlpha=.25;pell(x+8,y+14,7,2,'#000');C.globalAlpha=1;pdisc(x+8,y+9,6,'#2f7a34');const cs=hash(sd*3)<.5?['#6a8ae0','#8aa8f0','#4a6ac0']:['#e08ac0','#f0a8d8','#c06aa0'];
+    for(const[a,b,r]of[[5,7,3],[11,7,3],[8,11,3],[8,5,2]]){pdisc(x+a,y+b,r,cs[0]);P(x+a-1,y+b-1,2,1,cs[1]);P(x+a,y+b+1,1,1,cs[2]);}}
+  else if(ch==='c'){C.globalAlpha=.25;pell(x+9,y+15,8,2,'#000');C.globalAlpha=1;P(x+7,y+6,3,10,'#6a4020');P(x+8,y+6,1,10,'#8a5a2a');pdisc(x+8,y+1,9,'#c86a90');pdisc(x+7,y,8,'#e88ab0');pdisc(x+5,y-2,4,'#f8c0d8');
+    for(let i=0;i<8;i++)P(x+1+hash(sd*9+i)*13,y-6+hash(sd*5+i)*12,1,1,'#ffffff');}
+  else if(ch==='e'){C.globalAlpha=.25;pell(x+8,y+15,6,2,'#000');C.globalAlpha=1;P(x+7,y+13,2,3,'#5a3a1a');for(let k=0;k<18;k++){const hw=Math.round(1+k*.32);P(x+8-hw,y-5+k,hw*2,1,k%3===2?'#1f4f2a':'#2a6a38');}P(x+6,y-2,1,6,'#3a8048');P(x+5,y+5,1,5,'#3a8048');}
+  else if(ch==='K'){P(x+4,y+11,8,5,'#b8603a');P(x+3,y+10,10,2,'#c8704a');P(x+5,y+12,1,3,'#d8805a');pdisc(x+8,y+6,5,'#2a6a28');pdisc(x+7,y+5,3,'#3a8034');P(x+5,y+3,2,1,'#5aa050');}
+  else if(ch==='I'){C.globalAlpha=.25;pell(x+8,y+15,6,2,'#000');C.globalAlpha=1;P(x+4,y+9,1,7,'#3a3a3a');P(x+11,y+9,1,7,'#3a3a3a');P(x+7,y+10,2,6,'#3a3a3a');pell(x+8,y+7,6,4,'#2a2a2a');P(x+3,y+5,10,1,'#8a8a8a');P(x+4,y+4,8,1,'#5a5a5a');P(x+5,y+5,2,1,'#e0602a');P(x+9,y+5,2,1,'#f0902a');P(x+6,y+8,4,1,'#444');}
+  else if(ch==='d'){C.globalAlpha=.25;P(x+3,y+14,11,2,'#000');C.globalAlpha=1;P(x+3,y+8,2,7,'#8a5a2a');P(x+12,y+11,2,4,'#8a5a2a');for(let i=0;i<10;i++){P(x+3+i,y+3+Math.round(i*.8),2,3,i%4<2?'#2a7ad8':'#f4f4f4');}P(x+2,y+3,3,1,'#6a4020');}
+  else if(ch==='y'){C.globalAlpha=.2;pell(x+8,y+13,9,3,'#000');C.globalAlpha=1;P(x+7,y-2,2,17,'#d8d0c0');P(x+5,y+14,6,2,'#5a5a5a');for(let k=0;k<6;k++){const hw=4+k*2;for(let i=-hw;i<hw;i+=3)P(x+8+i,y-9+k,3,1,((i+hw)/3|0)%2?'#e0402c':'#f6f2ea');}P(x+8-15,y-3,30,1,'#a8302a');P(x+7,y-10,2,1,'#d8d0c0');}}
+// größere Sachen als ein Bild
+function drawFountain(x,y){C.globalAlpha=.25;pell(x+17,y+27,15,4,'#000');C.globalAlpha=1;pell(x+16,y+18,15,11,'#8a847c');pell(x+16,y+17,14,10,'#b8b2a8');pell(x+16,y+18,11,7,'#2f6ab8');pell(x+16,y+18,10,6,'#3a7ac8');
+  P(x+14,y+6,5,12,'#a8a298');P(x+15,y+6,1,12,'#d0cabd');pell(x+16,y+6,5,2,'#b8b2a8');P(x+15,y+2,3,4,'#a8a298');P(x+9,y+17,3,1,'#8ac8f0');P(x+20,y+20,4,1,'#8ac8f0');}
+function drawBigPond(x,y){pell(x+24,y+25,24,22,'#4f9238');pell(x+24,y+25,22,19,'#9a9490');pell(x+24,y+25,21,18,'#2a5aa0');pell(x+23,y+24,19,16,'#3a7ac8');pell(x+21,y+22,10,7,'#4a8ad8');
+  for(const[a,b,r]of[[34,18,3],[14,32,3],[30,34,2],[12,16,2]]){pdisc(x+a,y+b,r,'#3f9a40');P(x+a,y+b-1,1,1,'#2a7a30');}P(x+34,y+17,2,2,'#f2a0c0');P(x+14,y+31,2,2,'#ffffff');
+  P(x+16,y+20,6,1,'#9ad0f8');P(x+26,y+30,5,1,'#9ad0f8');for(const[a,b]of[[4,22],[44,26],[22,4],[24,45],[8,8],[40,10],[8,40],[40,40]])P(x+a,y+b,3,2,'#a8a294');
+  P(x+40,y+30,1,8,'#5a7a2a');P(x+41,y+28,1,10,'#5a7a2a');P(x+40,y+28,2,3,'#6a4a2a');P(x+6,y+28,1,7,'#5a7a2a');P(x+5,y+27,2,3,'#6a4a2a');}
+function drawTable(x,y){C.globalAlpha=.25;pell(x+16,y+14,13,2,'#000');C.globalAlpha=1;
+  for(const cx of[x+3,x+25]){P(cx,y+5,4,9,'#f4f4f0');P(cx+1,y+6,2,7,'#d8d8d0');P(cx,y+13,1,2,'#9a9a92');P(cx+3,y+13,1,2,'#9a9a92');}
+  P(x+15,y+9,2,6,'#c8c8c0');pell(x+16,y+7,8,4,'#f4f4f0');pell(x+16,y+6,7,3,'#ffffff');P(x+12,y+5,3,2,'#e0402c');P(x+18,y+4,2,3,'#f2c94c');P(x+14,y+3,1,2,'#3f8a37');}
+function drawHammock(x,y){C.globalAlpha=.22;pell(x+16,y+13,13,2,'#000');C.globalAlpha=1;P(x+1,y+1,3,14,'#6a4020');P(x+28,y+1,3,14,'#6a4020');P(x+1,y,3,1,'#8a5a2a');P(x+28,y,3,1,'#8a5a2a');
+  for(let i=0;i<24;i++){const yy=y+4+Math.round(Math.sin(i/23*Math.PI)*5);P(x+4+i,yy,1,4,['#e0402c','#f2c94c','#3b7ddb','#f4f4f4'][(i>>2)%4]);}P(x+4,y+3,1,2,'#c8b890');P(x+27,y+3,1,2,'#c8b890');}
 function drawTileBase(t){const x=t.c*T,y=t.r*T,ch=t.ch;
   if(ch==='o')return;
   if(ch==='x'){P(x,y,T,T,'#4f8433');for(let i=0;i<9;i++){const a=hash(t.seed*13+i),b=hash(t.seed*29+i);P(x+a*14,y+b*12,1,4,i%3?'#3c6c26':'#6fa344');}
@@ -1201,14 +1337,14 @@ function drawTileBase(t){const x=t.c*T,y=t.r*T,ch=t.ch;
     else if(q>.74){P(x+4,y+10,8,3,'#6a4a2a');P(x+5,y+9,6,1,'#8a6a3a');P(x+6,y+10,4,1,'#c8a878');}
     return;}
   if(ch==='H'){P(x,y,T,T,'#2e6b2a');for(let i=0;i<14;i++){const a=hash(t.seed*99+i),b=hash(t.seed*77+i*3);P(x+a*14,y+b*14,2,2,i%2?'#3f8a37':'#22501f');}}
-  else if(',RYJbBFOaknzpfmvlqhT1234567'.includes(ch)){P(x,y,T,T,'#5c9e3c');for(let i=0;i<6;i++){const a=hash(t.seed*13+i),b=hash(t.seed*29+i);P(x+a*15,y+b*14,1,2,i%2?'#74b84c':'#4a8530');}}
-  else if(ch==='='||ch==='L'){P(x,y,T,T,'#c8a46a');for(let i=0;i<5;i++){const a=hash(t.seed*41+i),b=hash(t.seed*53+i);P(x+a*15,y+b*15,1,1,i%2?'#a88850':'#e4c890');}}
+  else if(',RYJbBFOaknzpfmvlqhT1234567MZUrtu*icKeIdyNCjXV'.includes(ch)){P(x,y,T,T,'#5c9e3c');for(let i=0;i<6;i++){const a=hash(t.seed*13+i),b=hash(t.seed*29+i);P(x+a*15,y+b*14,1,2,i%2?'#74b84c':'#4a8530');}}
+  else if(isPath(ch)||ch==='L'){if(ch==='E')drawGate(t,x,y);else if(ch==='A')drawRoseArch(t,x,y);else drawPathTile(t,x,y,ch==='L'?'=':ch);}
   else if(ch==='#'||ch==='D'){P(x,y,T,T,'#7a9a68');}
   if(ch==='#'){C.fillStyle='rgba(150,215,235,.35)';C.fillRect(x+1,y+1,T-2,T-2);P(x,y,T,1,'#eef4f6');P(x,y+T-1,T,1,'#8aa0a8');P(x,y,1,T,'#eef4f6');P(x+T-1,y,1,T,'#8aa0a8');P(x+7,y,1,T,'#dfe9ec');P(x+3,y+3,1,1,'#fff');P(x+4,y+2,1,1,'#fff');P(x+10,y+9,1,1,'#fff');P(x+11,y+8,1,1,'#fff');}
   if(ch==='D'){P(x+2,y,12,T,'#8a5a2a');P(x+3,y+1,10,6,'#a8d8e8');P(x+3,y+8,10,7,'#7a4a20');P(x+11,y+9,1,2,'#f2c94c');}
   if(ch==='T'){C.globalAlpha=.25;P(x+3,y+13,11,2,'#000');C.globalAlpha=1;P(x+3,y+3,10,12,'#3a6ea8');P(x+3,y+6,10,1,'#24507e');P(x+3,y+11,10,1,'#24507e');P(x+4,y+3,8,2,'#6ab0e0');P(x+4,y+7,1,3,'#5a90c8');}
   if(ch==='b'){P(x+1,y+6,14,2,'#8a5a2a');P(x+1,y+9,14,2,'#7a4a20');P(x+2,y+11,2,4,'#5a3a1a');P(x+12,y+11,2,4,'#5a3a1a');P(x+1,y+6,14,1,'#a87040');}
-  if(ch==='F'){P(x,y+6,T,2,'#c8b890');P(x,y+11,T,2,'#c8b890');for(let i=1;i<T;i+=5){P(x+i,y+2,3,13,'#efe4c8');P(x+i+2,y+3,1,12,'#b8a880');P(x+i+1,y+1,1,1,'#efe4c8');}}
+  if('FMZU'.includes(ch))drawFenceTile(t,x,y,ch);if(ch==='V')drawStream(t,x,y);if('rtu*icKeIdy'.includes(ch))drawDecoTile(t,x,y,ch);
   if(ch==='f'){P(x+1,y+3,14,11,'#7a5030');P(x+1,y+3,14,1,'#946440');const cols=['#f2a0c0','#f2e24c','#ffffff','#e0503c','#b07ae0'];
     for(let i=0;i<7;i++){const a=2+Math.floor(hash(t.seed*17+i)*10),b=4+Math.floor(hash(t.seed*23+i)*7);P(x+a,y+b+1,1,2,'#3fa34d');P(x+a,y+b,2,2,cols[(i+Math.floor(t.seed*10))%5]);}}
   if(ch==='m'){C.globalAlpha=.25;P(x+4,y+14,8,2,'#000');C.globalAlpha=1;P(x+7,y+1,2,1,'#d8283a');P(x+6,y+2,4,2,'#d8283a');P(x+5,y+4,6,1,'#b81a2a');
@@ -1227,23 +1363,26 @@ function drawHut(x,y){C.globalAlpha=.25;P(x+3,y+29,44,3,'#000');C.globalAlpha=1;
 function drawPond(x,y){P(x+4,y+6,24,20,'#4a8a3a');pell(x+16,y+16,13,11,'#9a9490');pell(x+16,y+16,12,10,'#2f6ab8');pell(x+15,y+15,10,8,'#3a7ac8');
   P(x+9,y+12,4,1,'#8ac8f0');P(x+18,y+20,5,1,'#8ac8f0');pdisc(x+20,y+12,2,'#3f9a40');P(x+20,y+11,1,1,'#f2a0c0');pdisc(x+11,y+19,2,'#3f9a40');pdisc(x+24,y+18,1,'#3f9a40');
   for(const [a,b] of [[3,8],[28,10],[5,24],[27,25],[16,3],[15,29]])P(x+a,y+b,3,2,'#a8a294');}
-function drawObjSprites(){for(const o of PROG.yard.objs){if(BM&&BM.moving===o)continue;if(o.k==='huette')drawHut(o.c*T,o.r*T);if(o.k==='teich')drawPond(o.c*T,o.r*T);}}
+function drawObjSprite(k,x,y){if(k==='huette')drawHut(x,y);else if(k==='teich')drawPond(x,y);else if(k==='teich2')drawBigPond(x,y);else if(k==='brunnen')drawFountain(x,y);else if(k==='tisch')drawTable(x,y);else if(k==='haengematte')drawHammock(x,y);}
+function drawObjSprites(){for(const o of PROG.yard.objs){if(BM&&BM.moving===o)continue;drawObjSprite(o.k,o.c*T,o.r*T);}}
 function drawFences(){const own=(c,r)=>isOwned(c,r);
   const H_=(x,y)=>{P(x,y-4,T,1,'#c8b890');P(x,y,T,1,'#c8b890');for(let i=1;i<T;i+=4){P(x+i,y-7,2,9,'#efe4c8');P(x+i+1,y-6,1,8,'#c8b8a0');}};
   const V_=(x,y)=>{P(x-1,y,2,T,'#efe4c8');P(x,y,1,T,'#c8b8a0');for(let i=0;i<T;i+=8)P(x-2,y+i,4,2,'#c8b890');};
   for(let r=YARD0;r<GH;r++)for(let c=0;c<GW;c++){if(!own(c,r))continue;const x=c*T,y=r*T;
     if(!own(c,r-1)){if(r===YARD0&&c===GATE_C){P(x,y-7,2,9,'#8a5a2a');P(x+14,y-7,2,9,'#8a5a2a');}else H_(x,y);}
     if(!own(c,r+1))H_(x,y+T);if(!own(c-1,r))V_(x,y);if(!own(c+1,r))V_(x+T,y);}}
-function drawSaleSigns(){for(const p of PARC){if(PROG.yard.own.includes(p.id))continue;const cx=p.c*T+PW*T/2,cy=p.r*T+PH*T/2;
+function drawSaleSigns(){for(const p of PARC){if(PROG.yard.own.includes(p.id)||!parcRevealed(p.id))continue;const cx=p.c*T+PW*T/2,cy=p.r*T+PH*T/2;
   C.globalAlpha=.25;P(cx-6,cy+12,12,2,'#000');C.globalAlpha=1;P(cx-1,cy-2,3,15,'#6a4426');P(cx-12,cy-11,24,12,'#6a4426');P(cx-11,cy-10,22,10,'#f2e8c8');
   P(cx-9,cy-8,18,2,'#c0483a');P(cx-9,cy-4,7,1,'#6a4426');P(cx+2,cy-4,7,1,'#6a4426');pdisc(cx,cy-3,2,'#f2c94c');}}
 function drawStatic(){
   if(!bgCanvas)bgCanvas=document.createElement('canvas');const ww=GW*T,wh=GH*T;if(bgCanvas.width!==ww||bgCanvas.height!==wh){bgCanvas.width=ww;bgCanvas.height=wh;}
   const oc=C;C=bgCanvas.getContext('2d');C.clearRect(0,0,ww,wh);
-  try{drawYardBG();for(const t of tiles)if(t.r>=YARD0)drawTileBase(t);drawObjSprites();drawFences();drawSaleSigns();}finally{C=oc;}}
-function fakeTile(ch,c,r){const t={ch,c,r,seed:hash(c*31+r*17+ch.charCodeAt(0)),prog:1,water:1,puddle:0};if(ch==='g'||ch==='s')Object.assign(t,{bed:true,crop:null,dry:0,weed:false});if(BUSHES[ch])t.bush=true;return t;}
-function drawObjAt(k,c0,r0){const d=OBJ[k];d.rows.forEach((row,dy)=>[...row].forEach((ch,dx)=>{const t=fakeTile(ch,c0+dx,r0+dy);drawTileBase(t);if(t.bed)drawSoil(t);if(t.bush)drawBush(t);}));
-  if(k==='huette')drawHut(c0*T,r0*T);if(k==='teich')drawPond(c0*T,r0*T);}
+  try{drawYardBG();const hid=PARC.map(p=>!parcRevealed(p.id));for(const t of tiles)if(t.r>=YARD0&&!hid[parcelOf(t.c,t.r)])drawTileBase(t);
+    for(const p of PARC)if(hid[p.id])P(p.c*T,p.r*T,PW*T,PH*T,'#c4d4e6');
+    drawObjSprites();drawFences();drawSaleSigns();}finally{C=oc;}}
+function fakeTile(ch,c,r,nb){const t={ch,c,r,seed:hash(c*31+r*17+ch.charCodeAt(0)),prog:1,water:1,puddle:0,fake:true,nb};if(ch==='g'||ch==='s')Object.assign(t,{bed:true,crop:null,dry:0,weed:false});if(BUSHES[ch])t.bush=true;return t;}
+function drawObjAt(k,c0,r0,nb){const d=OBJ[k];d.rows.forEach((row,dy)=>[...row].forEach((ch,dx)=>{const t=fakeTile(ch,c0+dx,r0+dy,nb);drawTileBase(t);if(t.bed)drawSoil(t);if(t.bush)drawBush(t);}));
+  drawObjSprite(k,c0*T,r0*T);}
 const OBJIMG={};
 function objImg(k){if(OBJIMG[k])return OBJIMG[k];const w=objW(k)*T,h=objH(k)*T,cvs=document.createElement('canvas');cvs.width=w;cvs.height=h;const oc=C;C=cvs.getContext('2d');
   try{drawObjAt(k,0,0);}finally{C=oc;}return OBJIMG[k]=cvs.toDataURL();}
@@ -1257,6 +1396,7 @@ function renderGardenView(){
   for(const t of VIS)if(t.ch==='g'){C.fillStyle='rgba(190,235,250,.13)';C.fillRect(t.c*T,t.r*T,T,T);P(t.c*T+4,t.r*T+2,1,1,'rgba(255,255,255,.5)');}
   if(scene==='garden')drawHints();
   drawHelpers();drawDeda();
+  drawClouds(x0,y0,x1,y1);
   if(scene==='yard')drawBuildGhost();
   if(scene==='garden'){
     if(tut){const st=tut.steps[tut.step];if(st&&st.tile&&!tut.wait){const t=tut.T[st.tile],a=.5+.5*Math.sin(timeNow*7);
@@ -1271,6 +1411,32 @@ function renderGardenView(){
     if(f>.75){ctx.fillStyle='rgba(255,120,40,'+((f-.75)*.6)+')';ctx.fillRect(0,0,W,H);}}
   else drawWeatherFx(B().weather,true);}
 
+// ---- Wolken über Land, das noch nicht freigeschaltet ist ----
+const CLOUD={img:null,M:14,fx:null};
+function cloudSprites(){if(CLOUD.img)return CLOUD.img;const M=CLOUD.M,w=PW*T+2*M,h=PH*T+2*M;
+  CLOUD.img=[0,1,2].map(v=>{const cvs=document.createElement('canvas');cvs.width=w;cvs.height=h;const g=cvs.getContext('2d'),oc=C,os=SS;C=g;SS=1;
+    try{const pf=[];let n=0;for(let y=M+3;y<=h-M+3;y+=15)for(let x=M+1+((y/15|0)%2)*9;x<=w-M+3;x+=18){const j=hash(v*97.1+x*3.13+y*7.71+(n++)*.37),k=hash(j*53.1+v);
+        const px=Math.round(x+(j-.5)*8),py=Math.round(y+(k-.5)*7);pf.push([px,py,Math.max(5,Math.min(Math.round(9+k*8),px-1,w-px-4,py-1,h-py-8))]);}
+      pf.sort((a,b)=>a[1]-b[1]);
+      g.globalAlpha=.18;for(const[x,y,r]of pf)pdisc(x+2,y+6,r,'#14301a');g.globalAlpha=1;
+      P(M-1,M-1,PW*T+2,PH*T+2,'#e9f0f8');
+      for(const[x,y,r]of pf)pdisc(x+1,y+4,r,'#a9bdd6');
+      pf.forEach(([x,y,r],i)=>{pdisc(x+1,y+2,r,'#c4d3e6');pdisc(x,y,r-1,'#e3ebf5');pdisc(x-1,y-1,r-2,'#f6f9fd');if(r>11&&i%2===0)pdisc(x-Math.round(r*.4),y-Math.round(r*.45),Math.round(r*.3),'#ffffff');});
+    }finally{C=oc;SS=os;}return cvs;});return CLOUD.img;}
+function drawClouds(x0,y0,x1,y1){if(!PROG.yard||!PROG.yard.own)return;const img=cloudSprites(),M=CLOUD.M,t=timeNow,fx=CLOUD.fx;
+  for(const p of PARC){const hid=!parcRevealed(p.id),inFx=fx&&fx.ids.includes(p.id);if(!hid&&!inFx)continue;
+    if(p.c+PW<x0-1||p.c>x1+1||p.r+PH<y0-1||p.r>y1+1)continue;
+    let dx=Math.round(Math.sin(t*.6+p.id*1.7)*1.5),dy=Math.round(Math.cos(t*.5+p.id*2.3));
+    if(inFx){const k=Math.max(0,Math.min(1,(t-fx.t0)/2.4));if(k>=1)continue;const e=k*k;WCX.globalAlpha=1-e;dx+=Math.round((p.pc<3?-1:p.pc>3?1:(p.id%2?1:-1))*40*e);dy-=Math.round(26*e);}
+    WCX.drawImage(img[p.id%3],p.c*T-M+dx,p.r*T-M+dy);WCX.globalAlpha=1;}
+  if(fx&&t-fx.t0>2.6)CLOUD.fx=null;}
+function cloudReveal(){const Y=PROG.yard,rn=revealN();if(Y.rev==null){Y.rev=rn;saveProg();return false;}if(rn<=Y.rev)return false;
+  const ids=PARC.filter(p=>PRANK[p.id]>=Y.rev&&PRANK[p.id]<rn&&!Y.own.includes(p.id)).map(p=>p.id);Y.rev=rn;saveProg();if(!ids.length)return false;
+  CLOUD.fx={ids,t0:timeNow+1};let sx=0,sy=0;ids.forEach(id=>{sx+=PARC[id].c+PW/2;sy+=PARC[id].r+PH/2;});
+  const gx=(sx/ids.length)*T,gy=(sy/ids.length)*T;setTimeout(()=>{if(scene==='yard')camFocus(gx,gy,zMinG());},250);
+  setTimeout(()=>{if(scene!=='yard')return;SND.quest();say('<b>Meine Güte</b>, schau mal: Die Wolken ziehen weg! Da kommt neues Land zum Vorschein – <b>'+ids.length+' Grundstück'+(ids.length===1?'':'e')+'</b>. Tipp auf ein <b>🪧 Schild</b>, wenn du eins kaufen willst.',{mood:'happy',ms:7500});},1100);
+  return true;}
+
 // ---- Garten (Startbildschirm) ----
 let BM=null;
 function yardRefresh(){yardBuildTiles(BM&&BM.moving);drawStatic();}
@@ -1278,16 +1444,17 @@ function openYard(){
   hideOverlays();introOn=false;scene='yard';running=false;paused=true;fixProg();yardEnsure();
   $('app').classList.add('yardmode');$('tools').style.display='none';$('seeds').classList.remove('show');$('hud').style.visibility='';$('box').classList.remove('show');
   BM=null;showYardCtl();camOn();yardRefresh();
-  const pt=tiles.filter(t=>t.ch==='=');const t0=pt.length?pt.reduce((a,t)=>Math.abs(t.c-15)+Math.abs(t.r-13)<Math.abs(a.c-15)+Math.abs(a.r-13)?t:a):tileAt(15,14);
+  const pt=tiles.filter(t=>walkable(t.ch));const t0=pt.length?pt.reduce((a,t)=>Math.abs(t.c-XOFF-15)+Math.abs(t.r-13)<Math.abs(a.c-XOFF-15)+Math.abs(a.r-13)?t:a):tileAt(XOFF+15,14);
   deda.x=t0.c*T+8;deda.y=t0.r*T+15;deda.path=[];deda.react=0;deda.happy=0;deda.wait=1.5;helpers=[];
   yardHUD();startMusic('garden');
   const Y=PROG.yard;
   if(Y.news){const n=Y.news;delete Y.news;saveProg();
     if(n==='first')setTimeout(()=>{if(scene==='yard'&&!BM)say('<b>Und gut?</b> Das ist jetzt <b>dein Garten</b>. Er wird immer größer: Rundherum liegt Land zum Kaufen 🪧. Mit <b>▶ Gartentag</b> geht es zum nächsten Level, mit <b>🔨 Bauen</b> stellst du Beete, Häuschen und Bäume auf.<br><small>Wischen = Garten verschieben · zwei Finger = zoomen</small>',{mood:'happy',buttons:[{label:'Gut!',fn:()=>{$('box').classList.remove('show');}}]});},400);
     else setTimeout(()=>{if(scene==='yard')say(n,{mood:'happy',buttons:[{label:'Gut!',fn:()=>{$('box').classList.remove('show');}}]});},400);}
-  else if(landBuyable()&&!(Y.tipLand===landK())){Y.tipLand=landK();saveProg();setTimeout(()=>{if(scene==='yard'&&!BM)say('<b>Meine Güte</b>, schau mal: Neben unserem Garten ist Land zu verkaufen! Tipp auf ein <b>🪧 Schild</b>. Das Material dafür gibt es im <b>Baumarkt</b> – unten auf <b>🚗 Fahren</b>.',{mood:'happy',ms:7000});},500);}
+  else if(cloudReveal()){}
+  else if(landBuyable()&&levelsDone()>=3&&landK()<2&&!(Y.tipLand===landK())){Y.tipLand=landK();saveProg();setTimeout(()=>{if(scene==='yard'&&!BM)say('<b>Meine Güte</b>, schau mal: Neben unserem Garten ist Land zu verkaufen! Tipp auf ein <b>🪧 Schild</b>. Das Material dafür gibt es im <b>Baumarkt</b> – unten auf <b>🚗 Fahren</b>.',{mood:'happy',ms:7000});},500);}
 }
-function yardTip(){if(landBuyable()&&PROG.yard.own.length<PARC.length)return'🪧 Land zu verkaufen!';return'';}
+function yardTip(){if(landBuyable()&&PROG.money>=landEur(landK()))return'🪧 Land zu verkaufen!';return'';}
 function yardHUD(){if(!PROG.yard)return;setT($('dayChip'),PROG.won?'🏆 Endlos':'📖'+(chOf(PROG.unlocked)+1)+'-'+lvPos(PROG.unlocked));setT($('moneyChip'),'💶 '+Math.floor(PROG.money));
   const m=PROG.yard.mat,inv=invCount();
   setHTML($('quest'),`<span class="q" title="Zaunpfähle">🪵 ${m.pfahl}</span><span class="q" title="Maschendraht">🥅 ${m.draht}</span><span class="q" title="Gartenerde">🟫 ${m.erde}</span>${(()=>{const ev=holiday();return ev?`<button id="yEv" class="qbtn">${EVENTS[ev].ic} ${EVENTS[ev].ie} ${evS(ev).n}</button>`:'';})()}${inv?`<button id="yInv" class="qbtn">📦 ${inv} im Schuppen</button>`:''}${yardTip()?`<span class="ytip">${yardTip()}</span>`:''}`);
@@ -1299,20 +1466,25 @@ function yardUpdate(dt){camTick(dt);if(deda.react>0)deda.react-=dt;if(deda.happy
   else{deda.wait-=dt;if(deda.wait<=0){deda.wait=rnd(2.5,6);planWalk();}}
   if(boxTimer<1e8&&$('box').classList.contains('show')){boxTimer-=dt*1000;if(boxTimer<=0)$('box').classList.remove('show');}
   parcelLabels();}
-function parcelLabels(){const wrap=$('wrap');if(scene!=='yard'||(BM&&BM.mode==='place')){document.querySelectorAll('.plab').forEach(e=>e.remove());return;}
-  const k=landK(),done=levelsDone();
-  for(const p of PARC){let el=document.getElementById('plab'+p.id);const show=!PROG.yard.own.includes(p.id)&&landAdj(p.id)&&k<LAND_REQ.length;
-    if(!show){if(el)el.remove();continue;}
-    const ok=done>=LAND_REQ[k],txt=ok?'🪧 Zu verkaufen':'🔒 nach '+lvShort(LAND_REQ[k]).replace('Kapitel ','K').replace(' · Level ','-');
+function parcelLabels(){const wrap=$('wrap');if(scene!=='yard'||(BM&&(BM.mode==='place'||BM.mode==='erase'))){document.querySelectorAll('.plab').forEach(e=>e.remove());return;}
+  const own=PROG.yard.own,fx=CLOUD.fx;
+  for(const p of PARC){let el=document.getElementById('plab'+p.id);const rv=parcRevealed(p.id),mine=own.includes(p.id);let txt=null,ok=false;
+    if(!mine&&rv&&landAdj(p.id)&&!(fx&&fx.ids.includes(p.id))){txt='🪧 Zu verkaufen';ok=true;}
+    else if(!rv&&landAdj(p.id,parcRevealed)){const c=parcCh(p.id);txt=c>9?'☁️ Nach dem Finale':'☁️ Kapitel '+(c+1);}
+    if(!txt){if(el)el.remove();continue;}
     if(!el){el=document.createElement('button');el.id='plab'+p.id;el.className='plab';el.onclick=e=>{e.stopPropagation();openLand(p.id);};wrap.appendChild(el);}
-    if(el.dataset.t!==txt){el.dataset.t=txt;el.textContent=txt;el.classList.toggle('ok',ok);}
-    const[sx,sy]=toScreen(p.c*T+PW*T/2,p.r*T+PH*T/2+18);el.style.left=sx+'px';el.style.top=sy+'px';
-    const r=cv.getBoundingClientRect(),wr=wrap.getBoundingClientRect();el.style.visibility=(sx<-40||sy<-10||sx>r.width+40||sy>r.height+10)?'hidden':'';}}
+    if(el.dataset.t!==txt){el.dataset.t=txt;el.textContent=txt;el.classList.toggle('ok',ok);el.classList.toggle('cl',!ok);}
+    // Schild bleibt im Bild, solange ein Stück vom Grundstück zu sehen ist
+    let[sx,sy]=toScreen(p.c*T+PW*T/2,p.r*T+PH*T/2+18);const[ax,ay]=toScreen(p.c*T+6,p.r*T+6),[bx,by]=toScreen((p.c+PW)*T-6,(p.r+PH)*T-6);
+    const r=cv.getBoundingClientRect(),wr=wrap.getBoundingClientRect(),l=r.left-wr.left,t=r.top-wr.top,hw=(el.offsetWidth||90)/2+3,hh=(el.offsetHeight||20)/2+3;
+    const vis=bx>l&&ax<l+r.width&&by>t&&ay<t+r.height;
+    if(vis){sx=Math.max(l+hw,Math.min(l+r.width-hw,sx));sy=Math.max(t+hh,Math.min(t+r.height-hh,sy));}
+    el.style.left=sx+'px';el.style.top=sy+'px';el.style.visibility=vis?'':'hidden';}}
 function yardTap(x,y){const c=Math.floor(x/T),r=Math.floor(y/T);
   if(evYardTap(x,y))return;
   if(BM){buildTap(c,r);return;}
-  if(r>=2&&r<YARD0&&c>=15&&c<=18){openDriveMenu();return;}
-  if(r>=2&&r<YARD0&&c>=10&&c<=14){openMenu();return;}
+  if(r>=2&&r<YARD0&&c>=XOFF+15&&c<=XOFF+18){openDriveMenu();return;}
+  if(r>=2&&r<YARD0&&c>=XOFF+10&&c<=XOFF+14){openMenu();return;}
   if(r<YARD0)return;
   const pid=parcelOf(c,r);if(pid>=0&&!PROG.yard.own.includes(pid)){openLand(pid);return;}
   if(Math.abs(x-deda.x)<8&&y>deda.y-24&&y<deda.y+2){deda.happy=2;floatText(pick(holiday()&&Math.random()<.6?EVENTS[holiday()].say.map(q=>q.replace(/<[^>]+>/g,'')):['Und gut?','Schöner Garten, oder?','Maladetz!','Gurken sind das Beste.']),deda.x,deda.y-26,'#fff6a0');return;}
@@ -1333,25 +1505,56 @@ function buildBar(){const el=$('buildCtl');if(!BM)return;const Y=PROG.yard;
       if(BM.cat==='inv')tag=`<span class="bp ok">×${Y.inv[k]} gratis</span>`;
       else{const s=objState(k);tag=s.lock?`<span class="bp">${s.lock}</span>`:`<span class="bp ${s.ok?'ok':''}">${s.price} €</span>`;}
       h+=`<button data-bk="${k}" title="${d.desc}"><img src="${objImg(k)}" alt=""><span class="bn">${d.name}</span>${tag}</button>`;}
-    h+='</div><div class="brow"><span class="bhint">Tipp ein Teil im Garten an, um es zu verschieben.</span><button id="bDone" class="main">✓ Fertig</button></div>';
+    h+='</div><div class="brow"><span class="bhint">Teil antippen = verschieben</span><button id="bErase">🧽 Abräumen</button><button id="bDone" class="main">✓ Fertig</button></div>';
     setHTML(el,h);
     el.querySelectorAll('[data-bc]').forEach(b=>b.onclick=()=>{BM.cat=b.dataset.bc;buildBar();});
     el.querySelectorAll('[data-bk]').forEach(b=>b.onclick=()=>{const k=b.dataset.bk;
       if(BM.cat==='inv'){startPlace(k,'inv');return;}
       const s=objState(k);if(s.lock){floatMsg(s.lock.startsWith('🔒')?'🔒 Gibt es ab Kapitel '+(OBJ[k].ch+1):'Davon hast du schon genug (max. '+OBJ[k].max(curCh())+')');return;}
       if(!s.ok){floatMsg('💶 Dafür fehlen noch '+Math.ceil(s.price-PROG.money)+' €');return;}startPlace(k,'buy');});
-    $('bDone').onclick=closeBuild;return;}
+    $('bDone').onclick=closeBuild;$('bErase').onclick=startErase;return;}
+  if(BM.mode==='erase'){const cells=BM.c==null?[]:rowCells(),n=cells.filter(p=>eraseOK(p.c,p.r)).length;
+    setHTML(el,`<div class="bline"><b>🧽 Abräumen</b> – tipp auf Wege, Zäune oder Blumen. <b>Vom Kästchen wegziehen = ganze Reihe.</b> Alles kommt in den Schuppen.</div>
+     <div class="brow"><button id="bOk" class="main" ${n?'':'disabled'}>🧽 ${n>1?n+' Teile abräumen':'Abräumen'}</button><button id="bNo">✕</button></div>`);
+    $('bOk').onclick=eraseRow;$('bNo').onclick=placeCancel;return;}
+  if(OBJ[BM.k].multi&&!BM.moving){const d=OBJ[BM.k],pl=rowPlan(),n=pl.use.length,bad=pl.cells.some(p=>p.st==='bad'),mx=pl.cells.some(p=>p.st==='max');
+    const miss=pl.use.length&&PROG.money<pl.cost?Math.ceil(pl.cost-PROG.money):0;
+    setHTML(el,`<div class="bline"><b>${d.name}</b> – tippen = ein Feld · <b>vom Kästchen wegziehen = ganze Reihe</b>.${bad?' <span class="bbad">Rote Felder gehen nicht.</span>':''}${mx?' <span class="bbad">Mehr geht nicht.</span>':''}${miss?` <span class="bbad">Es fehlen ${miss} €.</span>`:''}</div>
+     <div class="brow"><button id="bOk" class="main" ${pl.can?'':'disabled'}>✅ ${n>1?n+' Felder bauen':'Hier bauen'}${pl.cost?' · '+pl.cost+' €':pl.fromInv?' · gratis':''}</button><button id="bNo">✕</button></div>`);
+    $('bOk').onclick=placeConfirm;$('bNo').onclick=placeCancel;return;}
   const d=OBJ[BM.k],valid=BM.valid=canPlace(BM.k,BM.c,BM.r,BM.moving),cost=BM.moving||BM.src==='inv'?0:objPrice(BM.k),can=valid&&PROG.money>=cost;
   setHTML(el,`<div class="bline"><b>${d.name}</b> – ziehen oder dorthin tippen, wo es hin soll.${valid?'':' <span class="bbad">Hier ist kein Platz.</span>'}</div>
    <div class="brow"><button id="bOk" class="main" ${can?'':'disabled'}>✅ ${BM.moving?'Hierhin':'Hier bauen'+(cost?' · '+cost+' €':'')}</button>${BM.moving?'<button id="bStore">📦 In den Schuppen</button>':''}<button id="bNo">✕</button></div>`);
   $('bOk').onclick=placeConfirm;$('bNo').onclick=placeCancel;if($('bStore'))$('bStore').onclick=storeObj;}
-function ghostClamp(){const w=objW(BM.k),h=objH(BM.k);BM.c=Math.max(0,Math.min(GW-w,BM.c));BM.r=Math.max(YARD0,Math.min(GH-h,BM.r));}
-function ghostHit(wx,wy){if(!BM||BM.mode!=='place')return false;const c=Math.floor(wx/T),r=Math.floor(wy/T);return c>=BM.c-1&&c<=BM.c+objW(BM.k)&&r>=BM.r-1&&r<=BM.r+objH(BM.k);}
-function startPlace(k,src){BM.mode='place';BM.k=k;BM.src=typeof src==='object'?'move':src;BM.moving=typeof src==='object'?src:null;
+function ownBox(){let c0=99,c1=-1,r0=99,r1=-1;for(const id of PROG.yard.own){const p=PARC[id];if(!p)continue;c0=Math.min(c0,p.c);c1=Math.max(c1,p.c+PW);r0=Math.min(r0,p.r);r1=Math.max(r1,p.r+PH);}return{c0,c1,r0,r1};}
+function ghostClamp(){const w=objW(BM.k),h=objH(BM.k),b=ownBox();BM.c=Math.max(b.c0,Math.min(b.c1-w,BM.c));BM.r=Math.max(b.r0,Math.min(b.r1-h,BM.r));}
+// ---- Reihen bauen (wie Mauern bei Clash of Clans) und abräumen ----
+function rowCells(){const R=BM.row;if(!R)return[{c:BM.c,r:BM.r}];const out=[],dc=Math.sign(R.c1-R.c0),dr=Math.sign(R.r1-R.r0),n=Math.max(Math.abs(R.c1-R.c0),Math.abs(R.r1-R.r0));for(let i=0;i<=n;i++)out.push({c:R.c0+dc*i,r:R.r0+dr*i});return out;}
+function swapOK(a,b){const d=OBJ[a],e=OBJ[b];return!!(d&&e&&d.multi&&e.multi&&d.cat===e.cat&&objW(a)===1&&objH(a)===1);}
+function cellSt(k,c,r){if(!isOwned(c,r))return'bad';const o=OCC[r*GW+c];if(!o)return'ok';if(o.o.k===k)return'same';return swapOK(o.o.k,k)?'swap':'bad';}
+function rowPlan(){const k=BM.k,d=OBJ[k],Y=PROG.yard,ch=DEVNOLOCK?9:curCh(),cells=rowCells().map(p=>Object.assign(p,{st:cellSt(k,p.c,p.r)}));
+  const inv=Y.inv[k]||0,room=d.ch>ch?0:Math.max(0,d.max(ch)-objOwned(k));let free=inv,buy=0,cost=0;const use=[];
+  for(const p of cells){if(p.st!=='ok'&&p.st!=='swap')continue;if(free>0){free--;use.push(p);continue;}if(buy<room){cost+=d.eur(objOwned(k)+buy);buy++;use.push(p);continue;}p.st='max';}
+  return{cells,use,cost,fromInv:inv-free,can:use.length>0&&PROG.money>=cost};}
+function rowPlace(){const Y=PROG.yard,k=BM.k,d=OBJ[k],pl=rowPlan();if(!pl.can)return;
+  PROG.money-=pl.cost;if(pl.fromInv){Y.inv[k]-=pl.fromInv;if(Y.inv[k]<=0)delete Y.inv[k];}
+  for(const p of pl.use){if(p.st==='swap'){const oc=OCC[p.r*GW+p.c].o;Y.objs=Y.objs.filter(x=>x!==oc);Y.inv[oc.k]=(Y.inv[oc.k]||0)+1;}Y.objs.push({id:Y.nid++,k,c:p.c,r:p.r});}
+  SND.plant();const last=pl.cells[pl.cells.length-1],R=BM.row;floatText(pl.use.length>1?pl.use.length+' × '+d.name:d.name+'!',last.c*T+8,last.r*T,'#d8ffb0');
+  if(pl.use.some(p=>p.st==='swap'))floatMsg('📦 Das alte Stück liegt jetzt im Schuppen');
+  BM.row=null;yardIndex();let nc=last.c,nr=last.r;if(R){nc+=Math.sign(R.c1-R.c0);nr+=Math.sign(R.r1-R.r0);}
+  const nx=[[nc,nr],[last.c+1,last.r],[last.c,last.r+1],[last.c-1,last.r],[last.c,last.r-1]].find(([c,r])=>cellSt(k,c,r)==='ok');if(nx){BM.c=nx[0];BM.r=nx[1];}
+  saveProg();yardRefresh();yardHUD();buildBar();}
+function eraseOK(c,r){const o=c>=0&&r>=0&&c<GW&&r<GH&&OCC[r*GW+c];return!!(o&&OBJ[o.o.k]&&OBJ[o.o.k].multi&&objW(o.o.k)===1&&objH(o.o.k)===1);}
+function eraseRow(){const Y=PROG.yard,cells=rowCells().filter(p=>eraseOK(p.c,p.r));if(!cells.length)return;
+  for(const p of cells){const o=OCC[p.r*GW+p.c].o;Y.objs=Y.objs.filter(x=>x!==o);Y.inv[o.k]=(Y.inv[o.k]||0)+1;delete Y.crops[o.id];delete Y.bush[o.id];}
+  SND.weed();floatMsg('📦 '+cells.length+(cells.length===1?' Teil liegt':' Teile liegen')+' jetzt im Schuppen');BM.row=null;saveProg();yardRefresh();yardHUD();buildBar();}
+function startErase(){BM.mode='erase';BM.k=null;BM.moving=null;BM.row=null;BM.c=null;BM.r=null;buildBar();}
+function ghostHit(wx,wy){if(!BM||BM.c==null||(BM.mode!=='place'&&BM.mode!=='erase'))return false;const c=Math.floor(wx/T),r=Math.floor(wy/T),w=BM.mode==='erase'?1:objW(BM.k),h=BM.mode==='erase'?1:objH(BM.k);return c>=BM.c-1&&c<=BM.c+w&&r>=BM.r-1&&r<=BM.r+h;}
+function startPlace(k,src){BM.mode='place';BM.k=k;BM.row=null;BM.src=typeof src==='object'?'move':src;BM.moving=typeof src==='object'?src:null;
   if(BM.moving){BM.c=BM.moving.c;BM.r=BM.moving.r;yardRefresh();}
   else{const vc={c:Math.floor((CAM.x+W/2/CAM.z)/T),r:Math.floor((CAM.y+H/2/CAM.z)/T)};const p=freeSpot(k,vc,false)||{c:vc.c-Math.floor(objW(k)/2),r:vc.r-Math.floor(objH(k)/2)};BM.c=p.c;BM.r=p.r;ghostClamp();}
   camFocus((BM.c+objW(k)/2)*T,(BM.r+objH(k)/2)*T);buildBar();}
-function placeConfirm(){if(!BM||BM.mode!=='place')return;const Y=PROG.yard,k=BM.k,d=OBJ[k];if(!canPlace(k,BM.c,BM.r,BM.moving))return;
+function placeConfirm(){if(!BM||BM.mode!=='place')return;const Y=PROG.yard,k=BM.k,d=OBJ[k];if(d.multi&&!BM.moving){rowPlace();return;}if(!canPlace(k,BM.c,BM.r,BM.moving))return;
   if(BM.moving){BM.moving.c=BM.c;BM.moving.r=BM.r;BM.moving=null;BM.mode='browse';SND.plant();}
   else{if(BM.src==='inv'){if(!(Y.inv[k]>0))return;Y.inv[k]--;if(!Y.inv[k])delete Y.inv[k];}else{const p=objPrice(k);if(PROG.money<p)return;PROG.money-=p;}
     Y.objs.push({id:Y.nid++,k,c:BM.c,r:BM.r});if(d.multi)SND.plant();else SND.quest();floatText(d.name+'!',(BM.c+objW(k)/2)*T,BM.r*T,'#d8ffb0');
@@ -1359,7 +1562,7 @@ function placeConfirm(){if(!BM||BM.mode!=='place')return;const Y=PROG.yard,k=BM.
     if(more){yardIndex();const n=[[1,0],[0,1],[-1,0],[0,-1]].map(([a,b])=>({c:BM.c+a,r:BM.r+b})).find(p=>canPlace(k,p.c,p.r,null))||freeSpot(k,{c:BM.c,r:BM.r},false);if(n){BM.c=n.c;BM.r=n.r;}}
     else BM.mode='browse';}
   saveProg();yardRefresh();yardHUD();buildBar();}
-function placeCancel(){if(!BM)return;BM.mode='browse';BM.moving=null;yardRefresh();buildBar();}
+function placeCancel(){if(!BM)return;BM.mode='browse';BM.moving=null;BM.row=null;yardRefresh();buildBar();}
 function storeObj(){const Y=PROG.yard,o=BM&&BM.moving;if(!o)return;
   const placed=ks=>Y.objs.filter(x=>ks.includes(x.k)).length;
   if((o.k==='gh1'||o.k==='gh2')&&placed(['gh1','gh2'])<=1){floatMsg('🏠 Ein Gartenhäuschen muss stehen bleiben – sonst wachsen keine Gurken!');return;}
@@ -1367,33 +1570,44 @@ function storeObj(){const Y=PROG.yard,o=BM&&BM.moving;if(!o)return;
   Y.objs=Y.objs.filter(x=>x!==o);Y.inv[o.k]=(Y.inv[o.k]||0)+1;delete Y.crops[o.id];delete Y.bush[o.id];
   BM.moving=null;BM.mode='browse';SND.weed();floatMsg('📦 '+OBJ[o.k].name+' liegt jetzt im Schuppen');saveProg();yardRefresh();yardHUD();buildBar();}
 function buildTap(c,r){
-  if(BM.mode==='place'){BM.c=c-Math.floor(objW(BM.k)/2);BM.r=r-Math.floor(objH(BM.k)/2);ghostClamp();buildBar();return;}
+  if(BM.mode==='place'){BM.c=c-Math.floor(objW(BM.k)/2);BM.r=r-Math.floor(objH(BM.k)/2);BM.row=null;ghostClamp();buildBar();return;}
+  if(BM.mode==='erase'){if(r<YARD0)return;BM.c=c;BM.r=r;BM.row=null;buildBar();return;}
   if(r<YARD0)return;const pid=parcelOf(c,r);if(pid>=0&&!PROG.yard.own.includes(pid)){openLand(pid);return;}
   const o=OCC[r*GW+c];if(o){startPlace(o.o.k,o.o);return;}
   floatText('Unten ein Teil auswählen',c*T+8,r*T,'#ffd');}
 function drawBuildGhost(){
   if(!BM)return;
   if(BM.mode==='browse'){const a=.35+.25*Math.sin(timeNow*4);C.globalAlpha=a;for(const o of PROG.yard.objs){if(OBJ[o.k].multi)continue;const w=objW(o.k)*T,h=objH(o.k)*T;C.strokeStyle='#fff6a0';C.lineWidth=1;C.strokeRect(o.c*T+.5,o.r*T+.5,w-1,h-1);}C.globalAlpha=1;return;}
-  const k=BM.k,valid=canPlace(k,BM.c,BM.r,BM.moving),w=objW(k)*T,h=objH(k)*T,p=.5+.5*Math.sin(timeNow*6);
+  const p=.5+.5*Math.sin(timeNow*6);
+  if(BM.mode==='erase'){if(BM.c==null)return;for(const q of rowCells()){const x=q.c*T,y=q.r*T,ok=eraseOK(q.c,q.r);C.globalAlpha=ok?.35+.15*p:.15;C.fillStyle=ok?'#ff4a3a':'#ffffff';C.fillRect(x,y,T,T);C.globalAlpha=1;
+      C.strokeStyle=ok?'#ffffff':'rgba(255,255,255,.5)';C.lineWidth=1;C.strokeRect(x+.5,y+.5,T-1,T-1);if(ok){for(let i=3;i<13;i++){P(x+i,y+i,1,1,'#fff');P(x+15-i,y+i,1,1,'#fff');}}}return;}
+  if(OBJ[BM.k].multi&&!BM.moving){const k=BM.k,ch=OBJ[k].rows[0],pl=rowPlan(),set=new Map(pl.cells.map(q=>[q.c+','+q.r,q]));
+    const nb=(c,r)=>{const q=set.get(c+','+r);if(q&&q.st!=='bad'&&q.st!=='max')return ch;if(c<0||r<0||c>=COLS||r>=ROWS)return'';const t=tiles[r*COLS+c];return t?t.ch:'';};
+    for(const q of pl.cells){const x=q.c*T,y=q.r*T,good=q.st==='ok'||q.st==='swap';if(good||q.st==='same'){C.globalAlpha=.88;drawObjAt(k,q.c,q.r,nb);C.globalAlpha=1;}
+      C.globalAlpha=.16+.1*p;C.fillStyle=good?(q.st==='swap'?'#ffe24a':'#7cff7c'):q.st==='same'?'#ffffff':'#ff4a3a';C.fillRect(x,y,T,T);C.globalAlpha=1;}
+    const a=pl.cells[0],b=pl.cells[pl.cells.length-1],x0=Math.min(a.c,b.c)*T,y0=Math.min(a.r,b.r)*T,x1=(Math.max(a.c,b.c)+1)*T,y1=(Math.max(a.r,b.r)+1)*T;
+    C.strokeStyle='#ffffff';C.lineWidth=2;C.strokeRect(x0+1,y0+1,x1-x0-2,y1-y0-2);C.strokeStyle='#3a9a2a';C.lineWidth=1;C.strokeRect(x0-.5,y0-.5,x1-x0+1,y1-y0+1);
+    const gx=BM.c*T+8,gy=BM.r*T-6-Math.round(p*2);if(!BM.row){P(gx-3,gy-3,7,2,'#fff');P(gx-2,gy-1,5,1,'#fff');P(gx-1,gy,3,1,'#fff');P(gx,gy+1,1,1,'#fff');}return;}
+  const k=BM.k,valid=canPlace(k,BM.c,BM.r,BM.moving),w=objW(k)*T,h=objH(k)*T;
   C.globalAlpha=.3;P(BM.c*T+3,BM.r*T+4,w,h,'#000');C.globalAlpha=1;drawObjAt(k,BM.c,BM.r);C.globalAlpha=.18+.1*p;C.fillStyle=valid?'#7cff7c':'#ff4a3a';C.fillRect(BM.c*T,BM.r*T,w,h);C.globalAlpha=1;
   C.strokeStyle=valid?'#ffffff':'#ff3a2a';C.lineWidth=2;C.strokeRect(BM.c*T+1,BM.r*T+1,w-2,h-2);C.strokeStyle=valid?'#3a9a2a':'#8a1a10';C.lineWidth=1;C.strokeRect(BM.c*T-.5,BM.r*T-.5,w+1,h+1);
   const ax=BM.c*T+w/2,ay=BM.r*T-6-Math.round(p*2);P(ax-3,ay-3,7,2,'#fff');P(ax-2,ay-1,5,1,'#fff');P(ax-1,ay,3,1,'#fff');P(ax,ay+1,1,1,'#fff');}
 
 // ---- Land kaufen ----
 function openLand(id){if(scene!=='yard')return;const Y=PROG.yard;if(Y.own.includes(id))return;
-  const k=landK();if(k>=LAND_REQ.length)return;const req=LAND_REQ[k],lvOk=levelsDone()>=req,adj=landAdj(id),eur=LAND_EUR[k],mat=landMat(k),m=Y.mat;
+  if(!parcRevealed(id)){cloudMsg(id);return;}
+  const k=landK(),lvOk=true,adj=landAdj(id),eur=landEur(k),mat=landMat(k),m=Y.mat;
   const matOk=Object.keys(mat).every(x=>m[x]>=mat[x]),ok=lvOk&&adj&&matOk&&PROG.money>=eur;
   const row=(ic,n,have,need)=>`<div class="stat"><span>${ic} ${n}</span><span class="${have>=need?'pos':'negt'}">${have>=need?'✓ ':''}${have} / ${need}</span></div>`;
   $('endCard').innerHTML=`<h2>🪧 Land zu verkaufen</h2><div class="sub">Ein Stück Wiese, 10 × 7 Felder – ${Y.own.length-START_PARC.length?'Grundstück Nr. '+(k+1):'dein erstes neues Grundstück'}</div>
    ${!adj?'<div class="unl">Dieses Stück grenzt noch nicht an deinen Garten. Kauf zuerst das Land daneben.</div>':''}
-   ${!lvOk?`<div class="unl">🔒 Erst kaufbar, wenn du <b>${lvShort(req)}</b> geschafft hast.</div>`:''}
    ${row('💶','Preis',Math.floor(PROG.money),eur)}${Object.keys(mat).map(x=>row(MAT[x].icon,MAT[x].plural,m[x],mat[x])).join('')}
    ${lvOk&&adj&&!matOk?'<div class="sub">Das Material gibt es im Baumarkt in Lahr.</div>':''}
    <p style="font-size:14px;text-align:left">Deda: „${ok?'<b>Und gut!</b> Zaun drum, Erde drauf – und dann wird gebaut!':lvOk&&adj?'Zaunpfähle, Maschendraht und Erde – ohne das wird das nix.':'Eins nach dem anderen. Erst mal gärtnern!'}“</p>
    ${ok?'<button class="main" id="lBuy">✅ Land kaufen</button>':''}${lvOk&&adj&&!matOk?'<button class="main" id="lBau">🚗 Zum Baumarkt fahren</button>':''}<button id="lBack">⬅ Zurück</button>`;
   $('endO').classList.add('show');
   if($('lBuy'))$('lBuy').onclick=()=>buyLand(id);if($('lBau'))$('lBau').onclick=driveBaumarkt;$('lBack').onclick=()=>$('endO').classList.remove('show');}
-function buyLand(id){const Y=PROG.yard,k=landK(),eur=LAND_EUR[k],mat=landMat(k);if(Y.own.includes(id)||!landAdj(id)||levelsDone()<LAND_REQ[k]||PROG.money<eur)return;
+function buyLand(id){const Y=PROG.yard,k=landK(),eur=landEur(k),mat=landMat(k);if(Y.own.includes(id)||!landAdj(id)||!parcRevealed(id)||PROG.money<eur)return;
   for(const x in mat)if(Y.mat[x]<mat[x])return;PROG.money-=eur;for(const x in mat)Y.mat[x]-=mat[x];Y.own.push(id);saveProg();SND.quest();
   $('endO').classList.remove('show');yardRefresh();yardHUD();const p=PARC[id];camFocus(p.c*T+PW*T/2,p.r*T+PH*T/2,Math.min(CAM.z,1));
   deda.happy=4;say('<b>Und gut!</b> Neues Land! Jetzt kannst du hier bauen – tipp unten auf <b>🔨 Bauen</b>.',{mood:'happy',ms:5000});}
@@ -1409,10 +1623,10 @@ function openDriveMenu(){if(scene!=='yard')return;const n=lagerCount();
   $('dBau').onclick=driveBaumarkt;$('dSeed').onclick=()=>startDrive({vehicle:vehicleNow(),cargo:0,len:1300,title:'Zum Samenladen',fromSign:null,toSign:'Samen &amp; Garten<br><small>Hugsweier</small>',onDone:()=>openSeedShop()});
   if($('dSell'))$('dSell').onclick=openSellMenu;$('dBack').onclick=()=>$('endO').classList.remove('show');}
 function driveBaumarkt(){startDrive({vehicle:'car',cargo:0,len:1500,title:'Zum Baumarkt',fromSign:'Hugsweier',toSign:'Baumarkt<br><small>Lahr</small>',onDone:()=>openBaumarkt()});}
-function openBaumarkt(){hideOverlays();scene='hub';const Y=(yardEnsure(),PROG.yard),m=Y.mat,k=landK(),need=k<LAND_REQ.length?landMat(k):null;
+function openBaumarkt(){hideOverlays();scene='hub';const Y=(yardEnsure(),PROG.yard),m=Y.mat,k=landK(),need=Y.own.length<PARC.length?landMat(k):null;
   const miss={};let missEur=0;if(need)for(const x in need){const d=Math.max(0,need[x]-m[x]);if(d){miss[x]=d;missEur+=d*MAT[x].eur;}}
   let h=`<h2>🔨 Baumarkt Lahr</h2><div class="sub">Alles für neues Land. Deda: „Das Auto ist voll – <b>und gut</b>.“</div><div class="stars" style="font-size:22px">💶 ${Math.floor(PROG.money)} €</div>`;
-  if(need)h+=`<div class="unl" style="text-align:left">🪧 Fürs nächste Grundstück brauchst du: ${Object.keys(need).map(x=>`${MAT[x].icon} ${need[x]}`).join(' · ')}${levelsDone()<LAND_REQ[k]?`<br><small>Kaufen kannst du es nach ${lvShort(LAND_REQ[k])}.</small>`:''}</div>`;
+  if(need)h+=`<div class="unl" style="text-align:left">🪧 Fürs nächste Grundstück brauchst du: ${Object.keys(need).map(x=>`${MAT[x].icon} ${need[x]}`).join(' · ')}${landBuyable()?'':'<br><small>Gerade ist kein Land frei – im nächsten Kapitel ziehen wieder Wolken weg.</small>'}</div>`;
   if(missEur)h+=`<button class="main" id="bmAll" ${PROG.money>=missEur?'':'disabled'}>🛒 Alles Fehlende kaufen · ${missEur} €</button>`;
   for(const x in MAT){const t=MAT[x];h+=`<div class="shop"><span style="font-size:26px;width:34px">${t.icon}</span><div style="flex:1;text-align:left"><b>${t.name}</b><br><small>${t.eur} € pro Stück · du hast <b>${m[x]}</b></small></div>
     <button data-bm="${x}" data-n="1" ${PROG.money>=t.eur?'':'disabled'}>+1</button><button data-bm="${x}" data-n="5" ${PROG.money>=t.eur*5?'':'disabled'}>+5</button></div>`;}
@@ -1439,7 +1653,7 @@ function dayPlan(L,go,free){const ch=free?9:chOf(L);const fam=HELPERS.filter(h=>
   hideOverlays();scene='hub';draw();$('endO').classList.add('show');}
 
 // ==== Wege finden ====
-function walkable(ch,helper){return ch==='='||ch===','||ch==='D'||(helper&&(ch==='g'||ch==='s'));}
+function walkable(ch,helper){return isPath(ch)||ch===','||ch==='D'||(helper&&(ch==='g'||ch==='s'));}
 function bfs(sc,sr,tc,tr,helper){
   const K=(c,r)=>r*COLS+c,prev=new Map([[K(sc,sr),null]]),q=[[sc,sr]];
   while(q.length){const[c,r]=q.shift();if(c===tc&&r===tr)break;
@@ -1584,7 +1798,7 @@ function act(t){
   if(tut){if(!tutAllows(t))return;tut.wait=false;}
   const cx=t.c*T+8,cy=t.r*T+6;
   if(t.ch==='o')return;
-  if(t.ch==='x'){floatText('🪧 Das Land gehört noch nicht dir',cx,cy,'#ffe680');return;}
+  if(t.ch==='x'){const pid=parcelOf(t.c,t.r);if(pid>=0&&!parcRevealed(pid)){cloudMsg(pid);return;}floatText('🪧 Das Land gehört noch nicht dir',cx,cy,'#ffe680');return;}
   if(t.ch==='w'){floatText('🔒 Wird im nächsten Kapitel ein Beet',cx,cy,'#ffe680');return;}
   if(t.snail){t.snail=null;floatText('🐌 weg!',cx,cy);SND.weed();if(Math.random()<.3)praise();tutCheck();return;}
   if(tool==='schauen'){if(!t.bed&&!t.bush)floatText('🔍 Tipp auf eine Pflanze oder ein Beet',cx,cy,'#ffd');else beep(720,.04,'triangle',.02);return;}
@@ -1766,7 +1980,7 @@ function update(dt){
   if(boxTimer<1e8&&$('box').classList.contains('show')){boxTimer-=dt*1000;if(boxTimer<=0)$('box').classList.remove('show');}
 }
 function planWalk(){
-  const ts=tiles.filter(t=>t.ch==='=');const t=pick(ts);
+  let ts=tiles.filter(t=>isPath(t.ch));if(!ts.length)ts=tiles.filter(t=>t.ch===',');if(!ts.length)return;const t=pick(ts);
   const p=bfs(Math.floor(deda.x/T),Math.floor((deda.y-1)/T),t.c,t.r,false);
   if(p)deda.path=p.slice(1).map(([c,r])=>[c*T+8,r*T+15]);
 }
@@ -1865,6 +2079,9 @@ function drawBush(t){
 }
 function drawExtras(t){
   const x=t.c*T,y=t.r*T;
+  if(t.ch==='V'&&Math.floor(timeNow*2+t.seed*7)%3===0){const a=Math.floor(hash(t.seed*3+Math.floor(timeNow*2))*9);P(x+4+a,y+5+(a%5),2,1,'#d8f0ff');}
+  else if(t.ch==='N'&&t.oi===0){const f=timeNow*6;for(let i=0;i<5;i++){const a=(f+i*1.3)%4,dx=(i-2)*2.2*a/4;P(x+16+dx,y+2+a*a*1.1-a*3,1,2,'#bfe4ff');}P(x+15,y+1,3,1,'#e8f6ff');}
+  else if(t.ch==='I'){for(let i=0;i<3;i++){const a=(timeNow*.8+i/3)%1;C.globalAlpha=.45*(1-a);P(x+7+Math.sin(timeNow*2+i*2)*2,y+3-a*12,3,3,'#d8d8d8');}C.globalAlpha=1;}
   if(t.weed){P(x+12,y+9,1,5,'#1f5a1a');P(x+11,y+10,1,1,'#2e7a24');P(x+13,y+10,1,1,'#2e7a24');P(x+10,y+11,1,3,'#2e7a24');P(x+14,y+11,1,3,'#2e7a24');P(x+1,y+12,1,3,'#2e7a24');P(x+2,y+11,1,4,'#1f5a1a');P(x+3,y+13,1,2,'#2e7a24');}
   if(t.puddle>0){C.globalAlpha=Math.min(1,t.puddle);P(x+2,y+11,12,3,'#5a9ad8');P(x+4,y+10,8,1,'#5a9ad8');P(x+4,y+11,3,1,'#bfe4ff');C.globalAlpha=1;}
   if(t.snail){const wob=Math.sin(timeNow*3+t.seed*9)>0?1:0;const sx=x+3+Math.floor(t.snail.t/4);
@@ -1993,7 +2210,7 @@ $('menuBtn').onclick=()=>{if(scene==='yard'){if(BM)closeBuild();openMenu();retur
 // ==== Level-Ablauf ====
 function wishText(){return S.quest.map(q=>q.key==='euro'?q.need+' Euro Umsatz':q.need+' '+ITEMS[q.key].plural).join(', ').replace(/, ([^,]*)$/,' und $1');}
 function hideOverlays(){EVFORCE=null;hideTileInfo();$('app').classList.remove('yardmode');$('yardCtl').style.display='none';$('buildCtl').style.display='none';document.querySelectorAll('.plab').forEach(e=>e.remove());if(scene!=='yard')BM=null;$('serveCtl').style.display='none';$('worldCtl').style.display='none';$('miniCtl').style.display='none';document.querySelectorAll('.hbub').forEach(e=>e.remove());document.querySelectorAll('.cbub').forEach(e=>e.remove());['title','endO','mapO','shopO','helpO','devO','officeO'].forEach(id=>$(id).classList.remove('show'));document.querySelectorAll('#wrap .nm,#wrap .bub,#wrap .klatsch,#wrap .ortsschild,#wrap .float').forEach(e=>e.remove());$('driveCtl').style.display='none';$('skipBtn').style.display='none';if(scene!=='drive')DR=null;}
-function fixProg(){PROG.seeds=PROG.seeds||[];PROG.helpers=PROG.helpers||[];PROG.stars=PROG.stars||{};PROG.money=+PROG.money||0;PROG.unlocked=Math.max(1,Math.min(MAXL,+PROG.unlocked||1));ensureBiz();}
+function fixProg(){PROG.seeds=PROG.seeds||[];PROG.helpers=PROG.helpers||[];PROG.stars=PROG.stars||{};PROG.money=+PROG.money||0;PROG.unlocked=Math.max(1,Math.min(MAXL,+PROG.unlocked||1));ensureBiz();if(PROG.yard&&PROG.yard.v===1)yardMig2(PROG.yard);}
 function startLevel(L){
   fixProg();if(!SV)rescueTransit();
   hideOverlays();introOn=false;scene='garden';$('driveCtl').style.display='none';
@@ -2014,7 +2231,7 @@ function startLevel(L){
   if(B().snailShield&&L>1){DF.snail=null;B().snailShield=0;S.shield=1;}
   applyUpg(DF);S.quest=adaptQuest(S.quest);S.temp=buildGarden.temp;
   deda.beard=Math.random()<.3;weedT=DF.weed[0];snailT=DF.snail?DF.snail[0]:999;harvestStreak=0;
-  if(L===1&&!free)camFocus(13.5*T,10*T,1,true);
+  if(L===1&&!free)camFocus((XOFF+13.5)*T,10*T,1,true);
   buildSeeds();setTool('giessen');running=true;paused=true;startMusic(FEST&&S&&S.L===MAXL?'fest':'garden');renderHUD();render();
   if(L===1){startTutorial();return;}
   deda.happy=999;
@@ -2026,9 +2243,9 @@ function chapterNews(ch){const out=[];
   if(!COMPANY){const cr=Object.keys(CROP_CH).filter(k=>CROP_CH[k]===ch);if(cr.length)out.push('🌱 <b>Neue Samen geschenkt:</b> '+cr.map(k=>CROPS[k].emoji+' '+CROPS[k].plural).join(', '));
     const ob=Object.keys(OBJ).filter(k=>OBJ[k].ch===ch&&(ch>0||['gh1','huette'].indexOf(k)<0));if(ch>0&&ob.length)out.push('🔨 <b>Neu zum Bauen:</b> '+ob.map(k=>OBJ[k].name).join(', '));
     const more=Object.keys(OBJ).filter(k=>OBJ[k].ch<ch&&OBJ[k].max(ch)>OBJ[k].max(ch-1)&&OBJ[k].max(ch)<50);if(ch>0&&more.length)out.push('⬆ <b>Du darfst mehr bauen:</b> '+more.map(k=>OBJ[k].name).join(', '));
-    const land=LAND_REQ.filter(v=>v>=ch*LPC&&v<(ch+1)*LPC).length;
-    if(ch===0)out.push('🏡 <b>Dein Garten:</b> ein Häuschen, vier Beete, Himbeeren. Rundherum liegt Land zum Kaufen 🪧 – der Garten wird mit dir wachsen.');
-    else if(land)out.push(`🪧 <b>Neues Land:</b> In diesem Kapitel kannst du ${land===1?'ein weiteres Grundstück':land+' weitere Grundstücke'} kaufen.`);
+    const land=ch>0?REVEAL_N[ch]-REVEAL_N[ch-1]:0;
+    if(ch===0)out.push('🏡 <b>Dein Garten:</b> ein Häuschen, vier Beete, Himbeeren. Rundherum liegt Land zum Kaufen 🪧 – und dahinter noch viel mehr unter den Wolken ☁️. Der Garten wird mit dir wachsen.');
+    else if(land)out.push(`☁️ <b>Neues Land:</b> Die Wolken ziehen weg – ${land===1?'ein neues Grundstück':land+' neue Grundstücke'} kannst du kaufen.`);
     return out;}
   const cr=Object.keys(CROP_CH).filter(k=>CROP_CH[k]===ch);if(cr.length)out.push('🌱 <b>Neue Samen geschenkt:</b> '+cr.map(k=>CROPS[k].emoji+' '+CROPS[k].plural).join(', '));
   const tr=Object.keys(TREE_CH).filter(k=>TREE_CH[k]===ch);if(tr.length)out.push('🌳 <b>Neu im Samenladen:</b> '+tr.map(k=>BUSHES[k].emoji+' '+BUSHES[k].name).join(', '));
@@ -2806,8 +3023,9 @@ function startServe(cargo,place,coins,mo){
   $('tools').style.display='none';$('seeds').classList.remove('show');$('hud').style.visibility='hidden';
   const b=B();
   const sd=mo?mo.d:Math.min(4,1+Math.floor(b.stage/3));
-  startMusic('mini',place==='markt'?'wochenmarkt':place==='hofladen'?'ansturm':'zaun',true);SV={mo,sd,cargo,place,mult:place==='stand'?.8:1,t:0,dur:place==='hofladen'?50:place==='markt'?55:45,cust:[],spawnT:1,earn:0,tips:0,sold:0,happy:0,angry:0,wrong:0,coins:coins||0,done:false,start:cargoCount(cargo),maxQ:1+Math.min(3,sd-1+(place==='hofladen'?1:0))};
+  startMusic('mini',place==='markt'?'wochenmarkt':place==='hofladen'?'ansturm':'zaun',true);SV={mo,sd,cargo,place,mult:place==='stand'?.8:1,t:0,dur:place==='hofladen'?50:place==='markt'?55:45,cust:[],spawnT:1,earn:0,tips:0,sold:0,happy:0,angry:0,wrong:0,coins:coins||0,done:false,init:Object.assign({},cargo),fly:[],start:cargoCount(cargo),maxQ:1+Math.min(3,sd-1+(place==='hofladen'?1:0))};
   if(coins){PROG.money+=coins;b.today.rev+=coins;}
+  {const ks=Object.keys(cargo).filter(k=>cargo[k]>0).sort((a,c)=>cargo[c]-cargo[a]).slice(0,8);SV.crates=ks.map((k,i)=>({k,x:12+(i%4)*34,y:i<4?122:104,row:i<4?0:1}));}
   $('serveCtl').style.display='grid';renderServeCtl();
   say(place==='hofladen'?'<b>Meine Güte</b>, ein Kundenansturm im Hofladen! Schnell bedienen!':place==='markt'?'<b>Und gut?</b> Der Markt geht los! Tipp unten auf das Gemüse, das die Kunden wollen.':'<b>Und gut?</b> Die ersten Kunden kommen an den Zaun! Tipp unten auf das richtige Gemüse.',{mood:'happy',ms:3500});
 }
@@ -2815,13 +3033,15 @@ function renderServeCtl(){
   const ks=Object.keys(SV.cargo).filter(k=>SV.cargo[k]>0);
   setHTML($('serveCtl'),ks.map(k=>`<button data-k="${k}"><span class="ic">${ITEMS[k].emoji}</span>${SV.cargo[k]}</button>`).join('')||'<span class="q">Alles verkauft! 🎉</span>');
 }
+// noch freie Ware: Lager minus das, was wartende Kunden schon bestellt haben
+function serveAvail(k){let r=SV.cargo[k]||0;for(const c of SV.cust)if(c.state!=='leave')for(const w of c.wants)if(w.k===k&&w.q>0)r-=w.q;return r;}
 function newCustomer(){
   if(SV.first===undefined)SV.first=!PROG.firstSale&&SV.place==='stand';if(SV.cust.some(c=>c.first))return null;
-  const ks=Object.keys(SV.cargo).filter(k=>SV.cargo[k]>0);if(!ks.length)return null;
+  const ks=Object.keys(SV.cargo).filter(k=>serveAvail(k)>0);if(!ks.length)return null;
   const used=SV.cust.map(c=>c.slot);const free=[0,1,2].filter(i=>!used.includes(i));if(!free.length)return null;
   const slot=pick(free);const wants=[];const n=!SV.first&&Math.random()<.35&&ks.length>1?2:1;
   const pool=ks.slice().sort(()=>Math.random()-.5);
-  for(let i=0;i<n;i++){const k=pool[i];wants.push({k,q:SV.first?1:Math.min(SV.cargo[k],1+Math.floor(Math.random()*SV.maxQ))});}
+  for(let i=0;i<n;i++){const k=pool[i];wants.push({k,q:SV.first?1:Math.min(serveAvail(k),1+Math.floor(Math.random()*SV.maxQ))});}
   const kid=Math.random()<.2;
   const o={kid,hair:pick(HAIRS),eye:pick(['#2a1a10','#2f6ad0','#2a8a86']),shirt:pick(SHIRTS),pants:pick(['#3c4a6a','#4a4a4a','#5a7aa2']),hairStyle:!kid&&Math.random()<.2?'glatze':undefined,glasses:Math.random()<.2,broad:Math.random()<.2};
   const from=Math.random()<.5?-12:172;const pat=SV.first?40:Math.max(6,15-SV.sd*1.8-(SV.place==='hofladen'?2:0));
@@ -2840,6 +3060,7 @@ function serveGive(k){
   const c=SV.cust.filter(c=>c.state==='wait').find(c=>c.wants.some(w=>w.k===k&&w.q>0));
   if(!c){SV.wrong++;deda.react=1;floatText('Will keiner! 😠',80,70,'#ffb0a0');beep(160,.12,'square',.04);return;}
   const w=c.wants.find(w=>w.k===k&&w.q>0);w.q--;SV.cargo[k]--;SV.sold++;w.done=(w.done||0)+1;SND.plant();
+  {const cr=(SV.crates||[]).find(q=>q.k===k);SV.fly.push({k,x0:cr?cr.x+16:80,y0:cr?cr.y-4:118,x1:c.x,y1:c.y-20,t0:SV.t});}
   if(c.wants.every(w=>w.q<=0)){
     let pay=0;c.wants.forEach(w=>{pay+=sellItems(w.k,w.done,SV.mult,SV.place);});
     const tip=Math.round(pay*.3*(c.pat/c.maxPat)*100)/100;PROG.money+=tip;B().today.rev+=tip;
@@ -2854,6 +3075,9 @@ function updateServe(dt){
   if(!s.done){s.spawnT-=dt;if(s.spawnT<=0&&s.t<s.dur-4){s.spawnT=rnd(1.6,3.2)*(s.place==='hofladen'?.6:s.place==='markt'?.85:1)*(1.15-s.sd*.1);const c=newCustomer();if(c)s.cust.push(c);}}
   for(const c of s.cust){
     const dx=c.tx-c.x;if(Math.abs(dx)>.5){c.x+=Math.sign(dx)*Math.min(Math.abs(dx),40*dt);c.bob+=dt;c.step=Math.floor(c.bob*8)%2?1:2;}else{c.step=0;if(c.state==='in')c.state='wait';}
+    if(c.state!=='leave'){for(const w of c.wants)if(w.q>0&&(s.cargo[w.k]||0)<w.q){const tot=s.cust.filter(o=>o!==c&&o.state!=='leave').reduce((a,o)=>a+o.wants.filter(x=>x.k===w.k&&x.q>0).reduce((b,x)=>b+x.q,0),0);const can=Math.max(0,(s.cargo[w.k]||0)-tot);if(can<w.q)w.q=can;}
+      if(c.wants.every(w=>w.q<=0)){let pay=0;c.wants.forEach(w=>{if(w.done)pay+=sellItems(w.k,w.done,s.mult,s.place);});if(pay){s.earn+=pay;floatText('+'+eur(pay),c.x,c.y-30,'#fff2a0');}
+        c.state='leave';c.mode=pay?'happy':'normal';c.tx=c.x<80?-14:174;if(pay)s.happy++;else floatText('Schade, aus!',c.x,c.y-30,'#fff6e0');}}
     if(c.state==='wait'){c.pat-=dt;if(c.pat<=0){c.state='leave';c.mode='angry';c.tx=c.x<80?-14:174;s.angry++;s.streak=0;deda.react=1.6;SND.guete();floatText('Meine Güte!',80,60,'#ffb0a0');
       c.wants.forEach(w=>{if(w.done){sellItems(w.k,w.done,s.mult*.5,s.place);}});}}
     if(c.state==='leave'&&(c.x<-12||c.x>172)){c.gone=true;c.el.remove();}
@@ -2869,22 +3093,26 @@ function renderServe(){
   C=ctx;const s=SV,mk=s.place==='markt';
   P(0,0,W,H,mk?'#9cc8e8':'#8ccbea');
   if(s.place==='hofladen'){P(0,0,160,96,'#d8c0a0');for(let x=0;x<160;x+=10)P(x,0,1,96,'#c8b090');P(20,10,40,30,'#a8d8e8');P(100,10,40,30,'#a8d8e8');P(20,24,40,1,'#fff');P(100,24,40,1,'#fff');P(0,90,160,150,'#b08a60');for(let y=94;y<240;y+=10)P(0,y,160,1,'#a07a50');
-    for(let i=0;i<6;i++){P(4+i*26,44,22,26,'#8a5a2a');for(let j=0;j<3;j++)P(6+i*26,48+j*7,18,5,['#3f8f2f','#e0402c','#d9b46a','#f08a24','#5b2a6e','#d8284a'][(i+j)%6]);}}
+    for(let i=0;i<6;i++){P(4+i*26,40,22,30,'#8a5a2a');P(5+i*26,41,20,28,'#6a4020');for(let j=0;j<2;j++){P(4+i*26,52+j*14,22,2,'#a8743e');const k=['gurke','tomate','kartoffel','karotte','salat','paprika','aubergine','kuerbis','apfel','zwiebel','radieschen','erdbeere'][(i*2+j)%12];drawBigVeg(k,9+i*26,46+j*14);drawBigVeg(k,19+i*26,47+j*14);}}}
   else if(mk){const cols=['#e8c8a0','#b8d8c0','#e8dcc8','#d8b0a0','#c8d0e0'];for(let i=0;i<5;i++){P(i*32,14,32,76,cols[i]);P(i*32,8,32,8,'#a0402a');P(i*32+15,8,2,8,'#c05040');for(let y=24;y<80;y+=18)for(let x=6;x<30;x+=12)P(i*32+x,y,6,9,'#5a7a9a');}
     P(0,90,160,150,'#b8b0a8');for(let y=94;y<240;y+=8)for(let x=(y/8%2)*8;x<160;x+=16)P(x,y,14,6,'#aaa29a');}
   if(s.place==='stand'){drawTree(22,56,.2);drawTree(138,54,.8);P(0,60,160,180,'#5c9e3c');for(let i=0;i<160;i+=6)P(i,62,3,20,'#efe4c8');P(0,70,160,2,'#c8b890');
     for(let i=0;i<30;i++)P(hash(i)*160,90+hash(i*3)*140,1,2,'#74b84c');}
   // Stand mit Markise
-  P(10,74,140,12,'#3a8a4a');for(let i=0;i<140;i+=14)P(10+i,74,7,12,'#f4f4f4');P(10,86,140,2,'#2a6a3a');for(let i=0;i<140;i+=7)P(10+i,88,4,2,i%14?'#3a8a4a':'#f4f4f4');
-  P(14,88,3,60,'#8a5a2a');P(143,88,3,60,'#8a5a2a');
-  // Deda hinter dem Tresen
+  P(10,50,140,12,'#3a8a4a');for(let i=0;i<140;i+=14)P(10+i,50,7,12,'#f4f4f4');P(10,62,140,2,'#2a6a3a');for(let i=0;i<140;i+=7)P(10+i,64,4,2,i%14?'#3a8a4a':'#f4f4f4');
+  P(14,64,3,88,'#8a5a2a');P(143,64,3,88,'#8a5a2a');
+  // Deda hinter dem Stand
   const m=deda.react>0?'angry':deda.happy>0?'happy':'normal';
-  dedaFront(73,104,m,deda.react>0?(Math.floor(s.t*6)%2?'up':'down'):null,deda.beard,0);
-  // Tresen mit Kisten
-  P(10,128,140,24,'#a8743e');P(10,128,140,2,'#c8945e');P(10,150,140,2,'#7a5020');for(let i=14;i<150;i+=20)P(i,132,1,18,'#8a5a2a');
-  const ks=Object.keys(s.cargo);ks.slice(0,6).forEach((k,i)=>{const x=16+i*22,y=120;const col=CROPS[k]?CROPS[k].fruit:BUSHES[Object.keys(BUSHES).find(b=>BUSHES[b].key===k)].color;
-    P(x,y,20,10,'#8a5a2a');P(x,y,20,1,'#b07a40');P(x,y+9,20,1,'#5a3a1a');const n=Math.min(8,Math.ceil(s.cargo[k]/2));for(let j=0;j<n;j++)P(x+2+(j%4)*4,y-3+Math.floor(j/4)*3,3,3,col);});
-  if(mk){P(150,120,8,30,'#e8a0b0');P(148,116,12,6,'#f2c94c');}
+  dedaFront(73,80,m,deda.react>0?(Math.floor(s.t*6)%2?'up':'down'):null,deda.beard,0);
+  // hintere Stufe + Kisten
+  P(10,114,140,5,'#8a5a2a');P(10,114,140,1,'#b07a40');P(10,118,140,4,'#6a4020');
+  for(const cr of s.crates||[])if(cr.row===1)drawStandCrate(cr.k,cr.x,cr.y,s.init[cr.k]||1,s.cargo[cr.k]||0);
+  // Tresen + vordere Kisten
+  P(10,132,140,20,'#a8743e');P(10,132,140,2,'#c8945e');P(10,150,140,2,'#7a5020');for(let i=14;i<150;i+=20)P(i,136,1,14,'#8a5a2a');
+  for(const cr of s.crates||[])if(cr.row===0)drawStandCrate(cr.k,cr.x,cr.y,s.init[cr.k]||1,s.cargo[cr.k]||0);
+  // verkaufte Ware fliegt zum Kunden
+  s.fly=(s.fly||[]).filter(f=>s.t-f.t0<.45);for(const f of s.fly){const a=Math.min(1,(s.t-f.t0)/.45);drawBigVeg(f.k,f.x0+(f.x1-f.x0)*a,f.y0+(f.y1-f.y0)*a-Math.sin(a*Math.PI)*22);}
+  if(mk){P(150,124,6,28,'#e8a0b0');P(148,120,10,5,'#f2c94c');}
   // Schatten unter dem Tresen
   C.globalAlpha=.2;P(10,152,140,6,'#000');C.globalAlpha=1;
   // Kunden vor dem Stand
@@ -3216,8 +3444,16 @@ function mgHearts(n,max,x,y){for(let i=0;i<max;i++){const c=i<n?'#e0402c':'#5a3a
 function segDist(ax,ay,bx,by,px,py){const dx=bx-ax,dy=by-ay,l=dx*dx+dy*dy;let t=l?((px-ax)*dx+(py-ay)*dy)/l:0;t=Math.max(0,Math.min(1,t));return Math.hypot(ax+dx*t-px,ay+dy*t-py);}
 function rrect(x,y,w,h,c){P(x+1,y,w-2,h,c);P(x,y+1,w,h-2,c);}
 function mgSky(top,bot,h){h=h||120;const b=h/12;for(let i=0;i<12;i++)P(0,i*b,160,b+1,lerpCol(top,bot,i/11));}
+function drawStandCrate(k,x,y,n0,n){const cnt=n<=0?0:Math.max(1,Math.ceil(6*n/Math.max(1,n0)));
+  P(x,y-1,32,11,'#5a3418');P(x+1,y,30,4,'#4a2a10');
+  const pos=[[7,3],[16,3],[25,3],[11,-2],[21,-2],[16,-7]];for(let i=0;i<cnt;i++)drawBigVeg(k,x+pos[i][0],y+pos[i][1]);
+  P(x,y+4,32,6,'#b07a48');P(x,y+4,32,1,'#d8a468');P(x,y+9,32,1,'#6a4020');P(x,y+4,1,6,'#6a4020');P(x+31,y+4,1,6,'#6a4020');P(x+10,y+5,12,4,'#f6e7c1');P(x+11,y+6,10,1,'#c8a878');P(x+11,y+8,6,1,'#c8a878');
+  if(cnt===0){P(x+3,y+1,26,2,'#3a1e0a');}}
 function drawBigVeg(k,x,y){
   switch(k){
+  case'zucchini':pell(x,y,8,3,'#1f4a1c');pell(x,y,7,2,'#2e6b2a');for(let i=-5;i<=5;i+=3)P(x+i,y-2,1,4,'#4a8a3a');P(x-6,y-1,3,1,'#6aa85a');P(x+8,y-1,2,2,'#8a7a3a');break;
+  case'zwetschge':pell(x,y+1,4,5,'#3a1a5a');pell(x,y+1,3,4,'#5a2a7a');P(x-2,y-1,1,3,'#9a7ac8');P(x,y-5,1,2,'#5a4020');P(x+1,y-6,3,1,'#3fa34d');break;
+  case'pfirsich':pdisc(x,y+1,5,'#d86a3a');pdisc(x,y+1,4,'#f0904a');pdisc(x-2,y,2,'#ffc0a0');P(x+1,y-3,1,7,'#d0703a');P(x,y-6,1,2,'#5a4020');P(x+1,y-7,3,2,'#3fa34d');break;
   case'tomate':pdisc(x,y+1,6,'#b82a22');pdisc(x,y+1,5,'#e0402c');pdisc(x-2,y-1,1,'#ff9a7a');P(x-3,y-5,7,2,'#2a7a36');P(x-1,y-7,2,3,'#2a7a36');P(x-5,y-4,2,1,'#3fa34d');P(x+3,y-4,2,1,'#3fa34d');break;
   case'gurke':pell(x,y,7,3,'#2e6b2a');pell(x,y,6,2,'#3f8f2f');P(x-5,y-2,5,1,'#8fd46a');[[-4,0],[-1,1],[2,0],[4,1]].forEach(([a,b])=>P(x+a,y+b,1,1,'#22501f'));P(x+7,y-1,2,2,'#6a4a2a');break;
   case'kartoffel':pell(x,y+1,7,5,'#9a6a30');pell(x,y+1,6,4,'#c99a50');P(x-3,y-2,3,1,'#f0d590');P(x-2,y+1,1,1,'#8a6a30');P(x+3,y+2,1,1,'#8a6a30');P(x+1,y-1,1,1,'#8a6a30');break;
@@ -4565,7 +4801,7 @@ function evYardItems(){const ev=holiday();if(!ev||!PROG.yard||scene!=='yard'||!t
   if(EVY.key!==ck){const g=tiles.filter(t=>t.ch===',');EVY.key=ck;EVY.list=g.length?[0,1,2,3].map(i=>{const t=g[Math.floor(hash(key*.0731+i*13.7+3)*g.length)];return{c:t.c,r:t.r,i};}):[];}
   const yd=String(s.yd||''),got=yd.startsWith(key+':')?yd.split(':')[1]:'';return EVY.list.filter(it=>!got.includes(String(it.i)));}
 function nikoOn(){if(holiday()!=='xmas')return false;const n=new Date();return PROG.devHoliday==='xmas'||(n.getMonth()===11&&(n.getDate()===5||n.getDate()===6));}
-const NIKO={x:10*T+38,y:YARD0*T-6};
+const NIKO={x:XO+10*T+38,y:YARD0*T-6};
 function evYardTap(x,y){if(BM)return false;const ev=holiday();if(!ev)return false;
   for(const it of evYardItems()){const ix=it.c*T+8,iy=it.r*T+9;if(Math.abs(x-ix)<10&&Math.abs(y-iy)<11){const s=evS(ev),key=evDayKey(),yd=String(s.yd||''),got=yd.startsWith(key+':')?yd.split(':')[1]:'';
     s.yd=key+':'+got+it.i;const m=evGain(ev,2);SND.harvest();deda.happy=1;floatText(EVENTS[ev].ie+' +2',ix,iy-8,'#fff2a0');if(m)floatMsg(m);else if(!evYardItems().length)floatMsg(EVENTS[ev].ie+' Alles für heute gefunden – morgen gibt’s neue!');yardHUD();return true;}}
@@ -4573,47 +4809,47 @@ function evYardTap(x,y){if(BM)return false;const ev=holiday();if(!ev)return fals
     floatText('🎁 +6 ⭐ +25 €',NIKO.x,NIKO.y-10,'#fff2a0');floatMsg(m||'🎁 Der Nikolaus war da! 6 Zimtsterne und 25 € im Stiefel.');yardHUD();return true;}}
   return false;}
 // --- Fest-Deko in der Welt (wird jedes Bild neu gezeichnet) ---
-function evPathPumpkin(t){return(t.ch==='='||t.ch==='L')&&hash(t.seed*17.3)<.13;}
+function evPathPumpkin(t){return(isPath(t.ch)&&t.ch!=='S'||t.ch==='L')&&hash(t.seed*17.3)<.13;}
 function evWorldDeco(h){if(!h)return;const t=timeNow;
   if(h==='xmas'){const b=tiles.find(q=>q.ch==='b');if(b){const x=b.c*T+20,y=b.r*T-14;for(let r=0;r<12;r++)P(x+6-r/2,y+r*2,r+1,2,'#2f6e2a');P(x+5,y+24,3,4,'#6a4426');P(x+5,y-2,3,3,'#f2e24c');
       for(let i=0;i<6;i++)if(Math.floor(t*3+i)%2)P(x+3+hash(i)*8-3,y+4+i*3,2,2,['#e0402c','#f2c94c','#5ab0ff'][i%3]);}
-    {const x=344,y=34;for(let r=0;r<18;r++)P(x+9-r/2,y+r*2,r+1,2,r%4<2?'#2f6e2a':'#3a7e32');P(x+8,y+36,3,6,'#6a4426');P(x+7,y-3,5,4,'#f2e24c');
+    {const x=XO+344,y=34;for(let r=0;r<18;r++)P(x+9-r/2,y+r*2,r+1,2,r%4<2?'#2f6e2a':'#3a7e32');P(x+8,y+36,3,6,'#6a4426');P(x+7,y-3,5,4,'#f2e24c');
       for(let i=0;i<10;i++)if(Math.floor(t*2.5+i)%2)P(x+9+(hash(i*3)-.5)*(i*1.6+4),y+5+i*3,2,2,['#e0402c','#f2c94c','#5ab0ff','#fff'][i%4]);
       P(x-2,y+38,7,5,'#e0402c');P(x+1,y+38,1,5,'#f2c94c');P(x+13,y+39,6,4,'#3b7ddb');P(x+15,y+39,1,4,'#fff');}
     for(const q of VIS)if(q.ch==='F')for(let i=0;i<3;i++)if(Math.floor(t*2+i+q.c)%2)P(q.c*T+2+i*5,q.r*T+1,2,2,['#e0402c','#f2c94c','#3fa34d','#5ab0ff'][(i+q.c)%4]);
     if(nikoOn()&&evS('xmas').niko!==new Date().getFullYear()+(PROG.devHoliday?'d':'')){const x=NIKO.x,y=NIKO.y;P(x-3,y-6,5,8,'#c02020');P(x-3,y+1,8,3,'#c02020');P(x-3,y-7,5,2,'#fff');P(x+3,y+3,2,1,'#2a2a2a');
       P(x-2,y-10,3,4,'#7cc457');P(x,y-11,2,3,'#e0402c');if(Math.floor(t*3)%2)P(x+3,y-10,1,1,'#fff');}}
   else if(h==='fasnet'){for(const q of VIS){const x=q.c*T,y=q.r*T;
-      if(q.ch==='='||q.ch==='L')for(let i=0;i<3;i++){const a=hash(q.seed*61+i),b=hash(q.seed*37+i);P(x+a*14,y+b*14,1,1,['#e0402c','#3b7ddb','#f2c94c','#7cc457','#d06aa0'][Math.floor(a*50)%5]);}
+      if(isPath(q.ch)||q.ch==='L')for(let i=0;i<3;i++){const a=hash(q.seed*61+i),b=hash(q.seed*37+i);P(x+a*14,y+b*14,1,1,['#e0402c','#3b7ddb','#f2c94c','#7cc457','#d06aa0'][Math.floor(a*50)%5]);}
       if(q.ch==='F'){P(x,y+1,T,1,'#8a8a8a');for(let i=0;i<4;i++){const c=['#e0402c','#f2c94c','#3b7ddb','#7cc457'][(i+q.c)%4];P(x+i*4,y+2,3,2,c);P(x+i*4+1,y+4,1,1,c);}}}
-    const x=344,y=20,sw=Math.sin(t*2)*1.5;P(x,y,3,50,'#e8d8a8');for(let i=0;i<50;i+=6)P(x,y+i,3,3,'#e0402c');pdisc(x+1,y,6,'#2f7a2a');
+    const x=XO+344,y=20,sw=Math.sin(t*2)*1.5;P(x,y,3,50,'#e8d8a8');for(let i=0;i<50;i+=6)P(x,y+i,3,3,'#e0402c');pdisc(x+1,y,6,'#2f7a2a');
     for(let i=0;i<5;i++)P(x-6+i*3+sw,y+6,1,12+(i%2)*4,['#e0402c','#f2c94c','#3b7ddb','#7cc457','#d06aa0'][i]);P(x-3,y+22,9,7,'#fff6e0');P(x-2,y+24,2,2,'#2a2a2a');P(x+3,y+24,2,2,'#2a2a2a');P(x-1,y+27,5,1,'#e0402c');}
-  else if(h==='easter'){const x=344,y=40;P(x-4,y+18,10,12,'#5ab0ff');P(x-4,y+18,10,2,'#8ad0ff');for(let i=0;i<5;i++){P(x+(i-2)*4,y+4-Math.abs(i-2)*2,1,16,'#6a4426');}
+  else if(h==='easter'){const x=XO+344,y=40;P(x-4,y+18,10,12,'#5ab0ff');P(x-4,y+18,10,2,'#8ad0ff');for(let i=0;i<5;i++){P(x+(i-2)*4,y+4-Math.abs(i-2)*2,1,16,'#6a4426');}
     for(let i=0;i<7;i++){const ex=x-8+hash(i*5)*18,ey=y+hash(i*9)*14,c=EGGCOL[i%5],sw=Math.round(Math.sin(t*2+i));P(ex+sw,ey,3,4,c);P(ex+sw+1,ey+1,1,1,'#fff');}
     for(const q of VIS)if(q.ch==='F'&&q.c%4===0){P(q.c*T+6,q.r*T+3,4,5,EGGCOL[q.c%5]);P(q.c*T+7,q.r*T+4,1,1,'#fff');}}
-  else if(h==='ernte'){const x=326,y=46;P(x,y+10,34,12,'#a8743e');for(let i=0;i<34;i+=6)P(x+i,y+10,1,12,'#8a5a2a');P(x-2,y+20,38,2,'#6a4020');
+  else if(h==='ernte'){const x=XO+326,y=46;P(x,y+10,34,12,'#a8743e');for(let i=0;i<34;i+=6)P(x+i,y+10,1,12,'#8a5a2a');P(x-2,y+20,38,2,'#6a4020');
     pdisc(x+6,y+24,5,'#3a2a1a');pdisc(x+6,y+24,3,'#8a6a4a');pdisc(x+28,y+24,5,'#3a2a1a');pdisc(x+28,y+24,3,'#8a6a4a');pell(x+17,y+8,16,5,'#e8c060');
     for(let i=0;i<8;i++)P(x+3+i*4,y+3,1,4,'#c89a40');pell(x+9,y+5,4,3,'#f08a24');pell(x+22,y+4,4,3,'#f08a24');pdisc(x+15,y+3,2,'#e0283a');P(x+34,y+12,8,1,'#6a4020');
     for(const q of VIS)if(q.ch==='F'&&q.c%6===2){const gx=q.c*T+5,gy=q.r*T-6;P(gx+2,gy,2,16,'#c89a40');for(let i=0;i<5;i++)P(gx+i,gy+i%2,1,6,'#e8c060');P(gx,gy+7,6,1,'#a0401a');}}
   else if(h==='halloween'){for(const q of VIS){if(evPathPumpkin(q)){const x=q.c*T+(hash(q.seed*5)<.5?1:9),y=q.r*T+8;pell(x+3,y+3,4,3,'#b85a10');pell(x+3,y+3,3,3,'#f08a24');P(x+3,y-1,1,2,'#3f7a2c');
         const fl=Math.floor(t*5+q.c)%3?'#ffe060':'#ffb030';P(x+1,y+2,1,1,fl);P(x+4,y+2,1,1,fl);P(x+2,y+4,3,1,fl);}
       if(q.ch==='F'&&q.c%5===0){const x=q.c*T,y=q.r*T;C.globalAlpha=.6;P(x+1,y,1,6,'#e8e8f0');P(x,y+1,4,1,'#e8e8f0');P(x+1,y+3,3,1,'#e8e8f0');C.globalAlpha=1;}}
-    const x=336,y=40;for(const[a,b,s]of[[0,20,6],[12,22,5],[6,12,5],[20,24,4]]){pell(x+a,y+b,s,s-1,'#b85a10');pell(x+a,y+b,s-1,s-1,'#f08a24');P(x+a,y+b-s,1,2,'#3f7a2c');}
+    const x=XO+336,y=40;for(const[a,b,s]of[[0,20,6],[12,22,5],[6,12,5],[20,24,4]]){pell(x+a,y+b,s,s-1,'#b85a10');pell(x+a,y+b,s-1,s-1,'#f08a24');P(x+a,y+b-s,1,2,'#3f7a2c');}
     const gy=y-6+Math.sin(t*2)*3;C.globalAlpha=.85;pdisc(x+30,gy,6,'#f4f4fa');P(x+24,gy,13,8,'#f4f4fa');for(let i=0;i<3;i++)P(x+24+i*4,gy+8,3,2+((i+Math.floor(t*4))%2),'#f4f4fa');C.globalAlpha=1;P(x+27,gy-2,2,2,'#2a2a3a');P(x+32,gy-2,2,2,'#2a2a3a');P(x+29,gy+2,3,2,'#2a2a3a');}
   else if(h==='martin'){for(const q of VIS)if(q.ch==='F'&&q.c%3===0){const x=q.c*T+5,y=q.r*T-4;P(x+2,y-2,1,3,'#3a3a3a');P(x,y+1,5,6,['#e0402c','#f2c94c','#3b7ddb','#7cc457'][q.c%4]);P(x+1,y+2,3,4,Math.floor(t*6+q.c)%2?'#ffe08a':'#fff2a0');}
-    const x=344,y=58;P(x-10,y+10,22,3,'#5a3a1a');for(let i=0;i<4;i++)P(x-8+i*5,y+4,2,8,'#6a4426');const f=Math.floor(t*8);
+    const x=XO+344,y=58;P(x-10,y+10,22,3,'#5a3a1a');for(let i=0;i<4;i++)P(x-8+i*5,y+4,2,8,'#6a4426');const f=Math.floor(t*8);
     for(let i=0;i<7;i++){const fx=x-6+i*2,fh=6+((f+i*3)%5)*2;P(fx,y+8-fh,2,fh,i%2?'#f08a24':'#e0402c');P(fx,y+8-fh+2,1,Math.max(1,fh-4),'#ffe060');}}
   else if(h==='silvester'){for(const q of VIS)if(q.ch==='F')for(let i=0;i<3;i++)if(Math.floor(t*3+i+q.c)%3)P(q.c*T+2+i*5,q.r*T+1,2,2,['#fff2a0','#ffffff','#f2c94c'][(i+q.c)%3]);
-    const x=340,y=52;P(x,y+6,12,10,'#5a8a5a');P(x+1,y+7,10,1,'#8ac08a');P(x+3,y-2,6,8,'#4a7a4a');for(let i=0;i<3;i++){const rx=x+2+i*4;P(rx,y-14+i*2,1,14,'#a07040');P(rx-1,y-20+i*2,3,6,['#e0402c','#3b7ddb','#f2c94c'][i]);P(rx,y-22+i*2,1,2,'#fff');}}}
+    const x=XO+340,y=52;P(x,y+6,12,10,'#5a8a5a');P(x+1,y+7,10,1,'#8ac08a');P(x+3,y-2,6,8,'#4a7a4a');for(let i=0;i<3;i++){const rx=x+2+i*4;P(rx,y-14+i*2,1,14,'#a07040');P(rx-1,y-20+i*2,3,6,['#e0402c','#3b7ddb','#f2c94c'][i]);P(rx,y-22+i*2,1,2,'#fff');}}}
 // --- Leuchten, Fledermäuse, Feuerwerk: über der Abend-Tönung, fest in der Welt ---
 function evGlowFx(h,vx,vy,vw,vh){if(!h)return;const t=timeNow,vis=(x,y,m)=>x>vx-m&&x<vx+vw+m&&y>vy-m&&y<vy+vh+m;
   ctx.save();ctx.globalCompositeOperation='lighter';
   const glow=(x,y,r,c)=>{if(!vis(x,y,r))return;ctx.fillStyle=c;ctx.beginPath();ctx.arc(x,y,r,0,7);ctx.fill();};
   if(h==='halloween'){for(const q of VIS)if(evPathPumpkin(q)){const x=q.c*T+(hash(q.seed*5)<.5?1:9)+3,y=q.r*T+11;glow(x,y,7+Math.sin(t*7+q.c),'rgba(255,150,40,.18)');}}
-  if(h==='martin'){for(const q of VIS)if(q.ch==='F'&&q.c%3===0)glow(q.c*T+7,q.r*T,8+Math.sin(t*6+q.c),'rgba(255,190,90,.2)');glow(345,60,22+Math.sin(t*9)*2,'rgba(255,140,40,.2)');}
+  if(h==='martin'){for(const q of VIS)if(q.ch==='F'&&q.c%3===0)glow(q.c*T+7,q.r*T,8+Math.sin(t*6+q.c),'rgba(255,190,90,.2)');glow(XO+345,60,22+Math.sin(t*9)*2,'rgba(255,140,40,.2)');}
   if(h==='xmas'||h==='silvester'){for(const q of VIS)if(q.ch==='F'&&Math.floor(t*2+q.c)%2)glow(q.c*T+8,q.r*T+2,5,'rgba(255,230,150,.12)');}
   ctx.globalCompositeOperation='source-over';
-  if(h==='halloween'){for(let i=0;i<6;i++){const cx=[200,120,350,240,90,400][i],cy=[60,250,300,460,520,600][i],rr=26+i*5,a=t*(.7+i*.13)+i*2;
+  if(h==='halloween'){for(let i=0;i<6;i++){const cx=XO+[200,120,350,240,90,400][i],cy=[60,250,300,460,520,600][i],rr=26+i*5,a=t*(.7+i*.13)+i*2;
       const x=cx+Math.cos(a)*rr*1.3,y=cy+Math.sin(a*1.7)*rr*.6;if(!vis(x,y,10))continue;const fl=Math.floor(t*10+i)%2;
       P(x-1,y-1,3,2,'#1a1020');P(x-4,y-(fl?2:0),3,1,'#1a1020');P(x+2,y-(fl?2:0),3,1,'#1a1020');P(x-5,y-(fl?3:-1),1,1,'#1a1020');P(x+5,y-(fl?3:-1),1,1,'#1a1020');P(x,y-1,1,1,'#e0402c');}}
   if(h==='silvester'){if(t-EVFXT>.55||t<EVFXT){EVFXT=t;EVFX.push({x:vx+vw*(.1+Math.random()*.8),y:vy+vh*(.08+Math.random()*.5),t0:t,c:pick(['#ff5a4a','#5ab0ff','#7cf06a','#ffd84a','#ff8ad8','#ffffff'])});if(EVFX.length>8)EVFX.shift();}
@@ -5411,8 +5647,8 @@ document.addEventListener('keydown',e=>{if(e.ctrlKey||e.metaKey||e.altKey)return
     if(k.startsWith('Arrow')||k===' ')e.preventDefault();return;}
   if(scene==='drive'&&(k==='a'||k==='A'||k==='d'||k==='D')){driveSteer(k==='a'||k==='A'?-1:1);return;}
   if(camScenes()&&!(scene==='yard'&&BM&&BM.mode==='place'&&BM.drag)){const st=40/CAM.z,d={ArrowLeft:[-st,0],ArrowRight:[st,0],ArrowUp:[0,-st],ArrowDown:[0,st]}[k];
-    const g=CAM.goal,z=g?g.z:CAM.z,cx=g?g.x:CAM.x+W/2/CAM.z,cy=g?g.y:CAM.y+H/2/CAM.z,ww=GW*T,wh=GH*T;
-    if(d){e.preventDefault();camFocus(Math.max(0,Math.min(ww,cx+d[0])),Math.max(0,Math.min(wh,cy+d[1])),z);return;}
+    const g=CAM.goal,z=g?g.z:CAM.z,cx=g?g.x:CAM.x+W/2/CAM.z,cy=g?g.y:CAM.y+H/2/CAM.z,b=camB(),hw=W/2/z,hh=H/2/z;
+    if(d){e.preventDefault();camFocus(Math.max(b.x0+hw,Math.min(b.x1-hw,cx+d[0])),Math.max(b.y0+hh,Math.min(b.y1-hh,cy+d[1])),z);return;}
     if(k==='+'||k==='='){camFocus(cx,cy,Math.min(2.6,z*1.25));return;}if(k==='-'||k==='_'){camFocus(cx,cy,Math.max(zMinG(),z/1.25));return;}}
 });
 
@@ -5542,7 +5778,7 @@ function devSandbox(obj,after){if(!SANDBOX)SANDBOX={real:JSON.stringify(PROG)};t
 function devStars(n){const s={};for(let L=1;L<n;L++)s[L]=2+(L%3===0?1:0);return s;}
 function devDemoGarden(){const Y=PROG.yard;Y.own=PARC.map(p=>p.id);yardIndex();
   const put=(k,c,r)=>{if(OBJ[k]&&canPlace(k,c,r,null)){Y.objs.push({id:Y.nid++,k,c,r});yardIndex();return true;}return false;};
-  for(let r=YARD0;r<GH;r++){put('weg',9,r);put('weg',20,r);}
+  for(let r=YARD0;r<GH;r++)for(let pc=0;pc<PCOLS-1;pc++)put('weg',pc*PW+9,r);
   for(const p of PARC){if(START_PARC.includes(p.id))continue;const c0=p.c,r0=p.r,type=p.id%4;if(type!==2)for(let x=0;x<10;x++)put('weg',c0+x,r0+3);
     if(type===0){put('beet',c0+1,r0);put('beet',c0+5,r0);put('beet',c0+1,r0+4);put('beet',c0+5,r0+4);}
     if(type===1){['a','k','n','z','p','a','k','n'].forEach((t,i)=>put(t,c0+1+i,r0+1));['R','Y','J','R','Y','J','R','Y'].forEach((t,i)=>put(t,c0+1+i,r0+5));put('bank',c0,r0+4);}
@@ -5552,7 +5788,7 @@ function devDemoGarden(){const Y=PROG.yard;Y.own=PARC.map(p=>p.id);yardIndex();
   yardIndex();}
 function devFillBeds(ripe){devYard(Y=>{yardBuildTiles();for(const t of tiles){if(!t.bed||t.oid==null)continue;const ks=Object.keys(CROPS).filter(k=>CROPS[k].where===t.ch&&cropOwned(k));if(!ks.length)continue;(Y.crops[t.oid]=Y.crops[t.oid]||{})[t.oi]=[pick(ks),ripe?1:+Math.random().toFixed(2)];}});}
 function devRipe(){devYard(Y=>{for(const id in Y.crops)for(const i in Y.crops[id])Y.crops[id][i][1]=1;for(const id in Y.bush)Y.bush[id]=1;});}
-function devNextLand(){devYard(Y=>{const n=PARC.find(p=>!Y.own.includes(p.id)&&landAdj(p.id));if(n)Y.own.push(n.id);else floatMsg('Alles Land gehört dir schon');});}
+function devNextLand(){devYard(Y=>{const n=PARC.filter(p=>!Y.own.includes(p.id)&&landAdj(p.id)).sort((a,b)=>PRANK[a.id]-PRANK[b.id])[0];if(n)Y.own.push(n.id);else floatMsg('Alles Land gehört dir schon');});}
 function devAllBuild(){devYard(Y=>{for(const k in OBJ)if(!OBJ[k].multi)Y.inv[k]=(Y.inv[k]||0)+1;Y.inv.weg=(Y.inv.weg||0)+20;Y.inv.blumen=(Y.inv.blumen||0)+6;});}
 function devLagerFill(){ensureBiz();if(lagerCount()<40)ownedCrops().concat(['himb_rot']).forEach(k=>addLager(k,12));saveProg();}
 function devInLevel(){return scene==='garden'&&S&&running;}
@@ -5560,17 +5796,24 @@ function devSecs(){const L=S&&S.L?S.L:PROG.unlocked,inL=devInLevel(),Y=PROG.yard
   const mini=id=>({l:(MINI_INFO[id]?MINI_INFO[id].icon+' '+MINI_INFO[id].name.replace(' gegen Gurken-Günther',''):id),f:()=>{if(['market','stand','deliver','shop'].includes(id))devLagerFill();playMini(id,DEVMD,{back:openMiniPick});}});
   const lvT=id=>{const f=miniFirst(id);return f?' ('+'K'+(chOf(f)+1)+'-'+lvPos(f)+')':'';};
   return{
-  neu:[['Version '+GAME_VERSION.split(' ')[0]+': Minispiele 2.0',[
+  neu:[['Version 5.6: Große Karte, Wolken & Bauen',[
+     {l:'☁️ Kapitel 1: Garten mit Wolken',f:()=>devSandbox({unlocked:4,stars:devStars(4),money:150},()=>{yardEnsure();PROG.yard.news=null;PROG.yard.rev=revealN();saveProg();openHub();})},
+     {l:'☁️ Wolken ziehen weg (neues Kapitel)',f:()=>devSandbox({unlocked:10,stars:devStars(10),money:150},()=>{yardEnsure();PROG.yard.news=null;PROG.yard.rev=revealN();PROG.unlocked=11;saveProg();openHub();})},
+     {l:'🛤 Wege in Reihen bauen',f:()=>devSandbox({unlocked:35,stars:devStars(35),money:800},()=>{yardEnsure();PROG.yard.news=null;PROG.yard.rev=revealN();saveProg();openHub();openBuild('weg');})},
+     {l:'🪑 Alles zum Bauen (Kap. 10, viel Geld)',f:()=>devSandbox({unlocked:95,stars:devStars(95),money:20000},()=>{yardEnsure();PROG.yard.news=null;PROG.yard.own=PARC.filter(p=>parcRevealed(p.id)).map(p=>p.id);PROG.yard.rev=revealN();yardIndex();saveProg();openHub();openBuild('moebel');})},
+     {l:'🗺 Ganze Karte (nach dem Finale)',f:()=>devSandbox({unlocked:100,stars:devStars(100),money:4000,won:true},()=>{yardEnsure();PROG.yard.news=null;devDemoGarden();PROG.yard.rev=revealN();saveProg();openHub();const b=camB();camFocus((b.x0+b.x1)/2,(b.y0+b.y1)/2,zMinG(),true);})},
+     {l:'♻ Alter Spielstand 5.5 wird umgerechnet',f:()=>devSandbox({unlocked:58,stars:devStars(58),money:640,yard:{v:1,nid:3,own:[1,4,7],objs:[{id:1,k:'gh1',c:11,r:7},{id:2,k:'beet',c:11,r:13}],inv:{},mat:{pfahl:0,draht:0,erde:0},crops:{},bush:{}}})}]],
+   ['Version 5.1: Minispiele 2.0',[
      {l:'🎮 Spiele-Übersicht (wie im Spiel)',f:()=>{openHub();openMiniPick();}},
      ...['stapel','dreier','schnitt','maulwurf','memory','spatz','kompost'].map(id=>Object.assign(mini(id),{l:mini(id).l+lvT(id)})),
      mini('snail'),mini('sort'),mini('contest'),
      {l:'⏱ Countdown '+(DEVNOCD?'ist AUS':'ist an'),f:()=>{DEVNOCD=!DEVNOCD;},stay:1}]],
    ['Version 5.0: Ein Garten, der wächst',[
      {l:'🏡 Mein Garten (Startbildschirm)',f:openHub},{l:'🔨 Bauen-Modus',f:()=>{openHub();openBuild();}},
-     {l:'🪧 Land kaufen (Geld & Material dazu)',f:()=>{devYard(Y=>{const k=landK(),m=landMat(Math.min(k,12));for(const x in m)Y.mat[x]=Math.max(Y.mat[x],m[x]);});PROG.money=Math.max(PROG.money,LAND_EUR[Math.min(landK(),12)]+50);if(levelsDone()<LAND_REQ[Math.min(landK(),12)])PROG.unlocked=Math.max(PROG.unlocked,LAND_REQ[Math.min(landK(),12)]+1);saveProg();openHub();const p=PARC.find(p=>!PROG.yard.own.includes(p.id)&&landAdj(p.id));if(p){camFocus(p.c*T+80,p.r*T+56,1,true);openLand(p.id);}}},
+     {l:'🪧 Land kaufen (Geld & Material dazu)',f:()=>{devYard(Y=>{const k=landK(),m=landMat(k);for(const x in m)Y.mat[x]=Math.max(Y.mat[x],m[x]);});PROG.money=Math.max(PROG.money,landEur(landK())+50);if(!landBuyable()&&!PROG.won)PROG.unlocked=Math.min(MAXL,(curCh()+1)*LPC+1);saveProg();openHub();const p=PARC.find(p=>!PROG.yard.own.includes(p.id)&&parcRevealed(p.id)&&landAdj(p.id));if(p){camFocus(p.c*T+PW*T/2,p.r*T+PH*T/2,1,true);openLand(p.id);}}},
      {l:'🔨 Fahrt zum Baumarkt',f:driveBaumarkt},{l:'🛒 Baumarkt (direkt im Laden)',f:openBaumarkt},
      {l:'👨‍👩‍👦 Helfer fragen (Gartentag-Karte)',f:()=>{PROG.money=Math.max(PROG.money,60);const l=Math.max(21,devGardenL());dayPlan(l,()=>{startLevel.skipCard=true;startLevel(l);});}},
-     {l:'🏡 Vorzeige-Garten (Testbetrieb)',f:()=>devSandbox({unlocked:95,stars:devStars(95),money:4000},()=>{yardEnsure();devDemoGarden();saveProg();openHub();camFocus(15*T,24*T,zMinG(),true);})},
+     {l:'🏡 Vorzeige-Garten (Testbetrieb)',f:()=>devSandbox({unlocked:95,stars:devStars(95),money:4000},()=>{yardEnsure();devDemoGarden();saveProg();openHub();camFocus((XOFF+15)*T,24*T,zMinG(),true);})},
      {l:'♻ Alter Spielstand wird umgerechnet (Testbetrieb)',f:()=>devSandbox({unlocked:58,stars:devStars(58),money:640,helpers:['david','robin','raphael'],trees:['a','k'],extraBeds:3})},
      {l:'📖 Neue Kapitelkarte (Kap. 3)',f:()=>showChapterCard(2,openHub)},{l:'📖 Kapitelkarte (Kap. 6)',f:()=>showChapterCard(5,openHub)},
      {l:'🎉 Neues Ende: Gartenfest',f:()=>{hideOverlays();showEnding();$('endO').classList.add('show');}}]]],
@@ -5588,7 +5831,7 @@ function devSecs(){const L=S&&S.L?S.L:PROG.unlocked,inL=devInLevel(),Y=PROG.yard
    ['Pflanzen',[
      {l:'🌱 Alle Beete einsäen',f:()=>devFillBeds(false),stay:1},{l:'✨ Alles reif',f:devRipe,stay:1},{l:'🗑 Alle Pflanzen weg',f:()=>devYard(Y=>{Y.crops={};}),stay:1}]],
    ['Ansicht',[
-     {l:'🔍 Ganzer Garten',f:()=>{openHub();camFocus(15*T,24*T,zMinG(),true);}},{l:'🎯 Auf Dedas Haus',f:()=>{openHub();camFocus(15*T,9*T,1.2,true);}},
+     {l:'🔍 Ganzer Garten',f:()=>{openHub();const b=camB();camFocus((b.x0+b.x1)/2,(b.y0+b.y1)/2,zMinG(),true);}},{l:'🎯 Auf Dedas Haus',f:()=>{openHub();camFocus((XOFF+15)*T,9*T,1.2,true);}},
      {l:'💬 Erster Besuch (Begrüßung)',f:()=>{yardEnsure();PROG.yard.news='first';saveProg();openHub();}}]]],
   level:[['Springen',[{html:`<select id="dvL">${(()=>{let o='';for(let l=1;l<=MAXL;l++){const d=LV[l];o+=`<option value="${l}" ${l===L?'selected':''}>K${chOf(l)+1}-${lvPos(l)} · ${d.t==='g'?'🌱':MINI_ICON[d.g]} ${d.title}</option>`;}return o;})()}</select>`},
      {l:'▶ Level spielen',f:()=>{const l=+$('dvL').value;PROG.unlocked=Math.max(PROG.unlocked,l);saveProg();playLevel(l,true);}},
