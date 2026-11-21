@@ -455,7 +455,7 @@ button:disabled{opacity:.55;filter:saturate(.35)}
   <div class="card" id="endCard"></div>
 </div>
 
-<script>if(navigator.standalone)document.documentElement.classList.add('iosapp');const PUBLIC_BUILD=true,GAME_VERSION='5.9.0 · 21.11.2026';
+<script>if(navigator.standalone)document.documentElement.classList.add('iosapp');const PUBLIC_BUILD=true,GAME_VERSION='5.10.0 · 21.11.2026';
 const COMPANY=false; // Firma & Automatisierung sind vorerst aus – kommen später schrittweise per Update zurück (der Code dazu bleibt erhalten)
 // ==== Pixel-Symbole (statt Emojis, überall gleich) ====
 const PXPAL={"k":"#1b1209","w":"#fff6e0","W":"#ffffff","h":"#c8c8c8","e":"#8c8c8c","E":"#4e4e4e","y":"#f6d04d","Y":"#c99520","o":"#f08a24","O":"#b85a10","r":"#e0402c","R":"#8e1f16","p":"#ff9fb0","g":"#5cb83a","G":"#2d6b28","l":"#a6e070","b":"#3b7ddb","B":"#1f3f8c","c":"#8fd3f2","n":"#94602e","N":"#4f2c12","t":"#dcb46c","T":"#f3dca0","s":"#f2c39a","S":"#c98a60","v":"#8b4bb2","V":"#4b2063","m":"#a8e6c8","M":"#5fa585","q":"#ffe98a"};
@@ -473,6 +473,9 @@ function pxURL(n){
   return PXURL[n]='data:image/svg+xml,'+encodeURIComponent(svg+'</svg>');
 }
 function ico(n,cls){return`<img class="pxi${cls?' '+cls:''}" src="${pxURL(n)}" alt="" draggable="false" data-px="${n}">`;}
+// neue Obst- und Gemüsesorten (5.10): eigene Pixel-Symbole
+Object.assign(PXS,{"pea": "..........k..........kGk........kGk.......kkgGk.....kkgllgk...kkgllGllk..kgllGllGk..kgllGllGk...kGlGllGgk...kGGgGGgk.....kkkkkk.................", "spinach": "................kk.kk......kgGkgGk....kgGgkGlGk...klGgkgGgk...kGgGkGgGk....kGgkgGk......kGkGk........kgk.........kGk..........k.................", "garlic": ".....kk..........kTk........kwTk.......kwhwwk.....kwWhwwhk...kwWwhwwhwk..kWwwhwwhwk..kwWwhwwhwk...kwwhwwhk.....khhhhk......knNnNk.......kkkk....", "kohlrabi": "..k.....k....kgk...kgk...kGk...kGk....kGk.kGk......kGkGk.......kmmmmk.....kmWmmmMk...kmWmmmmmMk..kmmmmmmmMk..kmmmmmmMMk...kmMMMMMk.....kkkkkk...", "beet": "...kk..kk.....kgGkkgGk....kGgkkGgk.....kGkkGk.......kRRk.......kRrrRk.....kRprrrRk....kRprrrRk....kRrrrrRk.....kRrrRk.......kRRk.........kk.....", "leek": "........kk.........kgGk.......kgGGk......kgGgk......kllgk......kllGk......kwlk.......kwWk.......kwWwk.......kWwk........kwk..........k..........", "cauli": "...............kkkkkk.....kWwWwWwk...kWwWwWwWwk..kwWwWwWwWk.kgkWwWwWwkgkkGgkkwwkkgGk.kGggkkggGk...kGgggggk.....kkGGGk........kkk................", "honeydew": "................kkkk......kkqqqqkk...kqWqqqqqYk..kqqqlqqqYk.kqqqqlqqqqYkkqqqqqlqqYYkkqqqqqlqYYYk.kqqqqqYYYk..kYqqYYYYk....kkkkkkk...............", "asparagus": "..k...k...k..kgk.kgk.kgk.klk.klk.klk.kwk.kwk.kwk.kwk.kwk.kwk.kwk.kwk.kwk.kWkkkWkkkWk.kwrrrrrrrwk.kwkkkkkkkwk.kwk.kwk.kwk.kwk.kwk.kwk..k...k...k.", "rhubarb": "...kkkkk......kgGgGgk....kgGlGgGgk...kGgGgGgGk....kkrkkrk.......krkrk.......krkrk......krk.krk.....krk.krk.....kRk.kRk.....kRk.kRk......k...k...", "redcab": "...............kkkkkk.....kvVvvVvk...kvVvpvvVvk..kVvvvvvvVk.kvvVvvpvVvvkkvVvvvvvvVvkkVvvVvvVvvVk.kvvvVvvvVk..kVvvvvvVvk...kkVVVVkk......kkkk....", "basil": ".................kk.........klgk......kk.kgk.kk..klgkkgkkglk.kglgkgkglgk..kgGkgkGgk....kkkgkkk......kgGk.......knnnnk......knNNnk.......kkkk....", "sweetpot": "............................kkkkk.....kkoooooOk..koWooooooOkkooooOooooOkkooooooOooOkkOooooooooOk.kOooOooOOk...kkOOOOkk......kkkk................", "gooseb": "......kk..........kGk.....kkk.kGkkk..klllkkkllk.kllWlgkllWlkklgllgklglgkklglllkglllkkglgllkgllgk.kglgk.kglk...kkk...kk..........................", "blackb": ".....kk.........kGgk.......kkGGkk.....kVvVvVvk...kvVhVvVvVk..kVvVvVvVvk..kvVvVvVvVk..kVvVvVvVvk...kvVvVvVk.....kVvVvk.......kkkk................", "blueb": "...............kkk........kbbBk......kbcbBBk.....kbbBBBkkk...kBBBBkbbBk...kkkkbcbBBk..kkk.kbbBBk.kbbBkkBBBk.kbcbBBkkkk..kBBBBBk......kkkkk......", "grapes": "....kk..........kNk.gk......kNkglk.....kvkvkk.....kvVkvVk.....kVvkvVvk...kvVvkVvVk...kVvkvVvk.....kvVkvVk......kVvkk........kvk..........k......", "mirab": "......k.kk.......kNkggk.......NkgGk...kkk.Nkkk...kyyykkyyyk.kyWyyyyyyyYkkyWyyyyyyyYkkyyyyyyyyyYkkyyyyyyyyYYk.kyyyyyyyYk...kyykkyYk.....kk..kk...", "apricot": "......k.kk.......kNkggk.......NkgGk...kkkkNkkk...kooooOoook.koWoooOoooOkkoWoooOoooOkkoooooOoooOkkoooooOooOOk.kooooOooOk...kooOOOOk.....kkkkkk...", "quince": ".....kk..........kNkgk......kkNkgGk.....kyqkkk.....kyqyyk......kyyyyk.....kyqyyyYk...kyqyyyyyYk..kyyyyyyyYk..kyyyyyyYYk...kYyyyYYk.....kkkkkk...", "walnut": "................kkkk......kknTtnkk...ktTtnnTtnk..kTtnTtnTtk.ktTnTtntTtnkknTtnTtnTtnkkTtnTtnTtnNk.kntTnTtnNk..kNnnNnnNNk...kkNNNNkk......kkkk...."});
+Object.assign(PXMAP,{"🟢": "pea", "🍃": "spinach", "🧄": "garlic", "🔘": "kohlrabi", "🟣": "beet", "🎋": "leek", "🤍": "cauli", "🍈": "honeydew", "🥢": "asparagus", "🎍": "rhubarb", "🟪": "redcab", "🪴": "basil", "🍠": "sweetpot", "🍏": "gooseb", "⚫": "blackb", "🔵": "blueb", "🍇": "grapes", "🍋": "mirab", "🟠": "apricot", "🥭": "quince", "🌰": "walnut"});
 const PXKEYS=Object.keys(PXMAP).sort((a,b)=>b.length-a.length);
 const PXRE=new RegExp('(?:'+PXKEYS.map(k=>k.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('|')+')\\uFE0F?','gu');
 const PXTEST=new RegExp(PXRE.source,'u');
@@ -518,7 +521,21 @@ const CROPS={
   zwiebel:{name:'Zwiebel',plural:'Zwiebeln',where:'s',time:60,emoji:'🧅',type:'onion',fruit:'#c99520',hi:'#f2d48a',rot:'#5a4426',yield:2,regrow:false,price:.8,cost:18,unlock:10},
   bohnen:{name:'Bohnen',plural:'Bohnen',where:'s',time:48,emoji:'🫛',type:'vine',fruit:'#5cb83a',hi:'#a6e070',rot:'#8a7a3a',yield:2,regrow:true,price:.8,cost:28,unlock:14},
   mais:{name:'Mais',plural:'Maiskolben',where:'s',time:80,emoji:'🌽',type:'corn',fruit:'#f2c94c',hi:'#ffe98a',rot:'#7a6a3a',yield:2,regrow:false,price:1.5,cost:35,unlock:18},
-  brokkoli:{name:'Brokkoli',plural:'Brokkoli',where:'s',time:68,emoji:'🥦',type:'broc',fruit:'#2d6b28',hi:'#5cb83a',rot:'#8a8a3a',yield:1,regrow:false,price:2.5,cost:40,unlock:20}
+  brokkoli:{name:'Brokkoli',plural:'Brokkoli',where:'s',time:68,emoji:'🥦',type:'broc',fruit:'#2d6b28',hi:'#5cb83a',rot:'#8a8a3a',yield:1,regrow:false,price:2.5,cost:40,unlock:20},
+  // 5.10: noch mehr Gemüse
+  erbsen:{name:'Erbsen',plural:'Erbsen',where:'s',time:100,emoji:'🟢',type:'vine',fruit:'#6cc04a',hi:'#b8f08a',rot:'#8a8a3a',yield:2,regrow:true,price:.8,cost:30},
+  spinat:{name:'Spinat',plural:'Spinat',where:'s',time:60,emoji:'🍃',type:'lettuce',fruit:'#2f7a2a',hi:'#5cb83a',rot:'#6a6a2a',yield:2,regrow:false,price:.7,cost:25},
+  knoblauch:{name:'Knoblauch',plural:'Knoblauch',where:'s',time:150,emoji:'🧄',type:'onion',fruit:'#f0e8e0',hi:'#ffffff',rot:'#8a7a5a',yield:2,regrow:false,price:1,cost:35},
+  kohlrabi:{name:'Kohlrabi',plural:'Kohlrabi',where:'s',time:90,emoji:'🔘',type:'kohl',fruit:'#b8e090',hi:'#e8f8c8',rot:'#8a8a4a',yield:1,regrow:false,price:1.5,cost:35},
+  rotebete:{name:'Rote Bete',plural:'Rote Bete',where:'s',time:110,emoji:'🟣',type:'root',fruit:'#8a1840',hi:'#d04a7a',rot:'#4a2a2a',yield:2,regrow:false,price:.9,cost:40},
+  lauch:{name:'Lauch',plural:'Lauchstangen',where:'s',time:140,emoji:'🎋',type:'onion',fruit:'#e8f0d0',hi:'#ffffff',rot:'#8a8a5a',yield:1,regrow:false,price:1.6,cost:40},
+  blumenkohl:{name:'Blumenkohl',plural:'Blumenkohl',where:'s',time:160,emoji:'🤍',type:'broc',fruit:'#f0e6cc',hi:'#ffffff',rot:'#a89a6a',yield:1,regrow:false,price:3,cost:50},
+  honigmelone:{name:'Honigmelone',plural:'Honigmelonen',where:'g',time:200,emoji:'🍈',type:'melon',fruit:'#d8d870',hi:'#f4f4b0',rot:'#8a7a3a',yield:1,regrow:false,price:6,cost:60},
+  spargel:{name:'Spargel',plural:'Spargelstangen',where:'s',time:180,emoji:'🥢',type:'spear',fruit:'#f0ead8',hi:'#ffffff',rot:'#a89a6a',yield:3,regrow:true,price:2.5,cost:70},
+  rhabarber:{name:'Rhabarber',plural:'Rhabarberstangen',where:'s',time:120,emoji:'🎍',type:'rhubarb',fruit:'#d03040',hi:'#ff7080',rot:'#6a3a2a',yield:2,regrow:true,price:1.2,cost:50},
+  rotkohl:{name:'Rotkohl',plural:'Rotkohlköpfe',where:'s',time:170,emoji:'🟪',type:'lettuce',fruit:'#6a2a7a',hi:'#a060c0',rot:'#4a3a4a',yield:1,regrow:false,price:3,cost:60},
+  basilikum:{name:'Basilikum',plural:'Basilikum',where:'g',time:70,emoji:'🪴',type:'herb',fruit:'#4cb03a',hi:'#9ae070',rot:'#7a7a3a',yield:2,regrow:true,price:1,cost:45},
+  suesskartoffel:{name:'Süßkartoffel',plural:'Süßkartoffeln',where:'s',time:190,emoji:'🍠',type:'potato',fruit:'#c85a3a',hi:'#f09070',rot:'#5a3a2a',yield:3,regrow:false,price:1.2,cost:80}
 };
 const BUSHES={
   R:{key:'himb_rot',name:'rote Himbeere',plural:'rote Himbeeren',color:'#d8284a',hi:'#ff7a8a',time:24,emoji:'🔴',price:1.5},
@@ -529,13 +546,26 @@ const BUSHES={
   k:{key:'kirsche',tree:true,name:'Kirschbaum',plural:'Kirschen',color:'#b0102a',hi:'#ff6070',time:105,emoji:'🫒',price:.6,yield:5,cost:110,unlock:27},
   n:{key:'birne',tree:true,name:'Birnbaum',plural:'Birnen',color:'#c8d040',hi:'#f0f0a0',time:130,emoji:'🍐',price:1.3,yield:3,cost:130,unlock:33},
   z:{key:'zwetschge',tree:true,name:'Zwetschgenbaum',plural:'Zwetschgen',color:'#5a2a7a',hi:'#9a7ac8',time:115,emoji:'🫐',price:.7,yield:5,cost:150,unlock:38},
-  p:{key:'pfirsich',tree:true,name:'Pfirsichbaum',plural:'Pfirsiche',color:'#f0904a',hi:'#ffc0a0',time:135,emoji:'🍑',price:1.5,yield:3,cost:170,unlock:44}
+  p:{key:'pfirsich',tree:true,name:'Pfirsichbaum',plural:'Pfirsiche',color:'#f0904a',hi:'#ffc0a0',time:135,emoji:'🍑',price:1.5,yield:3,cost:170,unlock:44},
+  // 5.10: noch mehr Obst
+  'ä':{key:'stachel',name:'Stachelbeere',plural:'Stachelbeeren',color:'#8ac040',hi:'#d0f090',time:70,emoji:'🍏',price:1.6},
+  'ö':{key:'brombeere',name:'Brombeere',plural:'Brombeeren',color:'#2a1838',hi:'#7a5a9a',time:75,emoji:'⚫',price:1.8},
+  'ü':{key:'heidel',name:'Heidelbeere',plural:'Heidelbeeren',color:'#3a4aa0',hi:'#8a9ae0',time:80,emoji:'🔵',price:2},
+  'ß':{key:'trauben',name:'Weintraube',plural:'Weintrauben',color:'#6a2a6a',hi:'#b070b0',time:95,emoji:'🍇',price:2.5},
+  'Ä':{key:'mirabelle',tree:true,name:'Mirabellenbaum',plural:'Mirabellen',color:'#f2c94c',hi:'#fff2a0',time:110,emoji:'🍋',price:.6,yield:6,cost:120},
+  'Ö':{key:'aprikose',tree:true,name:'Aprikosenbaum',plural:'Aprikosen',color:'#f0a040',hi:'#ffd090',time:125,emoji:'🟠',price:1.4,yield:3,cost:160},
+  'Ü':{key:'quitte',tree:true,name:'Quittenbaum',plural:'Quitten',color:'#e8d040',hi:'#fff4a0',time:140,emoji:'🥭',price:1.6,yield:3,cost:180},
+  'Ñ':{key:'walnuss',tree:true,name:'Walnussbaum',plural:'Walnüsse',color:'#8a6a3a',hi:'#c8a070',time:150,emoji:'🌰',price:.5,yield:8,cost:200}
 };
 // Wachstumszeiten in Sekunden (Saat bis reif, Level 1) – wie bei Hay Day unterschiedlich, aber kurz
 const GROW_S={gurke:90,tomate:110,kartoffel:135,zucchini:105,aubergine:125,erdbeere:75,karotte:120,paprika:140,salat:70,kuerbis:220,melone:210,chili:150,
-  radieschen:50,zwiebel:160,bohnen:120,mais:200,brokkoli:170};
+  radieschen:50,zwiebel:160,bohnen:120,mais:200,brokkoli:170,
+  erbsen:100,spinat:60,knoblauch:150,kohlrabi:90,rotebete:110,lauch:140,blumenkohl:160,honigmelone:200,spargel:180,rhabarber:120,rotkohl:170,basilikum:70,suesskartoffel:190};
 for(const k in GROW_S){CROPS[k].t0=CROPS[k].time;CROPS[k].time=GROW_S[k];} // t0 = alte Zeit, nur für die Betriebs-Rechnung
 BUSHES.R.time=60;BUSHES.Y.time=63;BUSHES.J.time=68;
+function niceT(t){return t<60?Math.max(15,Math.round(t/15)*15):Math.round(t/30)*30;}
+function cropT(k){return niceT(CROPS[k].time*(typeof DF!=='undefined'&&DF?DF.grow:1));}
+function bushT(ch){return niceT(BUSHES[ch].time*(typeof DF!=='undefined'&&DF?DF.grow:1));}
 const ITEMS={euro:{plural:'Euro verdienen',emoji:'💶'}};
 for(const k in CROPS)ITEMS[k]={plural:CROPS[k].plural,emoji:CROPS[k].emoji,price:CROPS[k].price};
 for(const k in BUSHES)ITEMS[BUSHES[k].key]={plural:BUSHES[k].plural,emoji:BUSHES[k].emoji,price:BUSHES[k].price};
@@ -619,8 +649,9 @@ const P10=[0,1,2,4,5,7,8,10,11,12,15];
 function L100(n){if(n<=0)return n;const c=Math.floor((n-1)/10),p=(n-1)%10+1;return c*LPC+P10[p];}
 function OL(n){if(n<=0)return n;const c=Math.floor((n-1)/5),p=(n-1)%5;return c*LPC+OLD_POS[p];}
 // welches Kapitel bringt welche Pflanze (0 = Kapitel 1)
-const CROP_CH={gurke:0,tomate:0,kartoffel:0,zucchini:1,radieschen:1,zwiebel:1,bohnen:1,aubergine:2,erdbeere:2,karotte:2,salat:3,paprika:3,mais:4,brokkoli:4,kuerbis:5,melone:6,chili:7};
-const TREE_CH={a:4,k:5,n:6,z:7,p:8};
+const CROP_CH={gurke:0,tomate:0,kartoffel:0,zucchini:1,radieschen:1,zwiebel:1,bohnen:1,aubergine:2,erdbeere:2,karotte:2,salat:3,paprika:3,mais:4,brokkoli:4,kuerbis:5,melone:6,chili:7,
+  erbsen:3,spinat:3,knoblauch:4,kohlrabi:4,rotebete:5,lauch:5,blumenkohl:6,honigmelone:6,spargel:7,rhabarber:7,rotkohl:8,basilikum:8,suesskartoffel:9};
+const TREE_CH={a:4,k:5,n:6,z:7,p:8,'Ä':5,'Ö':7,'Ü':8,'Ñ':9};
 const CH_MAP=[0,0,1,1,2,2,3,3,3,3];
 // Garten wächst: in frühen Kapiteln sind Teile noch Wiese (r0,r1,c0,c1 = Zeilen/Spalten mit Beeten, die noch zu sind)
 const LOCKS={0:{0:[[4,4,2,4],[7,8,6,8],[10,11,1,8]],1:[[10,11,6,8]]},1:{2:[[10,11,6,10],[13,14,1,10]],3:[[13,14,1,10]]},3:{6:[[15,15,1,10]]}};
@@ -743,7 +774,7 @@ const DAY_TITLES=['Ein ganz normaler Gartentag','Morgentau','Gießkannen-Tag','F
 const DAY_INTROS=['Heute ist ein schöner Gartentag. Ran an die Beete!','Erst gießen, dann ernten – und bloß nicht zu früh!','<b>Und gut?</b> Heute wird wieder ordentlich geerntet.','Die Nachbarn haben gefragt, ob wir was übrig haben. Haben wir!','Wie jeden Morgen mit dem Fahrrad zum Garten. Gesund!','Tipp mit 🔍 Schauen auf die Pflanzen – dann weißt du, wann sie reif sind.','Heute keine Eile. Aber faul rumstehen gibt’s auch nicht.','Wer zu früh erntet, hört von mir: <b>Meine Güte!</b>'];
 function genQuest(L,mi,c){
   const rng=seedRng(L*7919+13),bc=bedCount(lockedMap(mi,c)),D=diff(L),day=D.dayLen,pos=1+(lvPos(L)-1)*9/(LPC-1);
-  const prodBed=k=>{const cr=CROPS[k],Tg=cr.time*D.grow;return cr.regrow?cr.yield*(1+Math.max(0,Math.floor((day-40-Tg)/(.4*Tg)))):cr.yield*Math.max(0,Math.floor((day-40)/Tg));};
+  const prodBed=k=>{const cr=CROPS[k],Tg=niceT(cr.time*D.grow);return cr.regrow?cr.yield*(1+Math.max(0,Math.floor((day-40-Tg)/(.4*Tg)))):cr.yield*Math.max(0,Math.floor((day-40)/Tg));};
   const frac=Math.min(.42,.16+.025*pos+.02*c);
   const avail=Object.keys(CROP_CH).filter(k=>CROP_CH[k]<=c&&prodBed(k)>0&&(CROPS[k].where==='g'?bc.g:bc.s)>0);
   const fresh=avail.filter(k=>CROP_CH[k]===c);const n=Math.min(avail.length,1+(c>=1?1:0)+(pos>=6&&c>=2?1:0));
@@ -1166,6 +1197,10 @@ const OBJ={
  R:{name:'Himbeerstrauch',cat:'baum',rows:['R'],eur:n=>6+2*n,ch:0,max:c=>4+2*c,desc:'Rote Himbeeren, trägt immer wieder'},
  Y:{name:'Gelber Himbeerstrauch',cat:'baum',rows:['Y'],eur:n=>7+2*n,ch:0,max:c=>4+2*c,desc:'Gelbe Himbeeren – die kennt keiner außer uns'},
  J:{name:'Johannisbeerstrauch',cat:'baum',rows:['J'],eur:n=>7+2*n,ch:0,max:c=>4+2*c,desc:'Johannisbeeren, trägt immer wieder'},
+ 'ä':{name:'Stachelbeerstrauch',cat:'baum',rows:['ä'],eur:n=>8+2*n,ch:2,max:c=>4+2*c,desc:'Grüne, saure Stachelbeeren'},
+ 'ö':{name:'Brombeerstrauch',cat:'baum',rows:['ö'],eur:n=>9+2*n,ch:3,max:c=>4+2*c,desc:'Schwarze Brombeeren – Vorsicht, Dornen!'},
+ 'ü':{name:'Heidelbeerstrauch',cat:'baum',rows:['ü'],eur:n=>10+3*n,ch:5,max:c=>4+2*c,desc:'Blaue Heidelbeeren – lecker im Kuchen'},
+ 'ß':{name:'Weinrebe',cat:'baum',rows:['ß'],eur:n=>14+3*n,ch:8,max:c=>4+2*c,desc:'Badische Weintrauben direkt vom Rebstock'},
  weg:{name:'Sandweg',cat:'weg',rows:['='],eur:()=>1,ch:0,max:()=>2500,multi:1,desc:'Heller Sandweg – da läuft Deda gern'},
  kies:{name:'Kiesweg',cat:'weg',rows:['G'],eur:()=>2,ch:0,max:()=>2500,multi:1,desc:'Knirscht schön beim Laufen'},
  tritt:{name:'Trittsteine',cat:'weg',rows:['S'],eur:()=>2,ch:0,max:()=>800,multi:1,desc:'Flache Steine im Gras'},
@@ -1298,10 +1333,10 @@ function adaptQuest(q){ // Wünsche an den eigenen Garten anpassen – nie etwas
   const g=tiles.filter(t=>t.ch==='g').length,s=tiles.filter(t=>t.ch==='s').length,bush={};tiles.forEach(t=>{if(t.bush){const k=BUSHES[t.ch].key;bush[k]=(bush[k]||0)+1;}});
   const day=DF.dayLen,out=[];let val=0;
   for(const x of q){if(x.key==='euro')continue;
-    if(CROPS[x.key]){const cr=CROPS[x.key],beds=cr.where==='g'?g:s;if(!beds)continue;const Tg=cr.time*DF.grow;
+    if(CROPS[x.key]){const cr=CROPS[x.key],beds=cr.where==='g'?g:s;if(!beds)continue;const Tg=cropT(x.key);
       const per=cr.regrow?cr.yield*(1+Math.max(0,Math.floor((day-40-Tg)/(.4*Tg)))):cr.yield*Math.max(0,Math.floor((day-40)/Tg));if(per<=0)continue;
       x.need=Math.max(1,Math.min(x.need,Math.floor(beds*per*.4)));}
-    else{const n=bush[x.key]||0;if(!n)continue;const b=Object.values(BUSHES).find(v=>v.key===x.key);const per=(b.yield||1)*Math.max(1,Math.floor((day-30)/(b.time*DF.grow)));x.need=Math.max(1,Math.min(x.need,Math.floor(n*per*.7)));}
+    else{const n=bush[x.key]||0;if(!n)continue;const b=Object.values(BUSHES).find(v=>v.key===x.key);const per=(b.yield||1)*Math.max(1,Math.floor((day-30)/niceT(b.time*DF.grow)));x.need=Math.max(1,Math.min(x.need,Math.floor(n*per*.7)));}
     out.push(x);val+=x.need*(ITEMS[x.key].price||1);}
   if(!out.length){out.push({key:g?'gurke':'kartoffel',need:3,have:0});val+=3;}
   const e=q.find(x=>x.key==='euro');if(e){e.need=Math.max(5,Math.min(e.need,Math.round(val*1.3+8)));out.push(e);}
@@ -1466,7 +1501,7 @@ function drawTileBase(t){const x=t.c*T,y=t.r*T,ch=t.ch;
     else if(q>.74){P(x+4,y+10,8,3,'#6a4a2a');P(x+5,y+9,6,1,'#8a6a3a');P(x+6,y+10,4,1,'#c8a878');}
     return;}
   if(ch==='H'){P(x,y,T,T,'#2e6b2a');for(let i=0;i<14;i++){const a=hash(t.seed*99+i),b=hash(t.seed*77+i*3);P(x+a*14,y+b*14,2,2,i%2?'#3f8a37':'#22501f');}}
-  else if(',RYJbBFOaknzpfmvlqhT1234567MZUrtu*icKeIdyNCjXV'.includes(ch)){if(!t.noGrass){P(x,y,T,T,'#5c9e3c');for(let i=0;i<6;i++){const a=hash(t.seed*13+i),b=hash(t.seed*29+i);P(x+a*15,y+b*14,1,2,i%2?'#74b84c':'#4a8530');}}}
+  else if(',RYJbBFOaknzpfmvlqhT1234567MZUrtu*icKeIdyNCjXVäöüßÄÖÜÑ'.includes(ch)){if(!t.noGrass){P(x,y,T,T,'#5c9e3c');for(let i=0;i<6;i++){const a=hash(t.seed*13+i),b=hash(t.seed*29+i);P(x+a*15,y+b*14,1,2,i%2?'#74b84c':'#4a8530');}}}
   else if(isPath(ch)||ch==='L'){if(ch==='E')drawGate(t,x,y);else if(ch==='A')drawRoseArch(t,x,y);else drawPathTile(t,x,y,ch==='L'?'=':ch);}
   else if(ch==='#'||ch==='D'){P(x,y,T,T,'#7a9a68');}
   if(ch==='#'){C.fillStyle='rgba(150,215,235,.35)';C.fillRect(x+1,y+1,T-2,T-2);P(x,y,T,1,'#eef4f6');P(x,y+T-1,T,1,'#8aa0a8');P(x,y,1,T,'#eef4f6');P(x+T-1,y,1,T,'#8aa0a8');P(x+7,y,1,T,'#dfe9ec');P(x+3,y+3,1,1,'#fff');P(x+4,y+2,1,1,'#fff');P(x+10,y+9,1,1,'#fff');P(x+11,y+8,1,1,'#fff');}
@@ -1578,6 +1613,8 @@ function openYard(){
   yardHUD();startMusic('garden');
   const Y=PROG.yard;
   if(PROG.newsCamp4){delete PROG.newsCamp4;Y.news=(Y.news&&Y.news!=='first'?Y.news+'<br><br>':'')+'📖 <b>Neu: 15 Level pro Kapitel!</b> Jedes Kapitel hat jetzt 5 Level mehr – neue Gartentage und Minispiele. Dein Fortschritt und deine Sterne sind übernommen. Schau dir den neuen <b>Kapitelpfad</b> an (unten im Menü).'+(curCh()<2&&Y.own.length<=START_PARC.length?'<br>🏡 In Kapitel 1 und 2 bleibt der Blick auf deinem Startgarten – ab <b>Kapitel 3</b> kannst du dich umsehen und Land kaufen.':'');}
+  if(!PROG.cropsV2){PROG.cropsV2=1;if((PROG.unlocked||1)>1&&Y.news!=='first'){const own=Object.keys(CROP_CH).filter(k=>CROP_CH[k]>=3&&GROW_S[k]&&['erbsen','spinat','knoblauch','kohlrabi','rotebete','lauch','blumenkohl','honigmelone','spargel','rhabarber','rotkohl','basilikum','suesskartoffel'].includes(k)&&cropOwned(k));
+    Y.news=(Y.news?Y.news+'<br><br>':'')+'🥕 <b>Neu: viel mehr Obst und Gemüse!</b> 13 neue Gemüsesorten – Erbsen, Spinat, Knoblauch, Kohlrabi, Rote Bete, Lauch, Blumenkohl, Honigmelone, Spargel, Rhabarber, Rotkohl, Basilikum und Süßkartoffeln – kommen mit den Kapiteln dazu.'+(own.length?' Du hast schon: '+own.map(k=>CROPS[k].emoji).join(' ')+'.':'')+'<br>🌳 Unter <b>🔨 Bauen</b> gibt es neue Sträucher und Bäume: Stachelbeere, Brombeere, Heidelbeere, Weinrebe, Mirabelle, Aprikose, Quitte und Walnuss.<br>⏱ Alle Wachstumszeiten sind jetzt rund: 1:00, 1:30, 2:00 …';}saveProg();}
   if(Y.news){const n=Y.news;delete Y.news;saveProg();
     if(n==='first')setTimeout(()=>{if(scene==='yard'&&!BM)say('<b>Und gut?</b> Das ist jetzt <b>dein Garten</b>. Er wird mit dir wachsen: Rundherum liegt noch alles unter Wolken ☁️ – ab <b>Kapitel 3</b> kannst du Land dazukaufen. Mit <b>▶ Gartentag</b> geht es zum nächsten Level, mit <b>🔨 Bauen</b> stellst du Beete, Wege und Blumen auf.',{mood:'happy',buttons:[{label:'Gut!',fn:()=>{$('box').classList.remove('show');}}]});},400);
     else setTimeout(()=>{if(scene==='yard')say(n,{mood:'happy',buttons:[{label:'Gut!',fn:()=>{$('box').classList.remove('show');}}]});},400);}
@@ -1982,7 +2019,7 @@ function tileInfoHTML(t){
   const L=(ic,txt,val,cls)=>`<div class="tl ${cls||''}"><span>${ic}</span><span>${txt}</span>${val!=null?`<b>${val}</b>`:''}</div>`;
   const dayLeft=DF.dayLen-S.time,rain=WEATHER[S.wx]&&WEATHER[S.wx].rain,irrig=t.ch==='g'&&B().build.bewaesserung;
   const close='';
-  if(t.bush){const b=BUSHES[t.ch],rate=1/(b.time*DF.grow);let h=`<div class="th"><span>${b.emoji} <b>${b.tree?b.name:'Busch'}</b> · ${b.plural}</span>${close}</div>`;
+  if(t.bush){const b=BUSHES[t.ch],rate=1/bushT(t.ch);let h=`<div class="th"><span>${b.emoji} <b>${b.tree?b.name:'Busch'}</b> · ${b.plural}</span>${close}</div>`;
     h+=`<div class="tb"><i style="width:${Math.round(t.prog*100)}%"></i></div>`;
     if(t.prog>=1)h+=L('✅',(b.tree?'Früchte':'Beeren')+' sind reif – mit dem 🧺 Korb pflücken'+(b.yield>1?' ('+b.yield+' Stück)':''),null,'ok')+L('🙂',(b.tree?'Früchte am Baum':'Beeren am Busch')+' verderben nicht');
     else{h+=L(b.emoji,t.water>0?(b.tree?'Neue Früchte reif in':'Neue Beeren reif in'):(b.tree?'Neue Früchte – erst wenn gegossen':'Neue Beeren – erst wenn gegossen'),t.water>0?fmtT((1-t.prog)/rate):null);
@@ -1991,8 +2028,8 @@ function tileInfoHTML(t){
   const kind=t.ch==='g'?'Gewächshaus-Beet':'Beet draußen';
   if(!t.crop){const fits=Object.keys(CROPS).filter(k=>CROPS[k].where===t.ch&&cropOwned(k));
     let h=`<div class="th"><span>🟫 <b>Leeres ${kind}</b></span>${close}</div>`;if(t.weed)h+=L('🌿','Unkraut – mit der ⛏️ Hacke weg',null,'warn');
-    h+=L('🌱','Hier kannst du säen:');h+=fits.map(k=>L('&nbsp;'+CROPS[k].emoji,CROPS[k].name,fmtR(CROPS[k].time*DF.grow))).join('');return h;}
-  const c=CROPS[t.crop],rate=1/(c.time*DF.grow)*(t.weed?.5:1),wl=t.water*(t.ch==='g'?DF.waterIn:DF.waterOut);
+    h+=L('🌱','Hier kannst du säen:');h+=fits.map(k=>L('&nbsp;'+CROPS[k].emoji,CROPS[k].name,fmtR(cropT(k)))).join('');return h;}
+  const c=CROPS[t.crop],rate=1/cropT(t.crop)*(t.weed?.5:1),wl=t.water*(t.ch==='g'?DF.waterIn:DF.waterOut);
   const STN=['Samen keimt','Jungpflanze','Blüht – Früchte wachsen','Reif','Verdorben'];
   const st=t.dead?-1:t.rotten?4:t.prog>=1?3:Math.floor(t.prog*3);
   let h=`<div class="th"><span>${c.emoji} <b>${c.name}</b> · ${st<0?'kaputt':STN[st]}</span>${close}</div>`;
@@ -2016,7 +2053,7 @@ function tileInfoHTML(t){
     h+=L('✅','Jetzt mit dem 🧺 Korb ernten!',null,'ok');
     h+=L('⏳','Verdirbt in',fmtT(DF.ripeLimit-t.ripeT),DF.ripeLimit-t.ripeT<15?'warn':'');
   }
-  h+=L(c.regrow?'🔁':'🌱',c.regrow?'Trägt nach der Ernte wieder Früchte – nach':'Nach der Ernte ist das Beet frei für neue Samen',c.regrow?fmtR(.4*c.time*DF.grow):null,'dim');
+  h+=L(c.regrow?'🔁':'🌱',c.regrow?'Trägt nach der Ernte wieder Früchte – nach':'Nach der Ernte ist das Beet frei für neue Samen',c.regrow?fmtR(.4*cropT(t.crop)):null,'dim');
   return h;
 }
 function updateTileInfo(force){
@@ -2093,12 +2130,12 @@ function update(dt){
     if(WEATHER[S.wx].rain){rainT-=dt;if(rainT<=0){rainT=5;tiles.forEach(t=>{if(t.ch==='s'||t.bush){t.water=1;t.dry=0;}});}}
     if(B().build.bewaesserung)tiles.forEach(t=>{if(t.ch==='g'&&t.water<.5){t.water=.5;t.dry=0;}});
     for(const t of tiles){
-      if(t.bush){t.water=Math.max(0,t.water-dt/(DF.bushW||90));if(t.water>0&&t.prog<1)t.prog=Math.min(1,t.prog+dt/(BUSHES[t.ch].time*DF.grow));continue;}
+      if(t.bush){t.water=Math.max(0,t.water-dt/(DF.bushW||90));if(t.water>0&&t.prog<1)t.prog=Math.min(1,t.prog+dt/bushT(t.ch));continue;}
       if(!t.bed)continue;
       t.water=Math.max(0,t.water-dt/(t.ch==='g'?DF.waterIn:DF.waterOut));
       if(t.crop&&!t.dead){
         if(t.prog<1){
-          if(t.water>0){t.dry=0;t.prog=Math.min(1,t.prog+dt/(CROPS[t.crop].time*DF.grow)*(t.weed?.5:1));if(t.prog>=1)t.ripeT=0;}
+          if(t.water>0){t.dry=0;t.prog=Math.min(1,t.prog+dt/cropT(t.crop)*(t.weed?.5:1));if(t.prog>=1)t.ripeT=0;}
           else{t.dry+=dt;if(t.dry>DF.dryDeath){t.dead=true;guete('dry',t);}}
         } else if(!t.rotten){t.ripeT+=dt;if(t.ripeT>DF.ripeLimit){t.rotten=true;guete('rot',t);}}
         if(t.snail){t.snail.t+=dt;if(t.snail.t>DF.snailEat){t.snail=null;t.dead=true;guete('snail',t);}}
@@ -2192,6 +2229,19 @@ function drawCrop(t){
       if(cr.type==='pumpkin'){P(x+7,y+8,1,6,t.rotten?fc:'#c8601a');P(x+10,y+8,1,6,t.rotten?fc:'#c8601a');P(x+8,y+6,2,2,'#5a7a2a');}
       else{P(x+5,y+9,7,1,t.rotten?fc:cr.hi);P(x+5,y+12,7,1,t.rotten?fc:cr.hi);}
       P(x+5,y+8,1,1,'#ffffff55');}
+  } else if(cr.type==='kohl'){
+    P(x+4,y+3+sw,1,5,L);P(x+7,y+2,1,6,D);P(x+10,y+3-sw,1,5,L);P(x+3,y+3,2,2,L);P(x+9,y+2,3,2,L);P(x+6,y+1,3,2,D);
+    const r=st>=3?4:3;pdisc(x+7,y+10,r,st>=3?fc:L);P(x+4,y+13,7,1,'#5a3a20');if(st>=3&&!t.rotten){P(x+5,y+8,2,1,cr.hi);P(x+4,y+10,1,1,cr.hi);}
+  } else if(cr.type==='spear'){
+    P(x+2,y+11,12,3,'#6a4224');P(x+3,y+10,10,1,'#7a5030');
+    const n=st>=3?4:2;for(let i=0;i<n;i++){const sx=x+3+i*3,h=st>=3?6+(i%2)*2:3;P(sx,y+11-h,2,h,st>=3?fc:L);P(sx,y+11-h,2,1,st>=3?'#b8a0d0':D);if(st>=3&&!t.rotten&&h>3)P(sx,y+12-h,1,h-2,cr.hi);}
+  } else if(cr.type==='herb'){
+    const big=st>=3;P(x+7,y+7,2,7,D);P(x+5,y+13,6,1,'#6a4224');
+    for(const[a,b]of[[3,8],[9,7],[4,11],[10,10],[6,4]]){if(!big&&b<6)continue;P(x+a,y+b,3,2,big?fc:L);P(x+a,y+b,1,1,big&&!t.rotten?cr.hi:D);}
+  } else if(cr.type==='rhubarb'){
+    const ripe=st>=3;for(const[a,h]of[[4,6],[8,8],[11,5]])P(x+a,y+14-h,1,h,ripe?fc:'#a8604a');
+    P(x+1,y+3,6,4,L);P(x+7,y+1,6,5,D);P(x+9,y+6,5,3,L);P(x+2,y+4,2,1,'#7ccf6a');P(x+9,y+2,2,1,'#5cb83a');
+    if(ripe&&!t.rotten){P(x+4,y+9,1,2,cr.hi);P(x+8,y+7,1,2,cr.hi);}
   }
 }
 function drawFruitTree(t){
@@ -2319,13 +2369,13 @@ $('wZoom').onclick=()=>{const zs=[2,1.2,zMin()];const i=zs.findIndex(v=>Math.abs
 document.querySelectorAll('#tools button').forEach(b=>b.onclick=()=>setTool(b.dataset.tool));
 function setTool(t){tool=t;if(t!=='schauen')hideTileInfo();document.querySelectorAll('#tools button').forEach(b=>b.classList.toggle('sel',b.dataset.tool===t));$('seeds').classList.toggle('show',t==='saen');fit();if(t==='saen'){const b=$('seeds').querySelector('button.sel');if(b)b.scrollIntoView({block:'nearest',inline:'nearest'});}}
 function buildSeeds(){
-  const s=$('seeds');s.innerHTML='';const SHORT={melone:'Melone'};
+  const s=$('seeds');s.innerHTML='';const SHORT={melone:'Melone',honigmelone:'Honigmel.',suesskartoffel:'Süßkart.',blumenkohl:'Blumenk.'};
   const own=cropOwned;
   const ks=Object.keys(CROPS).filter(own).sort((a,b)=>(CROPS[a].where==='g'?0:1)-(CROPS[b].where==='g'?0:1));
   ks.forEach((k,i)=>{const c=CROPS[k];
     if(i&&c.where!==CROPS[ks[i-1]].where){const d=document.createElement('div');d.className='sdiv';s.appendChild(d);}
     const b=document.createElement('button');b.dataset.seed=k;
-    b.innerHTML=`<span class="sw">${c.where==='g'?'🏠':'🌤'}</span><span class="si">${c.emoji}</span><span class="sn">${SHORT[k]||c.name}</span><span class="st">${fmtR(c.time*(DF?DF.grow:1))}</span>`;
+    b.innerHTML=`<span class="sw">${c.where==='g'?'🏠':'🌤'}</span><span class="si">${c.emoji}</span><span class="sn">${SHORT[k]||c.name}</span><span class="st">${fmtR(cropT(k))}</span>`;
     b.title=c.name+(c.where==='g'?' – fürs Gewächshaus':' – für draußen');
     b.onclick=()=>{seed=k;[...s.querySelectorAll('button')].forEach(x=>x.classList.toggle('sel',x===b));};
     if(k===seed)b.classList.add('sel');s.appendChild(b);});
@@ -2473,7 +2523,7 @@ let DR=null;
 function vehicleFor(L){return chOf(L)>=1?'car':'bike';}
 function startDrive(o){
   hideOverlays();introOn=false;scene='drive';running=false;paused=false;setSize(10,15,ssK());
-  $('tools').style.display='none';$('seeds').classList.remove('show');$('hud').style.visibility='hidden';$('driveCtl').style.display='grid';$('skipBtn').style.display='inline-block';$('box').classList.remove('show');
+  $('tools').style.display='none';$('seeds').classList.remove('show');$('hud').style.visibility='hidden';$('driveCtl').style.display='grid';$('skipBtn').style.display='none';$('box').classList.remove('show');
   if(o.orders)startMusic('mini','schnell',true);else startMusic('ride');DR=Object.assign({t:0,dist:0,lane:1,x:80,obs:[],deco:[],spawnT:1.2,decoT:0,lost:0,coins:0,hits:0,inv:0,done:false,signs:{}},o);
   DR.len=o.len||(o.vehicle==='bike'?2200:2600);DR.houses=[];DR.houseT=2;DR.deliv=0;DR.delivMoney=0;DR.mode='road';if(o.orders)planStops(DR);
   for(let y=-20;y<260;y+=26)spawnDeco(y);
@@ -2782,12 +2832,12 @@ function openSeedShop(){
   hideOverlays();scene='hub';
   let h='<h2>🌱 Samenladen Hugsweier</h2><div class="sub">Jedes neue Kapitel bringt neue Samen mit – die bekommst du geschenkt. Obstbäume kannst du kaufen.</div><div class="stars" style="font-size:22px">💶 '+Math.floor(PROG.money)+' €</div>';
   for(const k of Object.keys(CROPS).sort((a,b)=>(CROP_CH[a]||0)-(CROP_CH[b]||0))){const c=CROPS[k];const have=cropOwned(k),lk=!have;
-    h+=`<div class="shop"><span style="font-size:26px;width:34px">${c.emoji}</span><div style="flex:1;text-align:left"><b>${c.name}</b> ${c.where==='g'?'🏠 Häuschen':'🌤 draußen'}<br><small>⏱ ${fmtR(c.time)} bis reif${c.regrow?' · trägt mehrmals':''} · ${String(c.price).replace('.',',')} € pro Stück${c.yield>1?' · '+c.yield+' pro Ernte':''}</small></div>
+    h+=`<div class="shop"><span style="font-size:26px;width:34px">${c.emoji}</span><div style="flex:1;text-align:left"><b>${c.name}</b> ${c.where==='g'?'🏠 Häuschen':'🌤 draußen'}<br><small>⏱ ${fmtR(niceT(c.time))} bis reif${c.regrow?' · trägt mehrmals':''} · ${String(c.price).replace('.',',')} € pro Stück${c.yield>1?' · '+c.yield+' pro Ernte':''}</small></div>
     ${have?'<span class="q done">✓ hast du</span>':`<span class="q">🔒 Kapitel ${(CROP_CH[k]||0)+1}</span>`}</div>`;}
   if(!COMPANY)h+='<div class="unl">🌳 Obstbäume und Sträucher gibt es jetzt im Garten unter <b>🔨 Bauen</b> – die stellst du selbst auf, wo du willst.</div>';
   else{h+='<h3 style="margin:14px 0 2px">🌳 Obstbäume</h3><div class="sub">Ein gekaufter Baum steht ab dann in jedem Garten am Rand und trägt immer wieder Früchte.</div>';
   for(const ch in BUSHES){const b=BUSHES[ch];if(!b.tree)continue;const have=(PROG.trees||[]).includes(ch),lk=TREE_CH[ch]>curCh();
-    h+=`<div class="shop"><span style="font-size:26px;width:34px">${b.emoji}</span><div style="flex:1;text-align:left"><b>${b.name}</b> 🌤 Gartenrand<br><small>⏱ ${fmtR(b.time)} bis neue Früchte · ${b.yield} ${b.plural} pro Ernte · ${String(b.price).replace('.',',')} € pro Stück</small></div>
+    h+=`<div class="shop"><span style="font-size:26px;width:34px">${b.emoji}</span><div style="flex:1;text-align:left"><b>${b.name}</b> 🌤 Gartenrand<br><small>⏱ ${fmtR(niceT(b.time))} bis neue Früchte · ${b.yield} ${b.plural} pro Ernte · ${String(b.price).replace('.',',')} € pro Stück</small></div>
     ${have?'<span class="q done">✓ hast du</span>':lk?`<span class="q">🔒 Kapitel ${TREE_CH[ch]+1}</span>`:`<button data-tr="${ch}" ${PROG.money>=b.cost?'':'disabled'}>${b.cost} €</button>`}</div>`;}}
   h+='<button class="main" id="seedBack">🏡 Nach Hause in den Garten</button>';
   $('shopCard').innerHTML=h;$('shopO').classList.add('show');
@@ -3578,10 +3628,23 @@ const MINIS={
 // =====================================================================
 // ==== MINISPIELE 2.0: gemeinsame Effekte, große Gemüse-Bilder, neue Spiele ====
 // =====================================================================
-function mgText(t,x,y,sz,col,al){C.save();C.font=`bold ${sz}px DedaPix,ui-monospace,monospace`;C.textAlign=al||'center';C.textBaseline='middle';
+function mgText(t,x,y,sz,col,al,bl){C.save();C.font=`bold ${sz}px DedaPix,ui-monospace,monospace`;C.textAlign=al||'center';C.textBaseline=bl||'middle';
   const o=Math.max(.45,sz/10),fc=col||'#fff6e0',dark=/^#[0-9a-f]{6}$/i.test(fc)&&(parseInt(fc.slice(1,3),16)*.3+parseInt(fc.slice(3,5),16)*.59+parseInt(fc.slice(5,7),16)*.11)<90;
   C.fillStyle=dark?'#fff6e0cc':'#1b1209';for(const d of MGT_O)C.fillText(t,x+d[0]*o,y+d[1]*o);C.fillStyle=col||'#fff6e0';C.fillText(t,x,y);C.restore();}
 const MGT_O=[[-1,0],[1,0],[0,-1],[0,1],[-1,-1],[1,-1],[-1,1],[1,1]];
+function mgTextC(t,x,y,sz,col){C.save();C.font=`bold ${sz}px DedaPix,ui-monospace,monospace`;C.textAlign='left';C.textBaseline='alphabetic';const m=C.measureText(t);C.restore();
+  const l=m.actualBoundingBoxLeft||0,r=m.actualBoundingBoxRight||m.width,a=m.actualBoundingBoxAscent||sz*.72,d=m.actualBoundingBoxDescent||0;mgText(t,x+(l-r)/2,y+(a-d)/2,sz,col,'left','alphabetic');}
+// Countdown vor jedem Minispiel: 3 – 2 – 1 – Los!
+const CD_COL={3:['#e0402c','#ff8a7a','#8a2a20'],2:['#f0a020','#ffd070','#9a5a10'],1:['#5cb83a','#a8e870','#2f6a24']};
+function drawCountdown(M){const n=Math.max(1,Math.ceil(MG.cd)),t=1-(MG.cd-(n-1)),cx=W/2,cy=H/2-10,s=1+.6*Math.pow(Math.max(0,1-t/.22),2),R=Math.round(21*s),col=CD_COL[n]||CD_COL[1];
+  C.globalAlpha=.45;P(0,0,W,H,'#000');C.globalAlpha=1;
+  for(let i=0;i<16;i++){const an=-Math.PI/2+i/16*Math.PI*2,on=i/16<1-t;const px=Math.round(cx+Math.cos(an)*(R+8)),py=Math.round(cy+Math.sin(an)*(R+8));P(px-1,py-1,3,3,'#1b1209');P(px,py,1,1,on?'#fff6e0':'#5a5048');if(on)P(px-1,py-1,2,1,'#fff6e0');}
+  C.globalAlpha=.35;pdisc(cx,cy+4,R+2,'#000');C.globalAlpha=1;pdisc(cx,cy,R+2,'#1b1209');pdisc(cx,cy,R,col[2]);pdisc(cx,cy-1,R-2,col[0]);pdisc(Math.round(cx-R*.38),Math.round(cy-R*.42),Math.max(1,Math.round(R*.22)),col[1]);
+  mgTextC(String(n),cx,cy,Math.round(30*s),'#fff6e0');
+  const bw=Math.min(W-16,Math.max(70,M.name.length*7+20)),by=cy+R+16;P(cx-bw/2-1,by-1,bw+2,18,'#1b1209');P(cx-bw/2,by,bw,16,'#8a5a2a');P(cx-bw/2,by,bw,2,'#a8743e');P(cx-bw/2,by+14,bw,2,'#6a4020');mgTextC(M.name,cx,by+8,9,'#fff6e0');}
+function drawLos(){const k=MG.losT/.75,t=1-k,cx=W/2,cy=H/2-10,s=1+.5*Math.pow(Math.max(0,1-t/.25),2)+t*.25;C.globalAlpha=Math.min(1,k/.35);
+  for(let i=0;i<10;i++){const an=i/10*Math.PI*2,r0=18+t*40,r1=r0+6;for(let q=r0;q<r1;q+=1.5)P(Math.round(cx+Math.cos(an)*q*1.3),Math.round(cy+Math.sin(an)*q),2,2,i%2?'#f6d04d':'#fff6e0');}
+  mgTextC('Los!',cx,cy,Math.round(30*s),'#f6d04d');C.globalAlpha=1;}
 function mgPop(M,txt,x,y,col,sz){(M.pops=M.pops||[]).push({txt,x,y,t:0,col:col||'#fff6a0',sz:sz||9});}
 function mgDrawPops(M,dt){if(!M.pops)return;for(const p of M.pops){p.t+=dt;C.globalAlpha=Math.max(0,Math.min(1,(1-p.t/.95)*1.6));const s=p.t<.12?p.sz*(1+(.12-p.t)*3):p.sz;mgText(p.txt,p.x,p.y-p.t*20,s,p.col);}C.globalAlpha=1;M.pops=M.pops.filter(p=>p.t<.95);}
 function mgShake(M,a){M.shk=Math.max(M.shk||0,a);}
@@ -3627,6 +3690,27 @@ function drawBigVeg(k,x,y){
   case'keim':P(x-5,y+3,11,3,'#6a4224');P(x-4,y+2,9,1,'#8a5a32');P(x,y-3,1,6,'#3fa34d');pell(x-2,y-3,2,1,'#5cb83a');pell(x+3,y-4,2,1,'#5cb83a');break;
   case'stein':pell(x,y+1,7,5,'#6a645a');pell(x,y,6,4,'#8a8478');P(x-3,y-2,3,1,'#b0aa9c');P(x+2,y+1,2,1,'#6a645a');break;
   case'zwerg':P(x-1,y-9,2,1,'#d8283a');P(x-2,y-8,4,2,'#d8283a');P(x-3,y-6,6,2,'#b81a2a');P(x-2,y-4,4,2,'#f2c39a');P(x-2,y-4,1,1,'#2a2a2a');P(x+1,y-4,1,1,'#2a2a2a');P(x-3,y-2,6,3,'#f4f4f4');P(x-4,y+1,8,4,'#3a6ad8');P(x-5,y+1,1,2,'#f2c39a');P(x+4,y+1,1,2,'#f2c39a');P(x-3,y+5,2,2,'#5a3a1a');P(x+1,y+5,2,2,'#5a3a1a');break;
+  case'erbsen':for(let i=0;i<10;i++)P(x-5+i,y-2+Math.round(i*.4),3,4,'#3f8a2f');[[-3,-1],[0,0],[3,1]].forEach(([a,b])=>{P(x+a,y+b,2,2,'#a6e070');P(x+a,y+b,1,1,'#e0ffc0');});P(x+5,y-3,2,2,'#2a6a20');break;
+  case'spinat':pell(x,y,6,5,'#1f5a1c');pell(x,y-1,5,4,'#2f7a2a');P(x,y-4,1,8,'#5cb83a');P(x-3,y-2,2,1,'#5cb83a');P(x-1,y+4,2,3,'#7ab050');break;
+  case'knoblauch':pdisc(x,y+2,5,'#b8b0a0');pdisc(x,y+2,4,'#f0e8e0');P(x-2,y,1,5,'#d0c8b8');P(x+1,y,1,5,'#d0c8b8');P(x-1,y-5,2,3,'#c8c0b0');P(x-2,y+7,5,1,'#a89878');break;
+  case'kohlrabi':pdisc(x,y+2,5,'#7ab060');pdisc(x,y+2,4,'#b8e090');P(x-2,y,2,2,'#e8f8c8');P(x-3,y-7,1,5,'#3fa34d');P(x,y-8,1,6,'#2a7a36');P(x+3,y-7,1,5,'#3fa34d');break;
+  case'rotebete':pdisc(x,y+2,5,'#4a0a20');pdisc(x,y+2,4,'#8a1840');P(x-2,y,2,2,'#d04a7a');P(x,y+7,1,2,'#8a1840');P(x-3,y-7,2,5,'#a83a5a');P(x+1,y-8,2,6,'#3fa34d');break;
+  case'lauch':P(x-7,y-1,10,3,'#d8e0c0');P(x-7,y-1,10,1,'#ffffff');P(x+3,y-2,6,4,'#3fa34d');P(x+6,y-3,3,2,'#2a7a36');P(x-8,y,1,2,'#c8b890');break;
+  case'blumenkohl':pdisc(x,y+1,7,'#2f7a2a');pdisc(x,y,5,'#e0d6bc');pdisc(x-1,y-1,4,'#f4ecd8');P(x-3,y-2,2,1,'#ffffff');P(x+1,y+1,2,1,'#ffffff');break;
+  case'honigmelone':pell(x,y,7,6,'#a8a040');pell(x,y,6,5,'#d8d870');P(x-3,y-3,2,2,'#f4f4b0');P(x,y-5,1,10,'#c8c860');break;
+  case'spargel':for(let i=0;i<3;i++){P(x-4+i*3,y-6,2,12,'#f0ead8');P(x-4+i*3,y-7,2,2,'#b8a0d0');P(x-4+i*3,y-6,1,10,'#ffffff');}P(x-5,y+1,10,2,'#c0302a');break;
+  case'rhabarber':P(x-3,y-2,2,9,'#d03040');P(x,y-3,2,10,'#e04050');P(x+3,y-1,2,8,'#b02030');pell(x,y-6,6,3,'#3fa34d');P(x-3,y-7,3,1,'#7cc457');break;
+  case'rotkohl':pdisc(x,y,7,'#3a1a4a');pdisc(x,y,6,'#6a2a7a');pdisc(x-1,y-1,3,'#a060c0');P(x-5,y+2,3,1,'#3a1a4a');P(x+2,y+3,3,1,'#3a1a4a');break;
+  case'basilikum':P(x,y-2,1,8,'#2a7a36');pell(x-3,y,3,2,'#3fa34d');pell(x+3,y-1,3,2,'#4cb03a');pell(x,y-5,3,2,'#5cb83a');P(x-4,y-1,1,1,'#9ae070');P(x+2,y-2,1,1,'#9ae070');break;
+  case'suesskartoffel':pell(x,y+1,8,4,'#7a2a18');pell(x,y+1,7,3,'#c85a3a');P(x-4,y-1,3,1,'#f09070');P(x+2,y+2,1,1,'#7a2a18');break;
+  case'stachel':for(const[a,b]of[[-3,1],[3,0]]){pdisc(x+a,y+b,4,'#5a8a28');pdisc(x+a,y+b,3,'#8ac040');P(x+a,y+b-3,1,6,'#d0f090');P(x+a-1,y+b-2,1,1,'#ffffff');}P(x+3,y-5,1,2,'#5a4020');break;
+  case'brombeere':case'heidel':case'trauben':{const c=k==='brombeere'?'#2a1838':k==='heidel'?'#3a4aa0':'#6a2a6a',h=k==='brombeere'?'#7a5a9a':k==='heidel'?'#8a9ae0':'#b070b0';
+    const pts=k==='trauben'?[[-3,-3],[0,-3],[3,-3],[-2,0],[1,0],[4,0],[-1,3],[2,3],[0,6]]:k==='heidel'?[[-3,1],[2,-1],[1,4]]:[[0,-3],[-3,0],[3,0],[0,0],[-1,3],[2,3]];
+    const r=k==='heidel'?3:2;pts.forEach(([a,b])=>{pdisc(x+a,y+b,r,c);P(x+a-1,y+b-1,1,1,h);});if(k==='trauben'){P(x,y-7,1,3,'#5a4020');P(x+1,y-7,3,2,'#3fa34d');}else P(x-2,y-7,5,2,'#3fa34d');break;}
+  case'mirabelle':for(const[a,b]of[[-3,1],[3,0]]){pdisc(x+a,y+b,4,'#c89a20');pdisc(x+a,y+b,3,'#f2c94c');P(x+a-1,y+b-2,1,1,'#fff2a0');}P(x,y-6,1,3,'#5a4020');break;
+  case'aprikose':pdisc(x,y+1,5,'#c86a20');pdisc(x,y+1,4,'#f0a040');pdisc(x-2,y,2,'#ffd090');P(x+1,y-3,1,7,'#d07a30');P(x,y-6,1,2,'#5a4020');P(x+1,y-7,3,2,'#3fa34d');break;
+  case'quitte':pdisc(x,y+3,5,'#b8a020');pdisc(x,y+3,4,'#e8d040');pdisc(x,y-2,3,'#e8d040');P(x-2,y+1,2,2,'#fff4a0');P(x,y-7,1,3,'#6a4426');P(x+1,y-6,3,2,'#3fa34d');break;
+  case'walnuss':pdisc(x,y,5,'#5a4020');pdisc(x,y,4,'#a07a48');P(x,y-4,1,8,'#5a4020');P(x-2,y-2,1,1,'#c8a070');P(x+2,y+1,1,1,'#c8a070');break;
   default:drawCropIcon(k,x,y);}}
 
 // ---- Schnecke, Maulwurf, Spatz ----
@@ -4016,7 +4100,7 @@ Object.assign(MINIS,MINIS2);
 function startMini(id,d,opts){
   hideOverlays();ensureBiz();introOn=false;scene='mini';running=false;paused=false;setSize(10,15,ssK());
   $('tools').style.display='none';$('seeds').classList.remove('show');$('hud').style.visibility='hidden';
-  const M=MINIS[id];EVFORCE=M.ev||null;MG=Object.assign({id,d,t:0,score:0,done:false,opts:opts||{},cd:DEVNOCD?0:3.2,pops:[],parts:[],shk:0},M.init(d));MG.target=M.target(d);MG.dur=M.dur?M.dur(d):0;
+  const M=MINIS[id];EVFORCE=M.ev||null;MG=Object.assign({id,d,t:0,score:0,done:false,opts:opts||{},cd:DEVNOCD?0:3,pops:[],parts:[],shk:0},M.init(d));MG.target=M.target(d);MG.dur=M.dur?M.dur(d):0;
   const btns=M.ctl?M.ctl(MG):[];const c=$('miniCtl');c.dataset.g=id;c.innerHTML=btns.map(b=>`<button data-b="${b[0]}">${b[1]}</button>`).join('');
   c.style.display=btns.length?'grid':'none';c.style.gridTemplateColumns=`repeat(${Math.max(1,btns.length)},1fr)`;
   if(!btns.length&&M.hint){c.innerHTML=`<div class="swHint">${M.hint}</div>`;c.style.display='block';}document.body.classList.toggle('swipeG',!!M.hint);
@@ -4025,8 +4109,8 @@ function startMini(id,d,opts){
 }
 function updateMini(dt){
   const M=MINIS[MG.id];if(deda.react>0)deda.react-=dt;if(deda.happy>0)deda.happy-=dt;
-  if(MG.cd>0){const a=Math.ceil(MG.cd-.2);MG.cd-=dt;const b=Math.ceil(MG.cd-.2);if(b!==a){if(b>0)beep(520,.1,'square',.04);else{beep(880,.2,'square',.05);$('box').classList.remove('show');}}}
-  else{MG.t+=dt;
+  if(MG.cd>0){if(!MG.cdB){MG.cdB=1;beep(520,.1,'square',.04);}const a=Math.ceil(MG.cd);MG.cd-=dt;const b=Math.ceil(Math.max(0,MG.cd));if(b!==a){if(b>0)beep(520+(3-b)*70,.1,'square',.04);else{beep(880,.25,'square',.05);$('box').classList.remove('show');MG.losT=.75;}}}
+  else{MG.t+=dt;if(MG.losT>0)MG.losT-=dt;
     if(MG.hold&&MG.hold.iv&&!MG.done){const h=MG.hold;h.t+=dt;while(MG.hold===h&&h.t>=h.iv){h.t-=h.iv;M.btn(MG,h.b);}}
     if(!MG.done){M.update(MG,dt);if(MG.dur&&MG.t>=MG.dur)MG.done=true;}
     if(MG.done){if(MG.endT==null){MG.endT=1.5;MG.res=M.result?M.result(MG):{win:MG.score>=MG.target};if(MG.res.win)SND.quest();}
@@ -4036,8 +4120,11 @@ function updateMini(dt){
 function renderMini(dt){C=ctx;const M=MINIS[MG.id];MG.shk=Math.max(0,(MG.shk||0)-dt*1.8);const sh=MG.shk;
   ctx.save();if(sh>0)ctx.translate(Math.round((Math.random()-.5)*sh*12)/2,Math.round((Math.random()-.5)*sh*12)/2);
   M.render(MG,dt);mgDrawPops(MG,dt);ctx.restore();
-  if(MG.cd>0){C.globalAlpha=.38;P(0,0,W,H,'#000');C.globalAlpha=1;const n=Math.ceil(MG.cd-.2),f=(MG.cd-.2)%1;mgText(n>0?String(n):'Los!',W/2,H/2-8,(n>0?36:28)*(1+Math.max(0,f-.6)*.8),n>0?'#fff6e0':'#f2c94c');mgText(M.name,W/2,H/2+24,8,'#fff6e0');}
-  else if(MG.done&&MG.res){C.globalAlpha=.35;P(0,H/2-26,W,44,'#000');C.globalAlpha=1;mgText(MG.res.win?'Geschafft!':'Vorbei!',W/2,H/2-4,22,MG.res.win?'#f2c94c':'#ffb0a0');}
+  if(MG.cd>0)drawCountdown(M);
+  else if(MG.done&&MG.res){const t=1.5-(MG.endT==null?1.5:MG.endT),s=1+.5*Math.pow(Math.max(0,1-t/.25),2),cx=W/2,cy=H/2-4,bw=Math.round(128*Math.min(1,.7+t*1.5)),bh=36;
+    C.globalAlpha=.3;P(0,0,W,H,'#000');C.globalAlpha=1;P(cx-bw/2-2,cy-bh/2-2,bw+4,bh+4,'#1b1209');P(cx-bw/2,cy-bh/2,bw,bh,MG.res.win?'#5cb83a':'#a8543e');P(cx-bw/2,cy-bh/2,bw,3,MG.res.win?'#a8e870':'#d08060');P(cx-bw/2,cy+bh/2-3,bw,3,MG.res.win?'#2f6a24':'#6a2a20');
+    mgTextC(MG.res.win?'Geschafft!':'Vorbei!',cx,cy,Math.round(20*s),'#fff6e0');}
+  else if(MG.losT>0)drawLos();
 }
 function endMini(){MUS.tempo=1;document.body.classList.remove('swipeG');
   const M=MINIS[MG.id];const r=M.result?M.result(MG):{win:MG.score>=MG.target};
@@ -5349,11 +5436,11 @@ const PM_THEME=[
  {g:'#5ca23c',d:'#488a2e',l:'#6aae46',fence:'jagd',big:['stand','crate','fence','tree','R','bed','barrow','stand','b','tree','f','bush','crate'],small:['flw','t','rock','flw']},
  {g:'#62a03e',d:'#4c8830',l:'#74b04a',fence:'wire',big:['forsale','sacks','posts','wire','barrow','tree','forsale','stump','sacks','bush','posts','tree'],small:['rock','rocks','flw','mush','stump']},
  {g:'#8e8a82',d:'#77736c',l:'#9e9a92',cob:1,way:['#6a5a48','#b8a488','#cbb89a'],fence:'wall',big:['stall','crate','y','fount','stall','crate','l','stall','T','y','crate','tree'],small:['crate','rock']},
- {g:'#5aa03a',d:'#46882c',l:'#6cb046',fence:'hedge',big:['a','k','basket','n','z','hive','p','a','k','basket','tree','n'],small:['flw','fruit','flw','fruit','mush']},
+ {g:'#5aa03a',d:'#46882c',l:'#6cb046',fence:'hedge',big:['a','k','basket','n','z','hive','p','Ä','ö','Ö','k','basket','ä','n'],small:['flw','fruit','flw','fruit','mush']},
  {g:'#5fa63e',d:'#4a8c30',l:'#6db648',fence:'picket',big:['gh','bed','T','can','gh','R','bed','scare','tree','bed','b'],small:['flw','t','rock']},
  {g:'#5ca43c',d:'#488c2e',l:'#6ab446',fence:'hedge',big:['ghb','bed','u','bed','ghb','T','can','tree','u'],small:['flw','t','rock']},
  {g:'#58a83e',d:'#449030',l:'#6cba4c',fence:'wall',big:['pond','fount','i','c','*','b','v','K','r','pond','e','c','i'],small:['flw','t','flw','r']},
- {g:'#62a63e',d:'#4c8e30',l:'#76b64a',fence:'jagd',big:['field','scare','bed','hay','barrow','a','field','k','hive','tree','bed','hay'],small:['flw','rock','mush']},
+ {g:'#62a63e',d:'#4c8e30',l:'#76b64a',fence:'jagd',big:['field','scare','bed','hay','barrow','ß','field','Ü','hive','Ñ','bed','ü'],small:['flw','rock','mush']},
  {g:'#5fa63e',d:'#4a8c30',l:'#6db648',fence:'picket',big:['table','flag','l','y','I','balloon','table','tree','flag','b','balloon','l'],small:['flw','t','flw']}];
 const PM_SIZE={gh:[34,22],ghb:[48,34],pond:[32,28],fount:[32,28],table:[32,18],stall:[20,16],field:[24,16],flag:[28,10],fence:[20,14],bed:[18,14],stand:[18,16],forsale:[16,16],
   sacks:[16,14],posts:[16,10],wire:[14,12],barrow:[16,14],tree:[18,16],hive:[14,16],hay:[16,14],scare:[16,18],basket:[14,12],balloon:[14,20],can:[14,10],
